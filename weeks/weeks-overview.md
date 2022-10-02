@@ -36,7 +36,7 @@ Application exercises (AE) to practice concepts and code:
 
 ## Perform
 
-Homeworks (HW) and important assignment dates (exams and projects)
+Homeworks (HW), exams and project:
 
 
 🖥 Homework
