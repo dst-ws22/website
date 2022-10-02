@@ -1,6 +1,6 @@
 # Course overview
 
-This course teaches you the fundamentals of data visualization and how to communicate effectively with data. With visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.
+This course teaches you the fundamentals of data visualization and how to communicate effectively with data using Python. With visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.
 
 Together, the lessons in this course will help you turn your data into high impact visual stories that stick with your audience. 
 
