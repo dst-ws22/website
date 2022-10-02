@@ -4,10 +4,9 @@
 
 ## Course info
 
-|           | Day       | Time              | Location                       |
-|-----------|-----------|-------------------|--------------------------------|
-| Lecture   | x         | x pm - x pm |  X  |
-| Lab       | x         | x pm - x pm |  X  |
+|           | Day       | Time              | Location |
+|-----------|-----------|-------------------|----------|
+| Lecture   | Monday    | 10:00 am - 11:30 am |  S204  |
 
 
 ```{image} ../_static/img/room.png
@@ -19,6 +18,8 @@
 
 ## Learning objectives
 
+This course teaches you the fundamentals of data visualization and how to communicate effectively with data using Python. With visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.
+
 By the end of the semester, you will be able to...
 
 - Understand the importance of context and audience
@@ -27,8 +28,7 @@ By the end of the semester, you will be able to...
 - Direct your audience's attention to the most important parts of your data
 - Think like a designer and utilize concepts of design in data visualization
 - Leverage the power of storytelling to help your message resonate with your audience
-- use Python to prepare and visualize data 
-
+- use Python to analyze, prepare and visualize data 
 
 
 ## Where to get help
