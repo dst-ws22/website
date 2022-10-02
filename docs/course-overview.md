@@ -32,7 +32,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 
 Important links:
 
-- [GitHub repo for project]()
+- [GitHub repo for project](https://github.com/dst-ws22/project)
 
 - [Moodle discussion forum](https://e-learning.hdm-stuttgart.de/moodle/mod/forum/view.php?id=214818)
 
