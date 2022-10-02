@@ -27,7 +27,11 @@ Install programming tools: [💾](../docs/programming-toolkit.md)
 (practice)=
 ## Practice
 
-Complete the following application exercises for our case study *"Back to School Sale"* and upload them (as a **PDF-files**) to [Moodle](https://e-learning.hdm-stuttgart.de/moodle/course/view.php?id=4535#section-1):
+
+**Context application exercises**: 
+
+
+Complete the following application exercises for our case study *"Back to School Sale"* and upload them (as a PDF-files) to [Moodle](https://e-learning.hdm-stuttgart.de/moodle/course/view.php?id=4535#section-1):
 
 
 Big idea worksheet (Nr. 7): [💻](https://docs.google.com/document/d/1-GZvhdbhLYLB_Bo1arj1rgTqbJ5SUoU21vtgbYEhVqk/edit?usp=sharing)
@@ -40,6 +44,19 @@ Storyboard 1 (Nr. 9): [💻](https://docs.google.com/document/d/1cuiBZiWaUkhAYNk
 
 
 Storyboard 2 (Nr. 10): [💻](https://docs.google.com/document/d/1WeLzE85YfM-F9-vAIhEbeJHkuHsN3xtovzIokB93BRU/edit?usp=sharing)
+
+
+
+**Application exercise to get started with Github**: 
+
+Go to the [course GitHub organization](https://github.com/orgs/om2-ws22/repositories) and locate the repo titled:
+
+`git-github-fundamentals-YOUR_GITHUB_USERNAME` 
+
+to get started.
+
+- Read the instructions.
+- Clone the GitHub-repo to your local machine (with [GitHub Desktop](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
 
 
 ---
