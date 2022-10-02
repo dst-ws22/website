@@ -47,7 +47,7 @@ Storyboard 2 (Nr. 10): [💻](https://docs.google.com/document/d/1WeLzE85YfM-F9-
 
 
 
-**Application exercise to get started with Github**: 
+**Demo application exercise to get started with Github**: 
 
 Go to the [course GitHub organization](https://github.com/orgs/om2-ws22/repositories) and locate the repo titled:
 
@@ -58,6 +58,7 @@ to get started.
 - Read the instructions.
 - Clone the GitHub-repo to your local machine (with [GitHub Desktop](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
 
+You don't need to hand in anything for this application.
 
 ---
 
