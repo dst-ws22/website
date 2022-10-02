@@ -21,11 +21,14 @@
 
 By the end of the semester, you will be able to...
 
--   analyze real-world data to answer questions about multivariable relationships.
--   fit and evaluate linear and logistic regression models.
--   assess whether a proposed model is appropriate and describe its limitations.
--   use Python to write reproducible reports and GitHub for version control and collaboration.
--   communicate results from statistical analyses to a general audience.
+- Understand the importance of context and audience
+- Determine the appropriate type of graph for your situation
+- Recognize and eliminate the clutter clouding your information
+- Direct your audience's attention to the most important parts of your data
+- Think like a designer and utilize concepts of design in data visualization
+- Leverage the power of storytelling to help your message resonate with your audience
+- use Python to prepare and visualize data 
+
 
 
 ## Where to get help
@@ -38,9 +41,18 @@ Check out the [Support](course-support.md) page for more resources.
 
 ## Textbooks
 
-While there is no official textbook for the course, we will be assigning readings from the following textbooks.
+This course is mainly based on the following resources:
+
+
+- [Storytelling with Data: A Data Visualization Guide for Business Professionals](https://eds.s.ebscohost.com/eds/detail/detail?vid=8&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=1079665&db=edsebk) by Cole Nussbaumer Knaflic. 
+
+- [Storytelling mit Daten: Die Grundlagen der effektiven Kommunikation und Visualisierung mit Daten](https://eds.s.ebscohost.com/eds/detail/detail?vid=7&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=1561986&db=edsebk) von Cole Nussbaumer Knaflic.
+
+- [Storytelling with Data : Let's Practice!](https://eds.s.ebscohost.com/eds/detail/detail?vid=5&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=2270716&db=edsebk)
+
 
 - [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) by Mine Çetinkaya-Rundel and Johanna Hardin
+
 
 - [Python for Data Analysis, 3E](https://wesmckinney.com/book/) by Wes McKinney
 
@@ -84,7 +96,7 @@ AEs should be completed and **submitted individually**.
 AEs are due within three days after lecture
 :::
 
-The AEs are due within **three days** after the corresponding lecture. For example, AEs from a Monday lecture would be due Thursday by 11:59 pm and AEs from a Tuesday lecture would be due Friday by 11:59 pm ET.
+The AEs are due within **three days** after the corresponding lecture. For example, AEs from a Monday lecture would be due Thursday by 11:59 pm.
 
 Because these AEs are for practice, they will be graded based on completion. Successful on-time completion of at least 80% of every AE will result in full credit in the final course grade. 
 
@@ -101,7 +113,7 @@ Homework must be completed in the provided Jupyter Notebooks in your course GitH
 (exams)=
 ### Exams
 
-There will be three, "take-home", open-note exams in Moodle.
+There will be two, "take-home", open-note exams in Moodle.
 Through these exams you have the opportunity to demonstrate what you've learned in the course thus far.
 
 
@@ -124,12 +136,11 @@ The final course grade will be calculated as follows:
 
 | Category              | Percentage      |
 |-----------------------|-----------------|
-| Application exercises | 10%              |
-| Homework              | 25% (5 x 5%)    |
+| Application exercises | 10%             |
+| Homework              | 25%             |
 | Project               | 35%             |
-| Exam 01               | 10%             |
-| Exam 02               | 10%             |
-| Exam 03               | 10%             |
+| Exam 01               | 15%             |
+| Exam 02               | 15%             |
 
 The final grade will be determined based on the following thresholds:
 
