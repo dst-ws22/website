@@ -240,14 +240,14 @@ You should assume the reader will not see the material in the appendix unless pr
 The appendix should be neatly formatted and easy for the reader to navigate.
 It is not included in the 10-page limit.
 
-The written report is worth 100 points, broken down as follows
+The written report is worth 40 points, broken down as follows
 
-| Total                         | 100 pts |
+| Total                         | 40 pts |
 |-------------------------------|--------|
-| **Introduction/data**         | 10 pts  |
-| **Visualizations**            | 50 pts |
-| **Discussion + conclusion**   | 20 pts  |
-| **Organization + formatting** | 20 pts  |
+| **Introduction/data**         | 7 pts  |
+| **Visualizations**            | 20 pts |
+| **Discussion + conclusion**   | 8 pts  |
+| **Organization + formatting** | 5 pts  |
 
 
 [Click here](https://docs.google.com/spreadsheets/d/1gaLs43KiLSguhoHNIQlw5DcWPZfGyrLmjv7HTVQ3_uM/edit?usp=sharing) for an overview of the written report rubric.
@@ -255,7 +255,7 @@ The written report is worth 100 points, broken down as follows
 
 ### Introduction and data
 
-This section includes an introduction to the project motivation, data, and (research) question.
+This section includes an introduction to the project motivation, data, and (research) question (main content from the Big Idea Worksheet).
 Describe the data and definitions of key variables.
 It should also include some exploratory data analysis.
 All of the EDA won't fit in the paper, so focus on the EDA for the response variable and a few other interesting variables and relationships.
