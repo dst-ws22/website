@@ -43,12 +43,15 @@ Check out the [Support](course-support.md) page for more resources.
 
 This course is mainly based on the following resources:
 
+*Available as E-Books in the [HdM library](https://www.hdm-stuttgart.de/bibliothek/angebot/eBooks):*
 
-- [Storytelling with Data: A Data Visualization Guide for Business Professionals](https://eds.s.ebscohost.com/eds/detail/detail?vid=8&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=1079665&db=edsebk) by Cole Nussbaumer Knaflic. 
+- "Storytelling with Data: A Data Visualization Guide for Business Professionals" by Cole Nussbaumer Knaflic. 
 
-- [Storytelling mit Daten: Die Grundlagen der effektiven Kommunikation und Visualisierung mit Daten](https://eds.s.ebscohost.com/eds/detail/detail?vid=7&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=1561986&db=edsebk) von Cole Nussbaumer Knaflic.
+- "Storytelling mit Daten: Die Grundlagen der effektiven Kommunikation und Visualisierung mit Daten" von Cole Nussbaumer Knaflic.
 
-- [Storytelling with Data : Let's Practice!](https://eds.s.ebscohost.com/eds/detail/detail?vid=5&sid=01c965fc-954f-4e18-9444-5e4d577e47f9%40redis&bdata=Jmxhbmc9ZGUmc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=2270716&db=edsebk)
+- "Storytelling with Data : Let's Practice!" by Cole Nussbaumer Knaflic. 
+
+*Available as free online books:*
 
 
 - [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) by Mine Çetinkaya-Rundel and Johanna Hardin
