@@ -20,7 +20,7 @@
 
 **TL;DR**: *Pick a data set and use the concepts and methods covered in our course to effectively analyze and communicate your findings. That is your final project.*
 
-The goal of the final project is for you to use analytical methods to analyze a data set of your own choosing and effectively communicate the results (using the concepts and technology we covered in this course).
+The goal of the final project is for you to analyze a data set of your own choosing and effectively communicate the results (using the concepts and technology we covered in this course).
 The data set may already exist or you may collect your own data.
 
 Choose the data based on your group's interests or work you all have done in other courses or research projects.
@@ -44,7 +44,10 @@ The primary deliverables for the final project are
 (topic-ideas)=
 ## Topic ideas 
 
-Identify 2 data sets you're interested in potentially using for the final project.
+
+Identify 2 data sets you're interested in potentially using for the final project. The data sets should be suitable to be used alongside the topics described in the ["Big Idea Worksheet"](https://docs.google.com/document/d/1-GZvhdbhLYLB_Bo1arj1rgTqbJ5SUoU21vtgbYEhVqk/edit?usp=sharing). 
+
+
 If you're unsure where to find data, you can use the list of potential data sources in the [Tips + Resources](project-tips-resources.md) section as a starting point.
 It may also help to think of topics you're interested in investigating and find data sets on those topics.
 
@@ -63,69 +66,33 @@ The data sets should meet the following criteria:
 
 **Please ask me if you're unsure whether your data set meets the criteria.**
 
-For each data set, include the following:
+### Submission
 
-**Introduction and data**
+You need to: 
 
--   State the source of the data set.
--   Describe when and how it was originally collected (by the original data curator, not necessarily how you found the data)
--   Describe the observations and the general characteristics being measured in the data
-
-**Question**
-
--   Describe a question you're interested in answering using this data.
+1. Fill out a first draft version of the ["Big Idea Worksheet"](https://docs.google.com/document/d/1-GZvhdbhLYLB_Bo1arj1rgTqbJ5SUoU21vtgbYEhVqk/edit?usp=sharing) (as much as possible) for every dataset and save the PDF in your GitHub project environment inside the folder `references` as `big-idea-draft-data1.pdf` and `big-idea-draft-data2.pdf`
+2. Fill out the file `topics-ideas.ipynb` in your project environment (see path: `references`) and save it as HTML file.
 
 
-**Overview of data**
-
--   Use the Pandas functions to provide an overview of each data set
-
-Submit the HTML or PDF of the topic ideas to Moodle.
+Submit the 3 files to Moodle.
 
 
 (project-proposal)=
 ## Project proposal
 
-The purpose of the project proposal is to help you think about your analysis strategy early.
+The purpose of the project proposal is to help you think about your communication strategy early.
 
-Include the following in the proposal:
-
-### Introduction
-
-The introduction section includes
-
--   an introduction to the subject matter you're investigating
--   the motivation for your question (citing any relevant literature)
--   the general (research) question you wish to explore
--   your hypotheses regarding the research question of interest.
-
-### Data description
-
-In this section, you will describe the data set you wish to explore.
-This includes
-
--   description of the observations in the data set,
--   description of how the data was originally collected (not how you found the data but how the original curator of the data collected it).
-
-### Analysis plan
-
-In this section, you will provide a brief overview of your analysis approach.
-This includes:
-
--   Description of the most relevant variables.
--   Visualization ideas and summary statistics for the relevant variables.
-
-
-### Data dictionary
-
-Create a data dictionary for all the variables in your data set. Include the following information for every variable: Name, description, type and format.
-
-- `Type`: nominal, ordinal or numeric
-- `Format`: int, float, string, category, date or object
 
 ### Submission
 
-Push all of your final changes to the GitHub repo, and submit the HTML or PDF file of your proposal to Moodle.
+You need to: 
+
+1. Fill out the ["Big Idea Worksheet"](https://docs.google.com/document/d/1-GZvhdbhLYLB_Bo1arj1rgTqbJ5SUoU21vtgbYEhVqk/edit?usp=sharing) and save the PDF in your GitHub project environment inside the folder `references` as `big-idea-proposal.pdf`
+2. Fill out the file `project-proposal.ipynb` in your project environment (see path: `references`) and save it as HTML file.
+
+
+Push all of your final changes to the GitHub repo, and submit  `big-idea-proposal.pdf` and `project-proposal.html` to Moodle.
+
 
 ### Proposal grading
 
@@ -151,7 +118,7 @@ Each component will be graded as follows:
 (draft-analysis)=
 ## Draft analysis 
 
-The purpose of the draft analysis is to give you an opportunity to get early feedback on your analysis. Each team should push their final version of the draft analysis to their GitHub repo by the due date.
+The purpose of the draft analysis is to give you an opportunity to get early feedback on your project. Each team should push their final version of the draft analysis to their GitHub repo by the due date.
 
 The structure of the draft analysis is as follows:
 
@@ -165,22 +132,25 @@ The structure of the draft analysis is as follows:
 - Analysis
     - Descriptive statistics
     - Exploratory analysis
-- Dashboard
-    - Mockup for a dashbaord    
-- Conclusion
+- Visualizations
+    - Visualization ideas
+    - Save visualizations    
+- Conclusion and recommended action
 ```
 
 Below is a brief description of the sections to focus on in the draft. 
 
-- *Introduction*: This section includes an introduction to the project motivation, a data dictionary and research question.
+- *Introduction*: This section includes an introduction to the project motivation, a data dictionary and (research) question.
 
 - *Setup*: Import all necessary Python libraries.
 
 - *Data*: Includes all data prepartion steps.
 
-- *Analysis*: Focus on the descriptive statistics and EDA. Interpret the results.
+- *Analysis*: Descriptive statistics and EDA. Interpret the results.
 
-- *Conclusion*: This section includes initial interpretations and conclusions drawn from the model.
+- *Visualizations*: Includes multiple visualization ideas. 
+
+- *Conclusion and recommended action*: This section includes initial interpretations and conclusions drawn from the model.
 
 
 (peer-review-draft)=
@@ -192,7 +162,7 @@ During the peer review process, you will be provided read-only access to your pa
 
 Provide your review in the form of [GitHub issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) to your partner team's GitHub repo using the issue template provided (see below).
 
-The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.
+The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, visualizations, interpretations, and conclusions.
 
 (issue-template)=
 ### Issue template
@@ -221,9 +191,9 @@ Issue template:
 
 - Describe the data used or collected, if any. Is the data adequate for the project?
 
-### Approach, tools and methods
+### Visualization approach
 
-- Describe the approaches, tools, and methods that will be used.
+- Describe the visualization approaches that will be used.
 
 ### Lack of clarity
 
@@ -231,7 +201,7 @@ Issue template:
 
 ### Possible improvements
 
-- Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on the visualization ideas and dashbaord mockup of the project, but do feel free to comment on aspects beyond visualizations.
+- Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on the visualization ideas of the project, but do feel free to comment on aspects beyond visualizations.
 
 ### Presentation
 
@@ -260,7 +230,7 @@ All team members should contribute to the GitHub repository, with regular meanin
 **You also need to submit the HTML of your final report in Moodle** (the HTML you submit must match the files in your GitHub repository *exactly*).
 
 The mandatory components of the report are below. You are free to add additional sections as necessary.
-The report, including visualizations, should be **no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
+The report, including visualizations, should be **no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the topics stated in the file. 
 
 Be selective in what you include in your final write-up.
 The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
@@ -299,43 +269,30 @@ It incorporates appropriate visualizations and summary statistics.
 
 ### Visualizations
 
-This section includes a brief description of your visualization selection and creation process.
+This section includes a profound description of your visualization selection and creation process (with regard to the topics covered in our course).
 Explain the reasoning for the type of visualization considered for the project.
 Additionally, show how you arrived at the final visualizaion by describing the selection process, variable transformations (if needed) and any other relevant considerations that were part of the creation process.
 
 #### Grading criteria
 
-The selection steps are appropriate for the data and research question.
-The group used a thorough and careful approach to select the final model; the approach is clearly described in the report.
-The model selection process took into account any violations in model conditions.
-The model conditions and diagnostics are thoroughly and accurately assessed for their model.
-If violations of model conditions are still present, there was a reasonable attempt to address the violations based on the course content.
+The selection steps are appropriate for the data and (research) question.
+The group used a thorough and careful approach to select the final visualization(s); the approach is clearly described in the report.
+The visualization selection process took into account the aspects covered in the course (law of proximity, ...). 
+If violations of optimal visualization conditions are still present, there was a reasonable attempt to address the violations based on the course content.
 
-### Results
 
-This is where you will output the final model with any relevant model fit statistics.
+### Conclusion + recommended action
 
-Describe the key results from the model.
-The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research questions, using the interpretations to support your conclusions.
-Focus on the variables that help you answer the research question and that provide relevant context for the reader.
-
-#### Grading criteria
-
-The model fit is clearly assessed, and interesting findings from the model are clearly described.
-Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient.
-If the primary modeling objective is prediction, the model's predictive power is thoroughly assessed.
-
-### Discussion + Conclusion
-
-In this section you'll include a summary of what you have learned about your research question along with statistical arguments supporting your conclusions.
+In this section you'll include a summary of what you have learned about your (research) question along with (statistical) arguments supporting your conclusions.
 In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved.
+
 Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here.
-Lastly, this section will include ideas for future work.
+Lastly, this section will include your recommended action.
 
 #### Grading criteria
 
-Overall conclusions from analysis are clearly described, and the model results are put into the larger context of the subject matter and original research question.
-There is thoughtful consideration of potential limitations of the data and/or analysis, and ideas for future work are clearly described.
+Overall conclusions from analysis are clearly described, and the visualization results are put into the larger context of the subject matter and original (research) question.
+There is thoughtful consideration of potential limitations of the data and/or analysis. The recommended action is plausible/convincing and clearly described.
 
 ### Organization + formatting
 
@@ -344,7 +301,8 @@ This is an assessment of the overall presentation and formatting of the written 
 #### Grading criteria
 
 The report neatly written and organized with clear section headers and appropriately sized figures with informative labels.
-Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted.
+Numerical results are displayed with a reasonable number of digits, and all visualizations are similar formatted as the examples shown in this course. 
+
 All citations and links are properly formatted.
 If there is an appendix, it is reasonably organized and easy for the reader to find relevant information.
 All code, warnings, and messages are suppressed.
@@ -358,7 +316,7 @@ The main body of the written report (not including the appendix) is no longer th
 
 In addition to the report, your team will also create presentation slides (e.g. [Google Slides](https://www.google.com/intl/en_en/slides/about/) with an adequate [template](https://slidesgo.com/themes)). Additionaly, you have to record a video (screencast) that summarize and showcase your project (see [](video)).
 
-Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions.
+Introduce your project and data set, showcase visualizations, and discuss the primary conclusions.
 These slides should serve as a brief visual addition to your report and will be graded for content and quality.
 
 If your presentation slides are online, you can put a link to the slides in a `README.md` file in the `reports/` folder.
