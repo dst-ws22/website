@@ -5,7 +5,7 @@
 
 | Topic                 | Deadline      | GitHub folder & hints |
 | ---                   | ---           |  ---                  |
-|[](topic-ideas)        | Fri, Oct 14   | references/           |
+|[](topic-ideas)        | Fri, Oct 28   | references/           |
 |[](project-proposal)   | Fri, Nov 25   | references/           |
 |[](draft-analysis)     | Fri, Dec 9    | notebooks/            |
 |[](peer-review-draft)  | Fri, Dec 16   | use [](issue-template)|
@@ -18,13 +18,13 @@
 
 ## Introduction
 
-**TL;DR**: *Pick a data set and use the concepts and methods covered in our course. That is your final project.*
+**TL;DR**: *Pick a data set and use the concepts and methods covered in our course to effectively analyze and communicate your findings. That is your final project.*
 
-The goal of the final project is for you to use analytical methods to analyze a data set of your own choosing.
-The data set may already exist or you may collect your own data by scraping the web.
+The goal of the final project is for you to use analytical methods to analyze a data set of your own choosing and effectively communicate the results (using the concepts and technology we covered in this course).
+The data set may already exist or you may collect your own data.
 
 Choose the data based on your group's interests or work you all have done in other courses or research projects.
-The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a data set to analyze it in a meaningful way.
+The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like) and apply them to a data set to analyze and communicate it in a meaningful way.
 
 All analyses must be done in Python, and all components of the project **must be reproducible** (with the exception of the final presentation) placed inside the provided GitHub repo.
 
@@ -53,23 +53,11 @@ The purpose of submitting project ideas is to give you time to find data for the
 
 The data sets should meet the following criteria:
 
--   At least 500 observations
+-   At least 100 observations
 
--   At least 10 columns
+-   At least 5 columns
 
--   At least 6 of the columns must be useful and unique predictor variables.
-
-    -   Identifier variables such as "name", "social security number", etc. are not useful predictor variables.
-    -   If you have multiple columns with the same information (e.g. "state abbreviation" and "state name"), then they are not unique predictors.
-
--   At least one variable that can be identified as a reasonable response variable.
-
-    -   The response variable can be quantitative or categorical.
-
--   A mix of quantitative and categorical variables that can be used as predictors.
-
--   Observations should reasonably meet the independence condition.
-    Therefore, avoid data with repeated measures, data collected over time, etc.
+-   A mix of quantitative and categorical variables
 
 -   You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials.
 
@@ -83,9 +71,9 @@ For each data set, include the following:
 -   Describe when and how it was originally collected (by the original data curator, not necessarily how you found the data)
 -   Describe the observations and the general characteristics being measured in the data
 
-**Research question**
+**Question**
 
--   Describe a research question you're interested in answering using this data.
+-   Describe a question you're interested in answering using this data.
 
 
 **Overview of data**
@@ -107,8 +95,8 @@ Include the following in the proposal:
 The introduction section includes
 
 -   an introduction to the subject matter you're investigating
--   the motivation for your research question (citing any relevant literature)
--   the general research question you wish to explore
+-   the motivation for your question (citing any relevant literature)
+-   the general (research) question you wish to explore
 -   your hypotheses regarding the research question of interest.
 
 ### Data description
@@ -119,21 +107,19 @@ This includes
 -   description of the observations in the data set,
 -   description of how the data was originally collected (not how you found the data but how the original curator of the data collected it).
 
-### Analysis approach
+### Analysis plan
 
 In this section, you will provide a brief overview of your analysis approach.
 This includes:
 
--   Description of the response variable.
--   Visualization and summary statistics for the response variable.
--   List of variables that will be considered as predictors
--   Your model type (what kind of model(s) will you use ... e.g. linear regression)
+-   Description of the most relevant variables.
+-   Visualization ideas and summary statistics for the relevant variables.
+
 
 ### Data dictionary
 
-Create a data dictionary for all the variables in your data set. Include the following information for every variable: Name, description, role, type and format.
+Create a data dictionary for all the variables in your data set. Include the following information for every variable: Name, description, type and format.
 
-- `Role`: response, predictor, ID (ID columns are not used in a model but can help to better understand the data)
 - `Type`: nominal, ordinal or numeric
 - `Format`: int, float, string, category, date or object
 
@@ -176,15 +162,11 @@ The structure of the draft analysis is as follows:
     - Import data
     - Data structure
     - Data corrections
-    - Variable lists
-    - Data splitting
 - Analysis
-- Model
-    - Select model
-    - Training and validation
-    - Fit model
-    - Evaluation on test set
-    - Save model
+    - Descriptive statistics
+    - Exploratory analysis
+- Dashboard
+    - Mockup for a dashbaord    
 - Conclusion
 ```
 
@@ -196,9 +178,7 @@ Below is a brief description of the sections to focus on in the draft.
 
 - *Data*: Includes all data prepartion steps.
 
-- *Analysis*: Focus on the descriptive statistics and EDA for the response variable and a few other interesting variables and relationships. Interpret the results.
-
-- *Model*: Explain the reasoning for the type of model you're fitting and predictor variables considered for the model. Save the model in your models/ folder.
+- *Analysis*: Focus on the descriptive statistics and EDA. Interpret the results.
 
 - *Conclusion*: This section includes initial interpretations and conclusions drawn from the model.
 
@@ -251,7 +231,7 @@ Issue template:
 
 ### Possible improvements
 
-- Provide constructive feedback on how the team might be able to improve their project.Make sure your feedback includes at least one comment on the modeling aspect of the project, but do feel free to comment on aspects beyond the modeling.
+- Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on the visualization ideas and dashbaord mockup of the project, but do feel free to comment on aspects beyond visualizations.
 
 ### Presentation
 
@@ -273,7 +253,7 @@ If you are done, click on `Submit new issue`.
 (report)=
 ## Report
 
-Your final report has to be created in the `report.ipynb` file (see folder `reports/`) and must be reproducible. Assume that it will be used to communicate your results to other data analysts who are interested in your findings.
+Your final report has to be created in the `report.ipynb` file (see folder `reports/`) and must be reproducible. Assume that it will be used to communicate your results to other colleagues who are interested in your findings.
 
 All team members should contribute to the GitHub repository, with regular meaningful commits.
 
@@ -290,15 +270,14 @@ You should assume the reader will not see the material in the appendix unless pr
 The appendix should be neatly formatted and easy for the reader to navigate.
 It is not included in the 10-page limit.
 
-The written report is worth 40 points, broken down as follows
+The written report is worth 100 points, broken down as follows
 
-| Total                         | 40 pts |
+| Total                         | 100 pts |
 |-------------------------------|--------|
-| **Introduction/data**         | 6 pts  |
-| **Methodology**               | 10 pts |
-| **Results**                   | 14 pts |
-| **Discussion + conclusion**   | 6 pts  |
-| **Organization + formatting** | 4 pts  |
+| **Introduction/data**         | 10 pts  |
+| **Visualizations**            | 50 pts |
+| **Discussion + conclusion**   | 20 pts  |
+| **Organization + formatting** | 20 pts  |
 
 
 [Click here](https://docs.google.com/spreadsheets/d/1gaLs43KiLSguhoHNIQlw5DcWPZfGyrLmjv7HTVQ3_uM/edit?usp=sharing) for an overview of the written report rubric.
@@ -306,7 +285,7 @@ The written report is worth 40 points, broken down as follows
 
 ### Introduction and data
 
-This section includes an introduction to the project motivation, data, and research question.
+This section includes an introduction to the project motivation, data, and (research) question.
 Describe the data and definitions of key variables.
 It should also include some exploratory data analysis.
 All of the EDA won't fit in the paper, so focus on the EDA for the response variable and a few other interesting variables and relationships.
@@ -318,15 +297,15 @@ The data are clearly described, including a description about how the data were 
 The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The explanatory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables.
 It incorporates appropriate visualizations and summary statistics.
 
-### Methodology
+### Visualizations
 
-This section includes a brief description of your modeling process.
-Explain the reasoning for the type of model you're fitting, predictor variables considered for the model.
-Additionally, show how you arrived at the final model by describing the model selection process, variable transformations (if needed), assessment of conditions and diagnostics, and any other relevant considerations that were part of the model fitting process.
+This section includes a brief description of your visualization selection and creation process.
+Explain the reasoning for the type of visualization considered for the project.
+Additionally, show how you arrived at the final visualizaion by describing the selection process, variable transformations (if needed) and any other relevant considerations that were part of the creation process.
 
 #### Grading criteria
 
-The analysis steps are appropriate for the data and research question.
+The selection steps are appropriate for the data and research question.
 The group used a thorough and careful approach to select the final model; the approach is clearly described in the report.
 The model selection process took into account any violations in model conditions.
 The model conditions and diagnostics are thoroughly and accurately assessed for their model.
@@ -393,9 +372,8 @@ Here is a *suggested* outline as you think through the slides; you **do not** ha
 -   Slide 1: Introduce the topic and motivation
 -   Slide 2: Introduce the data
 -   Slide 3: Highlights from EDA
--   Slide 4: Final model
--   Slide 5: Interesting findings from the model
--   Slide 6: Conclusions + future work
+-   Slide 4: Interesting findings 
+-   Slide 5: Conclusions + recommended action
 
 (video)=
 ### Video presentation
@@ -477,14 +455,14 @@ The grade breakdown is as follows:
 
 Grading of the project will take into account the following:
 
--   Content - What is the quality of the research question and relevancy of data to those questions?
--   Correctness - Are statistical procedures carried out and explained correctly?
--   Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
+-   Content - What is the quality of the (research) question and relevancy of data to those questions?
+-   Correctness - Are all procedures carried out and explained correctly?
+-   Writing and Presentation - What is the quality of the presentation, writing, and explanations?
 -   Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
 
 A general breakdown of scoring is as follows:
 
--   *90%-100%*: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
+-   *90%-100%*: Outstanding effort. Student understands how to apply all  concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
 -   *80%-89%*: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.
 -   *70%-79%*: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.
 -   *60%-69%*: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
