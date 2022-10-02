@@ -106,7 +106,7 @@ Because these AEs are for practice, they will be graded based on completion. Suc
 (hw)=
 ### Homework
 
-In homeworks (HW), you will apply what you've learned during lectures to complete data analysis tasks using data not covered during lectures.
+In homeworks (HW), you will apply what you've learned during lectures to complete data analysis and visualization‚ tasks using data not covered during lectures.
 
 You may discuss homework assignments with other students; however, homework should be completed and **submitted individually**.
 
