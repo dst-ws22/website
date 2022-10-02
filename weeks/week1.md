@@ -27,7 +27,7 @@ Install programming tools: [💾](../docs/programming-toolkit.md)
 (practice)=
 ## Practice
 
-Complete the following application exercises for our case study *"Back to School Sale"* and upload them (as a **PDF-file**) to [Moodle](https://e-learning.hdm-stuttgart.de/moodle/course/view.php?id=4535#section-1):
+Complete the following application exercises for our case study *"Back to School Sale"* and upload them (as a **PDF-files**) to [Moodle](https://e-learning.hdm-stuttgart.de/moodle/course/view.php?id=4535#section-1):
 
 
 Big idea worksheet (Nr. 7): [💻](https://docs.google.com/document/d/1-GZvhdbhLYLB_Bo1arj1rgTqbJ5SUoU21vtgbYEhVqk/edit?usp=sharing)
