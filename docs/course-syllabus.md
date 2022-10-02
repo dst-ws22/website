@@ -6,7 +6,7 @@
 
 |           | Day       | Time              | Location |
 |-----------|-----------|-------------------|----------|
-| Lecture   | Monday    | 10:00 am - 11:30 am |  S204  |
+| Lecture   | Monday    | 10:00 am - 11:30 am |  S205  |
 
 
 ```{image} ../_static/img/room.png
