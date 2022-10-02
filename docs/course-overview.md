@@ -1,8 +1,32 @@
 # Course overview
 
-This course teaches you the fundamentals of data visualization and how to communicate effectively with data using Python. With visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.
+Welcome to our course Analytics and Storytelling with Data! 👋  
 
-Together, the lessons in this course will help you turn your data into high impact visual stories that stick with your audience. 
+This page contains a weekly overview about the topics, slides and materials for the semester.
+
+:::{Note}
+This overview will be updated as the semester progresses.
+:::
+
+For a more detailed semester overview, take a look at the [course-schedule](../docs/course-schedule.md). 
+
+
+|	Week	|	Date	|	Content	|	Slides	|	Materials	|	
+|	---	|	---	|	---	|	---	|	---	|	
+|	1	|	10.10.	|	Introduction and context	|	[📑](https://drive.google.com/file/d/1-7yiEj7gt-dsgdlUTINQb1vlib34AHug/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
+|	2	|	17.10.	|	Data analysis	|		|		|	
+|	3	|	24.10.	|	Data preparation	|		|		|	
+|	4	|	31.10.	|	Data visualization	|		|		|	
+|	5	|	07.11.	|	Data visualization in Altair 1	|		|		|	
+|	6	|	14.11.	|	Data visualization in Altair 2	|		|		|	
+|	7	|	21.11.	|	Visualize categorical data	|		|		|	
+|	8	|	28.11.	|	Visualize numerical data	|		|		|	
+|	9	|	05.12.	|	Clutter and attention	|		|		|	
+|	10	|	12.12.	|	Dashboards and Streamlit 1	|		|		|	
+|	11	|	19.12.	|	Designer and presentation	|		|		|	
+|	12	|	09.01.	|	Dashboards and Streamlit 2	|		|		|	
+|	13	|	16.01.	|	Reporting 1	|		|		|	
+|	14	|	23.01.	|	Reporting 2	|		|		|	
 
 ---
 
