@@ -250,7 +250,7 @@ The written report is worth 40 points, broken down as follows
 | **Organization + formatting** | 5 pts  |
 
 
-[Click here](https://docs.google.com/spreadsheets/d/1gaLs43KiLSguhoHNIQlw5DcWPZfGyrLmjv7HTVQ3_uM/edit?usp=sharing) for an overview of the written report rubric.
+[Click here](https://docs.google.com/spreadsheets/d/1RNPoP8xnnbd3TmEHxVGQXjH4DzWBCmCVVhlleD1ldoI/edit?usp=sharing) for an overview of the written report rubric.
 
 
 ### Introduction and data
