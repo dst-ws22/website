@@ -11,10 +11,10 @@ This overview will be updated as the semester progresses.
 For a more detailed semester overview, take a look at the [course-schedule](../docs/course-schedule.md). 
 
 
-|	Week	|	Date	|	Content	|	Slides	|	Materials	|	
+|	Week	|	Date	|	Content	|	Slides	|	AE	|	
 |	---	|	---	|	---	|	---	|	---	|	
 |	1	|	10.10.	|	Introduction and context	|	[📑](https://drive.google.com/file/d/1-7yiEj7gt-dsgdlUTINQb1vlib34AHug/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
-|	2	|	17.10.	|	Data analysis	|		|		|	
+|	2	|	17.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-4ZD7qCo5Mxfm7cRsuoIFxrfCwq7LbO9/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
 |	3	|	24.10.	|	Data preparation	|		|		|	
 |	4	|	31.10.	|	Data visualization	|		|		|	
 |	5	|	07.11.	|	Data visualization in Altair 1	|		|		|	
