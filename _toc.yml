@@ -22,3 +22,4 @@ parts:
     - file: weeks/weeks-overview.md
       sections:
       - file: weeks/week1.md
+      - file: weeks/week2.md
