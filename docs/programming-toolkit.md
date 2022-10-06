@@ -2,9 +2,9 @@
 
 This section contains an overview about the programming toolkit you will need for our course. 
 
-You will simply need to:
+You will need to:
 
-1. Install [Anaconda](anaconda) (includes Python and some toolkits)
+1. install the latest version of [Anaconda](anaconda) (includes Python and some toolkits) ... first uninstall your old version of Anaconda if you already have it on your machine 
 2. Install [Visual Studio Code](vscode) (a code editor)
 3. Create an acount at [GitHub](github) (for software development and version control)
 
@@ -23,9 +23,43 @@ Anaconda is a data science toolkit which already includes most of the data scien
 :::
 
 
+### Uninstall your old version
+
+To avoid compatibility problems with old versions of Anaconda, I recommend to uninstall Anaconda and install the latest version.
+
+#### Windows
+
+1. Open the file explorer.
+1. Delete your environment (anaconda3\envs) and package (anaconda3\pkgs) folders in your user folder.
+1. Open Add or remove programs and uninstall your Anaconda installation.
+
+#### macOS
+
+1. [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+1. Remove your entire Anaconda directory with `rm -rf`. Depending on your installation, your anaconda3 directory will be in your root folder or in your opt folder. If you are not sure where anaconda is installed, simply enter all commands. Note that there will be no information printed in the terminal - it will just silently uninstall Anaconda. 
+
+First try the opt folder:
+
+```bash
+rm -rf ~/opt/anaconda3
+```
+Then this location:
+
+```bash
+rm -rf anaconda3
+```
+
+Finally, enter:
+
+```bash
+rm -rf ~/anaconda3
+```
+
+Close the terminal and proceed with the next step.
+
 ### Installation
 
-You can skip the installation step if you already have Anaconda on your machine. If not, install the latest version of the Anaconda Individual Edition:
+Install the latest version of the Anaconda Individual Edition:
 
 ```{admonition} To do
 :class: tip
@@ -34,16 +68,38 @@ You can skip the installation step if you already have Anaconda on your machine.
 
 ```
 
-Follow the steps described in the next section.
+<!--
 
-### Anaconda environment
+### Update Anaconda 
 
 - On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
 
-- On *macOS*: [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 
-Instead of the conda defaults channel, we want to use the community-led alternative `conda-forge` to install Python modules. 
+Let's first update to the latest version of Anaconda (note that this may take a while):
+
+Update the conda package manager to the latest version:
+
+```bash
+conda update conda
+```
+
+Update Anaconda to the latest version
+
+```bash
+conda update anaconda
+```
+
+-->
+
+### Use conda-forge
+
+Instead of the conda default package manager, we want to use the community-led alternative `conda-forge` to install Python modules. 
+
+- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
+
+- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 Type this in your terminal to add `conda-forge`:
 
@@ -57,13 +113,17 @@ Then make `conda-forge` the priority channel:
 conda config --set channel_priority strict
 ```
 
-Now you can install the modules we need for our course in a new environment (we call this new environment `mr`). 
+
+### Create a new environment
+
+Now you can install some modules in a new Anaconda environment. We call this environment `dst`.
 
 Copy this code and run it in your terminal (command prompt): 
 
 ```bash
-conda create -n mr python=3.9 pandas openpyxl jupyter scikit-learn altair vega_datasets matplotlib seaborn
+conda create -n dst python=3.9 pandas openpyxl jupyter altair vega_datasets matplotlib seaborn
 ```
+
 
 When conda asks you: 
 
@@ -71,11 +131,19 @@ When conda asks you:
 
 simply type `y` and press enter.
 
-Now activate the new environment:
+
+(create-folder)=
+### Create a new folder for this course
+
+We also want to create a new folder on your machine called `dst` (short for data storytelling). 
+
+In your terminal, type:
 
 ```bash
-conda activate mr
+mkdir dst
 ```
+
+You can now close the terminal.
 
 ---
 
@@ -117,15 +185,20 @@ Let's install some important extensions:
 - [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
 ```
 
+Now **close and restart** VS Code.
+
 ### Jupyter Notebooks
 
-We usually work with Jupyter Notebook files in VS Code:
+We usually work with Jupyter Notebook files in VS Code. Open a Juptyer Notebook in VS Code:
+
 
 ```{admonition} To do
 :class: tip
 - [How to use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 ```
+
+If you can't select a kernel (like `base`or `dst`), try to close and restart VS Code.
 
 ### Optional tutorials
 
@@ -139,10 +212,6 @@ Here some resources to get familiar with VS Code:
 
 
 ## Troubleshooting
-
-Make sure that you use the latest version (in our course, we use Python 3.9). In your terminal, type `python --version` to see which Python version you are using in your Anaconda base environment.
-
-*You may also uninstall your current Anaconda environment from your machine and install the latest version: here a guide of how to [uninstall Anaconda](https://docs.anaconda.com/anaconda/install/uninstall/).*
 
 If you have troubles to use Anaconda in Visual Studio Code, follow these instructions: 
 
@@ -175,12 +244,19 @@ You need a free GitHub-account for our course. Please follow the instructions be
 ```{admonition} To do
 :class: tip
 
-- [Create a GitHub account with your HdM-email](https://github.com/join)
+- [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- You may also sign up fot the free [student developer pack](https://education.github.com/pack)  
-- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
-- [Install GitHub desktop to synchronize your machine with GitHub](https://desktop.github.com/)
+- [Install GitHub Desktop to synchronize your machine with GitHub](https://desktop.github.com/)
 ```
+
+Some notes about **GitHub Desktop**
+
+If you do not have any repositories associated with GitHub Desktop, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.
+
+![](https://docs.github.com/assets/cb-67627/images/help/desktop/lets-get-started.png)
+
+If you are new to GitHub, follow [this explanation to create and clone the tutorial repository](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop#creating-and-cloning-a-tutorial-repository) 
+
 
 ---
 
@@ -269,5 +345,4 @@ Review this site to learn more about Markdown:
 - [Interactive Colab Markdown guide](https://colab.research.google.com/notebooks/markdown_guide.ipynb)
 
 ```
-
 
