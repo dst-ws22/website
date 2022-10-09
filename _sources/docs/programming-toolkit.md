@@ -2,11 +2,11 @@
 
 This section contains an overview about the programming toolkit you will need for our course. 
 
-You will need to:
+You will need to install:
 
-1. Install the latest version of [Anaconda](anaconda) (includes Python and some toolkits) 
-2. Install [Visual Studio Code](vscode) (a code editor)
-3. Install [Git and create an acount at GitHub](github) (for software development and version control)
+1. the latest version of [Anaconda](anaconda) (includes Python and some toolkits) 
+2. [Visual Studio Code](vscode) (a code editor)
+3. [Git and create an acount at GitHub](github) (for software development and version control)
 
 Please read the following instructions.
 
@@ -64,7 +64,7 @@ Install the latest version of the Anaconda Individual Edition:
 ```{admonition} To do
 :class: tip
 
-- [Anaconda installation](https://www.anaconda.com/products/individual)
+- [💾 Anaconda installation](https://www.anaconda.com/products/individual)
 
 ```
 
@@ -170,7 +170,7 @@ Install VS Code:
 
 ```{admonition} To do
 :class: tip
-- [Install Code](https://code.visualstudio.com/)
+- 💾 Install [VS Code](https://code.visualstudio.com/)
 ```
 
 ### Install extensions
@@ -181,14 +181,14 @@ Let's install some extensions:
 
 ```{admonition} To do
 :class: tip
-- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- 💾 Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 
-- [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
+- 💾 Install [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
 
 ```
 
-Now **close and restart** VS Code.
+Now close and restart VS Code.
 
 ### Jupyter Notebook extension
 
@@ -196,9 +196,9 @@ We usually work with Jupyter Notebook files in VS Code.
 
 ```{admonition} To do
 :class: tip
-- [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
+- 💾 Install [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
 ```
-Now **close and restart** VS Code.
+Now close and restart VS Code.
 
 Open a Juptyer Notebook in VS Code:
 
@@ -226,7 +226,6 @@ If you have troubles to use Anaconda in Visual Studio Code, follow these instruc
 
 - [Windows](https://stackoverflow.com/a/61937090/14796848)
 - [Mac](https://stackoverflow.com/a/55203534/14796848)
-
 
 
 (github)=
@@ -261,7 +260,7 @@ If you don't see the version, you need to install Git
 ```{admonition} To do
 :class: tip
 
-- [Install Git](https://git-scm.com/downloads)
+- 💾 Install [Git](https://git-scm.com/downloads)
 ```
 
 
@@ -273,9 +272,9 @@ You also need a free GitHub-account for our course. Please follow the instructio
 
 - [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
+- 💾 Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
 - Go to our [GitHub course classroom](https://classroom.github.com/classrooms/114822519-dst-ws22/roster), find your HdM id and link it with your GitHub account 
-- [Install GitHub desktop to synchronize your machine with GitHub](https://desktop.github.com/)
+- 💾 Install [GitHub desktop](https://desktop.github.com/) to synchronize your machine with GitHub
 ```
 
 
@@ -288,7 +287,7 @@ Before you install the next extension, make sure you have the following prerequi
 ```{admonition} To do
 :class: tip
 
-- Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
+-  💾 Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
 
 ```
 
