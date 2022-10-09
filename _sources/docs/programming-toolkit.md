@@ -227,7 +227,6 @@ If you have troubles to use Anaconda in Visual Studio Code, follow these instruc
 - [Windows](https://stackoverflow.com/a/61937090/14796848)
 - [Mac](https://stackoverflow.com/a/55203534/14796848)
 
-
 (github)=
 ## Git and GitHub
 
@@ -249,6 +248,7 @@ We will use GitHub as a platform for web hosting and collaboration.
 
 <br>
 
+
 To see if Git is already installed, you can go in the command line (on Windows), or in the terminal (on Mac) and type this command:
 
 ```bash
@@ -260,23 +260,32 @@ If you don't see the version, you need to install Git
 ```{admonition} To do
 :class: tip
 
-- 💾 Install [Git](https://git-scm.com/downloads)
+- [Install Git](https://git-scm.com/downloads)
 ```
 
-
 You also need a free GitHub-account for our course. Please follow the instructions below (*in case you already have a GitHub account: please add your HdM-email address to your account*):
-
 
 ```{admonition} To do
 :class: tip
 
 - [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- 💾 Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
-- Go to our [GitHub course classroom](https://classroom.github.com/classrooms/114822519-dst-ws22/roster), find your HdM id and link it with your GitHub account 
-- 💾 Install [GitHub desktop](https://desktop.github.com/) to synchronize your machine with GitHub
+- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
+- [Install GitHub Desktop to synchronize your machine with GitHub](https://desktop.github.com/)
 ```
 
+Next, we proceed in Moodle:
+
+```{admonition} To do
+:class: tip
+
+1. go to our **Moodle course** 
+2. locate the section "Assignments" -> "Application Exercises"
+3. Open the page "Accept invitation to application exercises (AE)" 
+4. Accept the application exercise "Nr. 0 ..."
+5. On the following page, you need to select your HdM id to get membership in our GitHub Classroom course
+
+```
 
 Before you install the next extension, make sure you have the following prerequisites:
 
@@ -287,8 +296,6 @@ Before you install the next extension, make sure you have the following prerequi
 ```{admonition} To do
 :class: tip
 
--  💾 Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
+- Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
 
 ```
-
-Close and restart VS Code.
