@@ -49,16 +49,11 @@ Storyboard 2 (Nr. 10): [💻](https://docs.google.com/document/d/1WeLzE85YfM-F9-
 
 **Demo application exercise to get started with Github**: 
 
-Go to the [course GitHub organization](https://github.com/orgs/om2-ws22/repositories) and locate the repo titled:
-
-`git-github-fundamentals-YOUR_GITHUB_USERNAME` 
-
-to get started.
-
-- Read the instructions.
-- Clone the GitHub-repo to your local machine (with [GitHub Desktop](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
-
-You don't need to hand in anything for this application.
+1. go to our Moodle course 
+2. locate the section "Assignments" -> "Application Exercises"
+3. Open the page "Accept invitation to application exercises (AE)" 
+4. Accept the application exercise "Nr. 0 ..."
+5. On the following page, you need to select your HdM id to get membership in our GitHub Classroom course
 
 ---
 
