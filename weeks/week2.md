@@ -25,7 +25,8 @@ Download slides: [📑](https://drive.google.com/file/d/1-4ZD7qCo5Mxfm7cRsuoIFxr
 (practice)=
 ## Practice
 
-AE1: First Data Analysis (Nr. 11): [💻](../ae/ae1/01-1b-netflix-g.ipynb)
+
+Accept invitation in Moodle to AE1: First Data Analysis.
 
 Data basics (Nr. 12): [☑️](https://forms.gle/EJT7mcYgPi8drKgR9)
 
