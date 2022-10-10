@@ -17,7 +17,7 @@ Data basics (Nr. 12): [📚](https://openintro-ims.netlify.app/data-hello.html#d
 ## Participate
 
 
-Download slides: [📑](https://drive.google.com/file/d/1-4ZD7qCo5Mxfm7cRsuoIFxrfCwq7LbO9/view?usp=sharing)
+Download slides: [📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)
 
 
 ---
