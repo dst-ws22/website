@@ -68,38 +68,19 @@ Install the latest version of the Anaconda Individual Edition:
 
 ```
 
-<!--
+After you have installed Anaconda, open the "Anaconda Navigator" programm (if you see a pop-up with information about a new version of the Navigator, don't update it now):
 
-### Update Anaconda 
-
-- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
-
-- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+1. Click on the tab `Environments` at the left of the menu
+2. Select the green button next to the `base (root)` environment
+3. Choose `Open Terminal` ()
 
 
-Let's first update to the latest version of Anaconda (note that this may take a while):
+![](../_static/img/navigator.png)
 
-Update the conda package manager to the latest version:
-
-```bash
-conda update conda
-```
-
-Update Anaconda to the latest version
-
-```bash
-conda update anaconda
-```
-
--->
 
 ### Use conda-forge
 
 Instead of the conda default package manager, we want to use the community-led alternative `conda-forge` to install Python modules. 
-
-- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
-
-- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 Type this in your terminal to add `conda-forge`:
 
@@ -116,36 +97,30 @@ conda config --set channel_priority strict
 
 ### Create a new environment
 
-- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
-
-- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 Now you can install some modules in a new Anaconda environment. We call this new environment `dst`. 
 
-Copy this code and run it in your terminal (command prompt): 
+Copy this code and run it in your terminal: 
+
 
 ```bash
-conda create -n dst python=3.9 pandas openpyxl jupyter altair vega_datasets matplotlib seaborn
+conda create -n dst python=3.9 pandas openpyxl jupyter altair vega_datasets matplotlib seaborn --y
 ```
 
-
-When conda asks you: 
-
-`Proceed ([y]/n)?` 
-
-simply type `y` and press enter.
+Depending on your machine, the installation process may take a few minutes.
 
 
 (create-folder)=
 ### Create a new folder for this course
 
-You should also create a new folder for our course. In your terminal or command prompt, type:
+You should also create a new folder for our course. In your terminal, type:
 
 ```bash
 mkdir dst
 ```
 
-You can now close it.
+This will create a new folder with the name `dst` in your home folder.
+
 
 ---
 (vscode)=
@@ -179,6 +154,7 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 Let's install some extensions:
 
+
 ```{admonition} To do
 :class: tip
 - 💾 Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -204,10 +180,10 @@ Open a Juptyer Notebook in VS Code:
 
 ```{admonition} To do
 :class: tip
-- [How to use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+- Learn how to [use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 ```
 
-If you can't select a kernel (like the so called `base` kernel), try to close and restart VS Code once again.
+If you can't select a kernel (like the Anaconda `base` kernel), try to close and restart VS Code once again.
 
 ### Optional tutorials
 
@@ -220,12 +196,7 @@ Here some resources to get familiar with VS Code:
 - Pro tips: [25 VS Code Productivity Tips and Speed Hacks](https://www.youtube.com/watch?v=ifTF3ags0XI)
 
 
-## Troubleshooting
 
-If you have troubles to use Anaconda in Visual Studio Code, follow these instructions: 
-
-- [Windows](https://stackoverflow.com/a/61937090/14796848)
-- [Mac](https://stackoverflow.com/a/55203534/14796848)
 
 (github)=
 ## Git and GitHub
