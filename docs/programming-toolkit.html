@@ -464,11 +464,6 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting">
-   Troubleshooting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#git-and-github">
    Git and GitHub
   </a>
@@ -564,11 +559,6 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting">
-   Troubleshooting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#git-and-github">
    Git and GitHub
   </a>
@@ -642,38 +632,17 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://www.anaconda.com/products/individual">💾 Anaconda installation</a></p></li>
 </ul>
 </div>
-<!--
-
-### Update Anaconda 
-
-- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
-
-- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
-
-
-Let's first update to the latest version of Anaconda (note that this may take a while):
-
-Update the conda package manager to the latest version:
-
-```bash
-conda update conda
-```
-
-Update Anaconda to the latest version
-
-```bash
-conda update anaconda
-```
-
--->
+<p>After you have installed Anaconda, open the “Anaconda Navigator” programm (if you see a pop-up with information about a new version of the Navigator, don’t update it now):</p>
+<ol class="simple">
+<li><p>Click on the tab <code class="docutils literal notranslate"><span class="pre">Environments</span></code> at the left of the menu</p></li>
+<li><p>Select the green button next to the <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">(root)</span></code> environment</p></li>
+<li><p>Choose <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Terminal</span></code> ()</p></li>
+</ol>
+<p><img alt="" src="../_images/navigator.png" /></p>
 </section>
 <section id="use-conda-forge">
 <h3>Use conda-forge<a class="headerlink" href="#use-conda-forge" title="Permalink to this headline">#</a></h3>
 <p>Instead of the conda default package manager, we want to use the community-led alternative <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to install Python modules.</p>
-<ul class="simple">
-<li><p>On <em>Windows</em> open the Start menu and open the “Anaconda Command Prompt”.</p></li>
-<li><p>On <em>macOS</em>: <a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">Open a terminal</a></p></li>
-</ul>
 <p>Type this in your terminal to add <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
 </pre></div>
@@ -685,26 +654,20 @@ conda update anaconda
 </section>
 <section id="create-a-new-environment">
 <h3>Create a new environment<a class="headerlink" href="#create-a-new-environment" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>On <em>Windows</em> open the Start menu and open the “Anaconda Command Prompt”.</p></li>
-<li><p>On <em>macOS</em>: <a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">Open a terminal</a></p></li>
-</ul>
 <p>Now you can install some modules in a new Anaconda environment. We call this new environment <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
-<p>Copy this code and run it in your terminal (command prompt):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n dst <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 pandas openpyxl jupyter altair vega_datasets matplotlib seaborn
+<p>Copy this code and run it in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n dst <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 pandas openpyxl jupyter altair vega_datasets matplotlib seaborn --y
 </pre></div>
 </div>
-<p>When conda asks you:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">([y]/n)?</span></code></p>
-<p>simply type <code class="docutils literal notranslate"><span class="pre">y</span></code> and press enter.</p>
+<p>Depending on your machine, the installation process may take a few minutes.</p>
 </section>
 <section id="create-a-new-folder-for-this-course">
 <span id="create-folder"></span><h3>Create a new folder for this course<a class="headerlink" href="#create-a-new-folder-for-this-course" title="Permalink to this headline">#</a></h3>
-<p>You should also create a new folder for our course. In your terminal or command prompt, type:</p>
+<p>You should also create a new folder for our course. In your terminal, type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir dst
 </pre></div>
 </div>
-<p>You can now close it.</p>
+<p>This will create a new folder with the name <code class="docutils literal notranslate"><span class="pre">dst</span></code> in your home folder.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -755,10 +718,10 @@ conda update anaconda
 <div class="tip admonition">
 <p class="admonition-title">To do</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">How to use Jupyter Notebooks in VS Code</a></p></li>
+<li><p>Learn how to <a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">use Jupyter Notebooks in VS Code</a></p></li>
 </ul>
 </div>
-<p>If you can’t select a kernel (like the so called <code class="docutils literal notranslate"><span class="pre">base</span></code> kernel), try to close and restart VS Code once again.</p>
+<p>If you can’t select a kernel (like the Anaconda <code class="docutils literal notranslate"><span class="pre">base</span></code> kernel), try to close and restart VS Code once again.</p>
 </section>
 <section id="optional-tutorials">
 <h3>Optional tutorials<a class="headerlink" href="#optional-tutorials" title="Permalink to this headline">#</a></h3>
@@ -769,14 +732,6 @@ conda update anaconda
 <li><p>Pro tips: <a class="reference external" href="https://www.youtube.com/watch?v=ifTF3ags0XI">25 VS Code Productivity Tips and Speed Hacks</a></p></li>
 </ul>
 </section>
-</section>
-<section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h2>
-<p>If you have troubles to use Anaconda in Visual Studio Code, follow these instructions:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/a/61937090/14796848">Windows</a></p></li>
-<li><p><a class="reference external" href="https://stackoverflow.com/a/55203534/14796848">Mac</a></p></li>
-</ul>
 </section>
 <section id="git-and-github">
 <span id="github"></span><h2>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">#</a></h2>
