@@ -72,7 +72,7 @@ After you have installed Anaconda, open the "Anaconda Navigator" programm (if yo
 
 1. Click on the tab `Environments` at the left of the menu
 2. Select the green button next to the `base (root)` environment
-3. Choose `Open Terminal` ()
+3. Choose `Open Terminal`
 
 
 ![](../_static/img/navigator.png)
