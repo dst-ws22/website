@@ -260,7 +260,7 @@ If you don't see the version, you need to install Git
 ```{admonition} To do
 :class: tip
 
-- [Install Git](https://git-scm.com/downloads)
+- 💾 Install [Git](https://git-scm.com/downloads)
 ```
 
 You also need a free GitHub-account for our course. Please follow the instructions below (*in case you already have a GitHub account: please add your HdM-email address to your account*):
@@ -270,8 +270,8 @@ You also need a free GitHub-account for our course. Please follow the instructio
 
 - [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
-- [Install GitHub Desktop to synchronize your machine with GitHub](https://desktop.github.com/)
+- 💾 Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
+- 💾 Install [GitHub Desktop](https://desktop.github.com/) to synchronize your machine with GitHub
 ```
 
 Next, we proceed in Moodle:
@@ -296,6 +296,6 @@ Before you install the next extension, make sure you have the following prerequi
 ```{admonition} To do
 :class: tip
 
-- Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
+- 💾 Install the [VS Code GitHub Classroom extension](https://marketplace.visualstudio.com/items?itemName=GitHub.classroom&ssr=false#overview)
 
 ```
