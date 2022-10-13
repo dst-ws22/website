@@ -26,7 +26,8 @@ Download slides: [📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-om
 ## Practice
 
 
-Accept invitation in Moodle to AE1: First Data Analysis.
+Accept the invitation to application exercise in Moodle: [💻 ae-1-netflix-crosstable](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=262127)
+
 
 Data basics (Nr. 12): [☑️](https://forms.gle/EJT7mcYgPi8drKgR9)
 
