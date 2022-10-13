@@ -11,11 +11,11 @@ This overview will be updated as the semester progresses.
 For a more detailed semester overview, take a look at the [course-schedule](../docs/course-schedule.md). 
 
 
-|	Week	|	Date	|	Content	|	Slides	|	AE	|	
+|	Week	|	Date	|	Content	|	Slides	|	Week	|	
 |	---	|	---	|	---	|	---	|	---	|	
 |	1	|	10.10.	|	Introduction	|	[📑](https://drive.google.com/file/d/1-G_vOTJatCvM8buEmm5-iqLF-hrYtF7m/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
 |	2	|	17.10.	|	Context	|	[📑](https://drive.google.com/file/d/1-J_F4l5Dfs2m4M45JWrltaKEYtL-gia2/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
-|	3	|	24.10.	|	Data analysis	|		|		|	
+|	3	|	24.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)	|	[📁](../weeks/week3.md)	|	
 |	4	|	31.10.	|	Data preparation	|		|		|	
 |	5	|	07.11.	|	Data visualization	|		|		|	
 |	6	|	14.11.	|	Data visualization in Altair 1	|		|		|	
@@ -27,7 +27,6 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	12	|	09.01.	|	Designer and presentation	|		|		|	
 |	13	|	16.01.	|	Dashboards and Streamlit 2	|		|		|	
 |	14	|	23.01.	|	Reporting	|		|		|	
-
 ---
 
 Important links:
