@@ -96,10 +96,10 @@ Parts of some lectures will be dedicated to working on "Application Exercises" (
 AEs should be completed and **submitted individually**.
 
 :::{Note}
-AEs are due within three days after lecture
+AEs are due within six days after lecture
 :::
 
-The AEs are due within **three days** after the corresponding lecture. For example, AEs from a Monday lecture would be due Thursday by 11:59 pm.
+The AEs are due within **six days** after the corresponding lecture. For example, AEs from a Monday lecture would be due Sunday by 11:59 pm.
 
 Because these AEs are for practice, they will be graded based on completion. Successful on-time completion of at least 80% of every AE will result in full credit in the final course grade. 
 
