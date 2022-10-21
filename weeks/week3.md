@@ -8,6 +8,7 @@
 
 First Data Analysis (Nr. 11): [📚](https://openintro-ims.netlify.app/data-hello.html#case-study-stents-strokes)
 
+
 Data basics (Nr. 12): [📚](https://openintro-ims.netlify.app/data-hello.html#data-basics)
 
 
@@ -30,6 +31,15 @@ Accept the invitation to application exercise in Moodle: [💻 ae-1-netflix-cros
 
 
 Data basics (Nr. 12): [☑️](https://forms.gle/EJT7mcYgPi8drKgR9)
+
+
+---
+
+(perform)=
+## Perform
+
+None
+
 
 ---
 
