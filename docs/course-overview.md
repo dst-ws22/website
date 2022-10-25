@@ -16,7 +16,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	1	|	10.10.	|	Introduction	|	[📑](https://drive.google.com/file/d/1-G_vOTJatCvM8buEmm5-iqLF-hrYtF7m/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
 |	2	|	17.10.	|	Context	|	[📑](https://drive.google.com/file/d/1-J_F4l5Dfs2m4M45JWrltaKEYtL-gia2/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
 |	3	|	24.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)	|	[📁](../weeks/week3.md)	|	
-|	4	|	31.10.	|	Data preparation	|		|		|	
+|	4	|	31.10.	|	Data preparation	|	[📑](https://drive.google.com/file/d/1-YS7_A9lO8MIistnN4bcTK9JW2K8l8_5/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	5	|	07.11.	|	Data visualization	|		|		|	
 |	6	|	14.11.	|	Data visualization in Altair 1	|		|		|	
 |	7	|	21.11.	|	Data visualization in Altair 2	|		|		|	
