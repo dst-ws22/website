@@ -20,10 +20,9 @@ This overview will be updated as the semester progresses.
 |	2	|	10	|	17.10.	|	Storyboard 2	|		|	[💻](https://docs.google.com/document/d/1WeLzE85YfM-F9-vAIhEbeJHkuHsN3xtovzIokB93BRU/edit?usp=sharing)	|	
 |	3	|	11	|	24.10.	|	First Data Analysis	|	[📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)	|	[📁](../weeks/week3.md)	|	
 |	3	|	12	|	24.10.	|	Data basics	|		|		|	
-|	4	|	13	|	31.10.	|	Introduction to Pandas	|	[📑](https://drive.google.com/file/d/1-YS7_A9lO8MIistnN4bcTK9JW2K8l8_5/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
-|	4	|	14	|	31.10.	|	How to obtain data	|		|		|	
-|	4	|	15	|	31.10.	|	Data preparation	|		|		|	
-|	4	|	16	|	31.10.	|	Date analysis case	|		|		|	
+|	4	|	13	|	31.10.	|	How to obtain data	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
+|	4	|	14	|	31.10.	|	Data preparation	|		|		|	
+|	4	|	15	|	31.10.	|	Date analysis case	|		|		|	
 
 <br>
 
