@@ -120,10 +120,19 @@ Visual Studio Code is a code editor that can be used with a variety of programmi
 
 Install VS Code:
 
+:::{warning}
+Move VS Code to the Applications ("Programme") folder after you have downloaded it.
+:::
+
+
 ```{admonition} To do
 :class: tip
-- 💾 Install [VS Code](https://code.visualstudio.com/)
+- 💾 Install [VS Code](https://code.visualstudio.com/)  
+
+Download ➜ Move to Applications ("Programme") folder ➜ Double Click
+
 ```
+
 
 ### Install extensions
 
