@@ -10,8 +10,9 @@ parts:
   - caption: Programming
     chapters:
     - file: docs/programming-toolkit.md
+    - file: docs/programming-environment.ipynb
+    - file: docs/programming-fundamentals.ipynb
       sections:
-      - file: docs/programming-fundamentals.ipynb
       - file: docs/programming-syntax.ipynb
       - file: docs/programming-semantics.ipynb
   - caption: Project
