@@ -23,6 +23,8 @@ This overview will be updated as the semester progresses.
 |	4	|	13	|	31.10.	|	How to obtain data	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	4	|	14	|	31.10.	|	Data preparation	|		|		|	
 |	4	|	15	|	31.10.	|	Date analysis case	|		|		|	
+|	5	|	16	|	07.11.	|	Choose an appropriate display	|	[📑](https://drive.google.com/file/d/1-w4Hc6iYspOzPSlebRxgKfzEql6OSahV/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
+|	5	|	17	|	07.11.	|	Introduction to Altair	|		|		|	
 
 <br>
 
