@@ -314,7 +314,7 @@ The main body of the written report (not including the appendix) is no longer th
 (slides)=
 ### Slides
 
-In addition to the report, your team will also create presentation slides (e.g. [Google Slides](https://www.google.com/intl/en_en/slides/about/) with an adequate [template](https://slidesgo.com/themes)). Additionaly, you have to record a video (screencast) that summarize and showcase your project (see [](video)).
+In addition to the report, your team will also create presentation slides (e.g. [Google Slides](https://www.google.com/intl/en_en/slides/about/) with an adequate [template](https://slidesgo.com/themes)). Additionally, you have to record a video (screencast) that summarize and showcase your project (see [](video)).
 
 Introduce your project and data set, showcase visualizations, and discuss the primary conclusions.
 These slides should serve as a brief visual addition to your report and will be graded for content and quality.
