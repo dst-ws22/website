@@ -18,8 +18,8 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	3	|	24.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)	|	[📁](../weeks/week3.md)	|	
 |	4	|	31.10.	|	Data preparation	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	5	|	07.11.	|	Data visualization	|	[📑](https://drive.google.com/file/d/1-w4Hc6iYspOzPSlebRxgKfzEql6OSahV/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
-|	6	|	14.11.	|	Data visualization in Altair 1	|		|		|	
-|	7	|	21.11.	|	Data visualization in Altair 2	|		|		|	
+|	6	|	14.11.	|	Data visualization in Altair 1	|	 - 	|	[📁](../weeks/week6.md)	|	
+|	7	|	21.11.	|	Data visualization in Altair 2	|	 - 	|	[📁](../weeks/week7.md)	|	
 |	8	|	28.11.	|	Visualize categorical data	|		|		|	
 |	9	|	05.12.	|	Visualize numerical data	|		|		|	
 |	10	|	12.12.	|	Clutter and attention	|		|		|	

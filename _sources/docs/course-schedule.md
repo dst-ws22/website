@@ -25,6 +25,10 @@ This overview will be updated as the semester progresses.
 |	4	|	15	|	31.10.	|	Date analysis case	|		|		|	
 |	5	|	16	|	07.11.	|	Choose an appropriate display	|	[📑](https://drive.google.com/file/d/1-w4Hc6iYspOzPSlebRxgKfzEql6OSahV/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
 |	5	|	17	|	07.11.	|	Introduction to Altair	|		|		|	
+|	6	|	18	|	14.11.	|	Data transformation	|		|	[📁](../weeks/week6.md)	|	
+|	6	|	19	|	14.11.	|	Scales, axes, and legends	|		|		|	
+|	7	|	20	|	21.11.	|	Multi-view composition	|		|	[📁](../weeks/week7.md)	|	
+|	7	|	21	|	21.11.	|	Interaction	|		|		|	
 
 <br>
 
