@@ -23,12 +23,22 @@ This overview will be updated as the semester progresses.
 |	4	|	13	|	31.10.	|	How to obtain data	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	4	|	14	|	31.10.	|	Data preparation	|		|		|	
 |	4	|	15	|	31.10.	|	Date analysis case	|		|		|	
-|	5	|	16	|	07.11.	|	Choose an appropriate display	|	[📑](https://drive.google.com/file/d/1-w4Hc6iYspOzPSlebRxgKfzEql6OSahV/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
-|	5	|	17	|	07.11.	|	Introduction to Altair	|		|		|	
-|	6	|	18	|	14.11.	|	Data transformation	|		|	[📁](../weeks/week6.md)	|	
-|	6	|	19	|	14.11.	|	Scales, axes, and legends	|		|		|	
-|	7	|	20	|	21.11.	|	Multi-view composition	|		|	[📁](../weeks/week7.md)	|	
-|	7	|	21	|	21.11.	|	Interaction	|		|		|	
+|	5	|	16	|	07.11.	|	Choose an appropriate display	|	[📑](https://drive.google.com/file/d/104nR1WNUAv0pWWhPzXTZV2IrzbfEGyYZ/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
+|	5	|	17	|	12.12.	|	Loans data	|		|		|	
+|	5	|	18	|	12.12.	|	Simple bar chart	|		|		|	
+|	5	|	19	|	12.12.	|	Stacked bar plot	|		|		|	
+|	5	|	20	|	19.12.	|	Standardized bar plot	|		|		|	
+|	5	|	21	|	19.12.	|	Pie chart	|		|		|	
+|	5	|	22	|	28.11.	|	Contingency tables	|		|		|	
+|	5	|	23	|	09.01.	|	Contingency tables with proportions	|		|		|	
+|	6	|	24	|	16.01.	|	Scatterplot	|	[📑](https://drive.google.com/file/d/107DDVHkN56SBL6xpTxZoc6kFkpcW7Jw6/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
+|	6	|	25	|	23.01.	|	Dot plot mean median and mode	|		|		|	
+|	6	|	26	|		|	Histogram 	|		|		|	
+|	6	|	27	|		|	Variance and standard deviation	|		|		|	
+|	6	|	28	|		|	Box Plot	|		|		|	
+|	6	|	29	|		|	Robust statistics and transformations	|		|		|	
+|	6	|	30	|		|	Comparing numerical data across groups	|		|		|	
+|	6	|	31	|		|	Mapping data	|		|		|	
 
 <br>
 
