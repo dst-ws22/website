@@ -18,7 +18,7 @@
 
 
 
-Code overview: [🖥](../code/code-overview.md)
+Go to the code overview: [🖥](../code/code-overview.md)
 
 
 ---
