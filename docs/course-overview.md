@@ -17,16 +17,16 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	2	|	17.10.	|	Context	|	[📑](https://drive.google.com/file/d/1-J_F4l5Dfs2m4M45JWrltaKEYtL-gia2/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
 |	3	|	24.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-JwgQtYxAc506Z3dloT8-omYFygwFISz/view?usp=sharing)	|	[📁](../weeks/week3.md)	|	
 |	4	|	31.10.	|	Data preparation	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
-|	5	|	07.11.	|	Data visualization	|	[📑](https://drive.google.com/file/d/1-w4Hc6iYspOzPSlebRxgKfzEql6OSahV/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
-|	6	|	14.11.	|	Data visualization in Altair 1	|	 - 	|	[📁](../weeks/week6.md)	|	
-|	7	|	21.11.	|	Data visualization in Altair 2	|	 - 	|	[📁](../weeks/week7.md)	|	
-|	8	|	28.11.	|	Visualize categorical data	|		|		|	
-|	9	|	05.12.	|	Visualize numerical data	|		|		|	
-|	10	|	12.12.	|	Clutter and attention	|		|		|	
-|	11	|	19.12.	|	Dashboards and Streamlit 1	|		|		|	
-|	12	|	09.01.	|	Designer and presentation	|		|		|	
-|	13	|	16.01.	|	Dashboards and Streamlit 2	|		|		|	
-|	14	|	23.01.	|	Reporting	|		|		|	
+|	5	|	07.11.	|	Visualize categorical data	|	[📑](https://drive.google.com/file/d/104nR1WNUAv0pWWhPzXTZV2IrzbfEGyYZ/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
+|	6	|	14.11.	|	Visualize numerical data	|	[📑](https://drive.google.com/file/d/107DDVHkN56SBL6xpTxZoc6kFkpcW7Jw6/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
+|	7	|	21.11.	|	Clutter, attention & design	|		|		|	
+|	8	|	28.11.	|	Storytelling	|		|		|	
+|	9	|	05.12.	|	Reporting & Dashboards	|		|		|	
+|	10	|	12.12.	|	Altair tutorial	|		|		|	
+|	11	|	19.12.	|	Altair tutorial	|		|		|	
+|	12	|	09.01.	|	Presenting	|		|		|	
+|	13	|	16.01.	|	Recap	|		|		|	
+|	14	|	23.01.	|	Group meetings	|		|		|	
 
 ---
 
