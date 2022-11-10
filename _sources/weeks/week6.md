@@ -18,9 +18,7 @@
 
 
 
-Code overview: [🖥](../code/code-overview.md)
-
-
+Go to the code overview: [🖥](../code/code-overview.md)
 
 
 ---
@@ -32,8 +30,7 @@ Code overview: [🖥](../code/code-overview.md)
 ## Practice
 
 
-Use this advertising data: 'https://raw.githubusercontent.com/kirenz/datasets/master/album_sales.csv' to create some visualizations.
-
+None
 
 ---
 
