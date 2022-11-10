@@ -4,37 +4,30 @@
 
 Create visualizations with Altair:
  
-
-1. [Simple bar chart](../code/bar-chart-altair.ipynb)
-
-
-1. [Stacked bar plot](../code/stacked-bar-chart-altair.ipynb)
-
-
-1. [Pie chart](../code/pie-charts-altair.ipynb)
-
-
-1. [Contingency tables](../code/contingency-table-bar-plot.ipynb)
+- [17. Loans data](../code/altair/17-data-overview.ipynb)
+- [18. Simple bar chart](../code/altair/18-bar-chart-altair.ipynb)
+- [19. Stacked bar plot](../code/altair/19-stacked-bar-chart-altair.ipynb)
+- [20. Standardized bar plot](../code/altair/20-standardized-bar-chart-altair.ipynb)
+- [21. Pie chart](../code/altair/21-pie-charts-altair.ipynb)
+- [22. Contingency tables](../code/altair/22-b-contingency-table-bar-plot.ipynb)
+- [23. Contingency tables with proportions](../code/altair/23-row-column-proportions.ipynb)
 
 
-1. [Contingency tables with proportions](../code/row-column-proportions.ipynb)
-
-
-1. [Introduction to Altair](../code/altair_introduction_p.ipynb)
 
 
 ---
 
 ## Week 6
 
-- [17. Introduction to Altair](../code/altair/altair_introduction_p.ipynb)
-- [18. Data transformation](../code/altair/altair_data_transformation_p.ipynb)
-- [19. Scales, axes, and legends](../code/altair/altair_scales_axes_legends_p.ipynb)
+- [24. Scatterplot](../code/altair/24-scatterplot-paired-data-altair.ipynb)
+- [25. Dot plot mean median and mode](../code/altair/25-dot-plots-mean-altair.ipynb)
+- [26. Histogram ](../code/altair/26-histograms-altair.ipynb)
+- [27. Variance and standard deviation](../code/altair/27-histograms-kernel-density-altair.ipynb)
+- [28. Box Plot](../code/altair/28-box-plot-altair.ipynb)
+- [29. Robust statistics and transformations](../code/altair/29-transforming-data-altair.ipynb)
+- [30. Comparing numerical data across groups](../code/altair/30-comparisons-across-groups-altair.ipynb)
+- [31. Mapping data](../code/altair/31-mapping-data-altair.ipynb)
 
 
 ---
 
-## Week 7
-
-- [20. Multi-view composition](../code/altair/altair_view_composition_p.ipynb)
-- [21. Interaction](../code/altair/altair_interaction_p.ipynb)
