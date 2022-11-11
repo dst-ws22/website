@@ -6,53 +6,53 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Row and column proportions &#8212; Data Storytelling</title>
+    <title>Stacked bar chart &#8212; Data Storytelling</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,19 +87,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
+      <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Data Storytelling</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -107,7 +107,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../docs/course-overview.html">
+                <a class="reference internal" href="../../docs/course-overview.html">
                     Course overview
                 </a>
             </li>
@@ -119,17 +119,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/course-schedule.html">
+  <a class="reference internal" href="../../docs/course-schedule.html">
    Course schedule
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/course-syllabus.html">
+  <a class="reference internal" href="../../docs/course-syllabus.html">
    Course syllabus
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/course-support.html">
+  <a class="reference internal" href="../../docs/course-support.html">
    Course support
   </a>
  </li>
@@ -141,17 +141,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/programming-toolkit.html">
+  <a class="reference internal" href="../../docs/programming-toolkit.html">
    Programming toolkit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/programming-environment.html">
+  <a class="reference internal" href="../../docs/programming-environment.html">
    Anaconda environments
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../docs/programming-fundamentals.html">
+  <a class="reference internal" href="../../docs/programming-fundamentals.html">
    Fundamentals
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -161,12 +161,12 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../docs/programming-syntax.html">
+    <a class="reference internal" href="../../docs/programming-syntax.html">
      Python Syntax
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../docs/programming-semantics.html">
+    <a class="reference internal" href="../../docs/programming-semantics.html">
      Python Semantics
     </a>
    </li>
@@ -180,12 +180,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/project-description.html">
+  <a class="reference internal" href="../../docs/project-description.html">
    Project description
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../docs/project-tips-resources.html">
+  <a class="reference internal" href="../../docs/project-tips-resources.html">
    Tips &amp; resources
   </a>
  </li>
@@ -197,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../weeks/weeks-overview.html">
+  <a class="reference internal" href="../../weeks/weeks-overview.html">
    Overview
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -207,32 +207,32 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week1.html">
+    <a class="reference internal" href="../../weeks/week1.html">
      Week 1
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week2.html">
+    <a class="reference internal" href="../../weeks/week2.html">
      Week 2
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week3.html">
+    <a class="reference internal" href="../../weeks/week3.html">
      Week 3
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week4.html">
+    <a class="reference internal" href="../../weeks/week4.html">
      Week 4
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week5.html">
+    <a class="reference internal" href="../../weeks/week5.html">
      Week 5
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../weeks/week6.html">
+    <a class="reference internal" href="../../weeks/week6.html">
      Week 6
     </a>
    </li>
@@ -297,7 +297,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/orgs/dst-ws22/blob/main/code/23-row-column-proportions.ipynb"
+        <a href="https://colab.research.google.com/github/orgs/dst-ws22/blob/main/code/altair/19-stacked-bar-chart-altair.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -307,7 +307,7 @@ title="Launch on Colab"
 
 <span class="headerbtn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img src="../../_static/images/logo_colab.png">
   </span>
 <span class="headerbtn__text-container">Colab</span>
 </a>
@@ -357,7 +357,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/orgs/dst-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/23-row-column-proportions.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/orgs/dst-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/altair/19-stacked-bar-chart-altair.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -385,7 +385,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/code/23-row-column-proportions.ipynb"
+        <a href="../../_sources/code/altair/19-stacked-bar-chart-altair.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -455,21 +455,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contingency-table-with-proportions">
-   Contingency table with proportions
+  <a class="reference internal nav-link" href="#chart">
+   Chart
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#row-proportions">
-     Row proportions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#column-proportions">
-     Column proportions
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -480,7 +468,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Row and column proportions</h1>
+                <h1>Stacked bar chart</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -501,21 +489,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contingency-table-with-proportions">
-   Contingency table with proportions
+  <a class="reference internal nav-link" href="#chart">
+   Chart
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#row-proportions">
-     Row proportions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#column-proportions">
-     Column proportions
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -527,13 +503,18 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="row-and-column-proportions">
-<h1>Row and column proportions<a class="headerlink" href="#row-and-column-proportions" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="stacked-bar-chart">
+<h1>Stacked bar chart<a class="headerlink" href="#stacked-bar-chart" title="Permalink to this headline">#</a></h1>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">disable_max_rows</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -555,136 +536,35 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="contingency-table-with-proportions">
-<h2>Contingency table with proportions<a class="headerlink" href="#contingency-table-with-proportions" title="Permalink to this headline">#</a></h2>
-<p>Normalize by dividing all values by the sum of values:</p>
-<ul class="simple">
-<li><p>If passed ‘all’ or True, will normalize over all values.</p></li>
-<li><p>If passed ‘index’ will normalize over each row.</p></li>
-<li><p>If passed ‘columns’ will normalize over each column.</p></li>
-<li><p>If margins is True, will also normalize margin values.</p></li>
-</ul>
-<section id="row-proportions">
-<h3>Row proportions<a class="headerlink" href="#row-proportions" title="Permalink to this headline">#</a></h3>
+<section id="chart">
+<h2>Chart<a class="headerlink" href="#chart" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A contingency table with row proportions for the application type and homeownership variables.</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">application_type</span>	<span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;homeownership&#39;</span><span class="p">,</span>
+            <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Homeownership&quot;</span><span class="p">,</span> 
+                          <span class="n">titleAnchor</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> 
+                          <span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count(homeownership)&#39;</span><span class="p">,</span> 
+            <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Count&quot;</span><span class="p">,</span> 
+                          <span class="n">titleAnchor</span><span class="o">=</span><span class="s2">&quot;end&quot;</span><span class="p">)),</span>
+    <span class="n">color</span><span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;application_type&#39;</span><span class="p">,</span> 
+                     <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Type&quot;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;This is a stacked bar chart&#39;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">150</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>homeownership</th>
-      <th>mortgage</th>
-      <th>own</th>
-      <th>rent</th>
-    </tr>
-    <tr>
-      <th>application_type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>individual</th>
-      <td>45.14</td>
-      <td>13.76</td>
-      <td>41.11</td>
-    </tr>
-    <tr>
-      <th>joint</th>
-      <td>63.55</td>
-      <td>12.24</td>
-      <td>24.21</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
-<ul class="simple">
-<li><p>0.411 corresponds to the proportion of individual applicants who rent.</p></li>
-</ul>
-</section>
-<section id="column-proportions">
-<h3>Column proportions<a class="headerlink" href="#column-proportions" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A contingency table with row proportions for the application type and homeownership variables.</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">application_type</span>	<span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>homeownership</th>
-      <th>mortgage</th>
-      <th>own</th>
-      <th>rent</th>
-    </tr>
-    <tr>
-      <th>application_type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>individual</th>
-      <td>80.16</td>
-      <td>86.47</td>
-      <td>90.62</td>
-    </tr>
-    <tr>
-      <th>joint</th>
-      <td>19.84</td>
-      <td>13.53</td>
-      <td>9.38</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<ul class="simple">
-<li><p>The value 0.906 indicates that 90.6% of renters applied as individuals for the loan.</p></li>
-<li><p>This rate is higher compared to loans from people with mortgages (80.2%) or who own their home (86.5%)</p></li>
-</ul>
-</section>
 </section>
 </section>
 
@@ -701,7 +581,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./code"
+            path: "./code/altair"
         },
         predefinedOutput: true
     }
@@ -736,7 +616,7 @@ title="Print to PDF"
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
