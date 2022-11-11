@@ -9,7 +9,7 @@ Create visualizations with Altair:
 - [19. Stacked bar plot](../code/altair/19-stacked-bar-chart-altair.ipynb)
 - [20. Standardized bar plot](../code/altair/20-standardized-bar-chart-altair.ipynb)
 - [21. Pie chart](../code/altair/21-pie-charts-altair.ipynb)
-- [22. Contingency tables](../code/altair/22-b-contingency-table-bar-plot.ipynb)
+- [22. Contingency tables](../code/altair/22-contingency-table-bar-plot.ipynb)
 - [23. Contingency tables with proportions](../code/altair/23-row-column-proportions.ipynb)
 
 
