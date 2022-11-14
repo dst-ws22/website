@@ -17,6 +17,10 @@
 ## Participate
 
 
+Slides: [📑](https://drive.google.com/file/d/104nR1WNUAv0pWWhPzXTZV2IrzbfEGyYZ/view?usp=sharing)
+
+---
+
 [From data to Viz](https://www.data-to-viz.com/) leads you to the most appropriate graph for your data.
 
 ---
@@ -28,7 +32,9 @@ Take a look at the [Altair example gallery](https://altair-viz.github.io/)
 
 Code overview: [🖥](../code/code-overview.md)
 
+---
 
+Reading: [Introduction to Modern Statistics, Exploring categorical data](https://openintro-ims.netlify.app/explore-categorical.html)
 
 
 ---
