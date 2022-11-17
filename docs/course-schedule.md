@@ -39,6 +39,9 @@ This overview will be updated as the semester progresses.
 |	6	|	29	|	14.11.	|	Robust statistics and transformations	|		|		|	
 |	6	|	30	|	14.11.	|	Comparing numerical data across groups	|		|		|	
 |	6	|	31	|	14.11.	|	Mapping data	|		|		|	
+|	7	|	32	|	21.11.	|	Eliminate clutter	|	[📑](https://drive.google.com/file/d/10ACOvGOYkyiYLLfOe9wt6wefqtTy9POf/view?usp=sharing)	|	[📁](../weeks/week7.md)	|	
+|	7	|	33	|	21.11.	|	Focus attention	|		|		|	
+|	7	|	34	|	21.11.	|	Think like a designer	|		|		|	
 
 <br>
 
