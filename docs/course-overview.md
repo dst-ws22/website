@@ -19,7 +19,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	4	|	31.10.	|	Data preparation	|	[📑](https://drive.google.com/file/d/1-m-1hYOlHtk14Wxc3d_-VTVmE23A_I6n/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	5	|	07.11.	|	Visualize categorical data	|	[📑](https://drive.google.com/file/d/104nR1WNUAv0pWWhPzXTZV2IrzbfEGyYZ/view?usp=sharing)	|	[📁](../weeks/week5.md)	|	
 |	6	|	14.11.	|	Visualize numerical data	|	[📑](https://drive.google.com/file/d/107DDVHkN56SBL6xpTxZoc6kFkpcW7Jw6/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
-|	7	|	21.11.	|	Clutter, attention & design	|		|		|	
+|	7	|	21.11.	|	Clutter, attention & design	|	[📑](https://drive.google.com/file/d/10ACOvGOYkyiYLLfOe9wt6wefqtTy9POf/view?usp=sharing)	|	[📁](../weeks/week7.md)	|	
 |	8	|	28.11.	|	Storytelling	|		|		|	
 |	9	|	05.12.	|	Reporting & Dashboards	|		|		|	
 |	10	|	12.12.	|	Altair tutorial	|		|		|	
