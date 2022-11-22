@@ -6,7 +6,7 @@
 | Topic                 | Deadline      | GitHub folder & hints |
 | ---                   | ---           |  ---                  |
 |[](topic-ideas)        | Fri, Oct 28   | references/           |
-|[](project-proposal)   | Fri, Nov 25   | references/           |
+|[](project-proposal)   | Fri, 2 Dec   | references/           |
 |[](draft-analysis)     | Fri, Dec 9    | notebooks/            |
 |[](peer-review-draft)  | Fri, Dec 16   | use [](issue-template)|
 |[](report)             | Fr, Feb 3     | reports/              |
