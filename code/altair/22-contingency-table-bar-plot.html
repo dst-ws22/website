@@ -557,7 +557,7 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -569,10 +569,10 @@ title="Print to PDF"
 <h3>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;</span>
-<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;loans.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;
+DATA = &quot;loans.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
+df = pd.read_csv(ROOT + DATA)
 </pre></div>
 </div>
 </div>
@@ -582,9 +582,9 @@ title="Print to PDF"
 <h3>Data corrections<a class="headerlink" href="#data-corrections" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change data format from object to category</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;homeownership&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;homeownership&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Change data format from object to category
+df[&#39;homeownership&#39;] = df[&#39;homeownership&#39;].astype(&quot;category&quot;)
+df[&#39;application_type&#39;] = df[&#39;application_type&#39;].astype(&quot;category&quot;)
 </pre></div>
 </div>
 </div>
@@ -597,19 +597,19 @@ title="Print to PDF"
 <h3>Contingency table<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># contingency table for application type and homeownership.</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_type&#39;</span><span class="p">],</span> <span class="c1"># rows</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;homeownership&#39;</span><span class="p">],</span>    <span class="c1"># columns</span>
-            <span class="n">margins</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>          <span class="c1"># no total count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># contingency table for application type and homeownership.
+pd.crosstab(df[&#39;application_type&#39;], # rows
+            df[&#39;homeownership&#39;],    # columns
+            margins=False)          # no total count
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;application_type&#39;</span><span class="p">],</span> 
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;homeownership&#39;</span><span class="p">],</span>    
-            <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>          <span class="c1"># total count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.crosstab(df[&#39;application_type&#39;], 
+            df[&#39;homeownership&#39;],    
+            margins=True)          # total count
 </pre></div>
 </div>
 </div>

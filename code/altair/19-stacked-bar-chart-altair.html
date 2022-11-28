@@ -519,12 +519,12 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import altair as alt
+import warnings
 
-<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">disable_max_rows</span><span class="p">()</span>
+warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
+alt.data_transformers.disable_max_rows()
 </pre></div>
 </div>
 </div>
@@ -534,13 +534,13 @@ title="Print to PDF"
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;</span>
-<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;loans.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;
+DATA = &quot;loans.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
+df = pd.read_csv(ROOT + DATA)
 
-<span class="n">df</span><span class="o">.</span><span class="n">homeownership</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">application_type</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">application_type</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+df.homeownership = df.homeownership.astype(&quot;category&quot;)
+df.application_type = df.application_type.astype(&quot;category&quot;)
 </pre></div>
 </div>
 </div>
@@ -550,27 +550,27 @@ title="Print to PDF"
 <h2>Chart<a class="headerlink" href="#chart" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;homeownership&#39;</span><span class="p">,</span>
-            <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span>
-            <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Homeownership&quot;</span><span class="p">,</span> 
-                          <span class="n">titleAnchor</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> 
-                          <span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count(homeownership)&#39;</span><span class="p">,</span> 
-            <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Count&quot;</span><span class="p">,</span> 
-                          <span class="n">titleAnchor</span><span class="o">=</span><span class="s2">&quot;end&quot;</span><span class="p">)),</span>
-    <span class="n">color</span><span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;application_type&#39;</span><span class="p">,</span> 
-                     <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Type&quot;</span><span class="p">))</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;This is a stacked bar chart&#39;</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">150</span>
-<span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
-    <span class="n">fontSize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-    <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
-    <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_bar().encode(
+    x=alt.X(&#39;homeownership&#39;,
+            sort=&#39;-y&#39;,
+            axis=alt.Axis(title=&quot;Homeownership&quot;, 
+                          titleAnchor=&quot;start&quot;, 
+                          labelAngle=0)),
+    y=alt.Y(&#39;count(homeownership)&#39;, 
+            axis=alt.Axis(title = &quot;Count&quot;, 
+                          titleAnchor=&quot;end&quot;)),
+    color= alt.Color(&#39;application_type&#39;, 
+                     legend=alt.Legend(title=&quot;Type&quot;))
+).properties(
+    title=&#39;This is a stacked bar chart&#39;,
+    width=350,
+    height=150
+).configure_title(
+    fontSize=16,
+    font=&#39;Arial&#39;,
+    anchor=&#39;start&#39;,
+    color=&#39;black&#39;
+)
 </pre></div>
 </div>
 </div>

@@ -643,8 +643,8 @@ title="Print to PDF"
 <h1>Data Transformation<a class="headerlink" href="#data-transformation" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import altair as alt
 </pre></div>
 </div>
 </div>
@@ -674,8 +674,8 @@ title="Print to PDF"
 <p>Let’s retrieve the URL for the JSON data file from the vega_datasets package, and then read the data into a Pandas data frame so that we can inspect its contents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies_url</span> <span class="o">=</span> <span class="s1">&#39;https://cdn.jsdelivr.net/npm/vega-datasets@1/data/movies.json&#39;</span>
-<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>movies_url = &#39;https://cdn.jsdelivr.net/npm/vega-datasets@1/data/movies.json&#39;
+movies = pd.read_json(movies_url)
 </pre></div>
 </div>
 </div>
@@ -683,7 +683,7 @@ title="Print to PDF"
 <p>How many rows (records) and columns (fields) are in the movies dataset?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>movies.shape
 </pre></div>
 </div>
 </div>
@@ -696,7 +696,7 @@ title="Print to PDF"
 <p>Now let’s peek at the first 5 rows of the table to get a sense of the fields and data types…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>movies.head(5)
 </pre></div>
 </div>
 </div>
@@ -857,10 +857,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;),
+    alt.Y(&#39;IMDB_Rating:Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -927,10 +927,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=True), # &lt;--
+    alt.Y(&#39;IMDB_Rating:Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -993,10 +993,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)), # &lt;--
+    alt.Y(&#39;IMDB_Rating:Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1065,10 +1065,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;count()&#39;) # &lt;--
+)
 </pre></div>
 </div>
 </div>
@@ -1129,10 +1129,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode( # &lt;--
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;count()&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1192,10 +1192,10 @@ title="Print to PDF"
 <p>Similarly, we can create a histogram for IMDB ratings by changing the field in the <code class="docutils literal notranslate"><span class="pre">x</span></code> encoding channel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;IMDB_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;count()&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1258,10 +1258,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span> <span class="c1"># &lt;--</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;IMDB_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)), # &lt;--
+)
 </pre></div>
 </div>
 </div>
@@ -1324,11 +1324,11 @@ title="Print to PDF"
 <p>As both the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> encoding channels are already taken, we must use a different encoding channel to convey the counts. Here is the result of using circular area by adding a <em>size</em> encoding channel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;IMDB_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Size(&#39;count()&#39;) # &lt;--
+)
 </pre></div>
 </div>
 </div>
@@ -1390,11 +1390,11 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Y(&#39;IMDB_Rating:Q&#39;, bin=alt.BinParams(maxbins=20)),
+    alt.Color(&#39;count()&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1470,10 +1470,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;average(Rotten_Tomatoes_Rating):Q&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;average(Rotten_Tomatoes_Rating):Q&#39;), # &lt;--
+    alt.Y(&#39;Major_Genre:N&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1538,12 +1538,12 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;average(Rotten_Tomatoes_Rating):Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>  <span class="c1"># &lt;--</span>
-        <span class="n">op</span><span class="o">=</span><span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Rotten_Tomatoes_Rating&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;average(Rotten_Tomatoes_Rating):Q&#39;),
+    alt.Y(&#39;Major_Genre:N&#39;, sort=alt.EncodingSortField(  # &lt;--
+        op=&#39;average&#39;, field=&#39;Rotten_Tomatoes_Rating&#39;, order=&#39;descending&#39;) # &lt;--
+    )
+)
 </pre></div>
 </div>
 </div>
@@ -1624,12 +1624,12 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;median(Rotten_Tomatoes_Rating):Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
-        <span class="n">op</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Rotten_Tomatoes_Rating&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;median(Rotten_Tomatoes_Rating):Q&#39;),
+    alt.Y(&#39;Major_Genre:N&#39;, sort=alt.EncodingSortField(
+        op=&#39;median&#39;, field=&#39;Rotten_Tomatoes_Rating&#39;, order=&#39;descending&#39;) # &lt;--
+    )
+)
 </pre></div>
 </div>
 </div>
@@ -1712,13 +1712,13 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;q1(Rotten_Tomatoes_Rating):Q&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X2</span><span class="p">(</span><span class="s1">&#39;q3(Rotten_Tomatoes_Rating):Q&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
-        <span class="n">op</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Rotten_Tomatoes_Rating&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().encode(
+    alt.X(&#39;q1(Rotten_Tomatoes_Rating):Q&#39;), # &lt;--
+    alt.X2(&#39;q3(Rotten_Tomatoes_Rating):Q&#39;), # &lt;--
+    alt.Y(&#39;Major_Genre:N&#39;, sort=alt.EncodingSortField(
+        op=&#39;median&#39;, field=&#39;Rotten_Tomatoes_Rating&#39;, order=&#39;descending&#39;)
+    )
+)
 </pre></div>
 </div>
 </div>
@@ -1794,10 +1794,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month(Release_Date):T&#39;</span><span class="p">),</span> 
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;median(US_Gross):Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_area().encode(
+    alt.X(&#39;month(Release_Date):T&#39;), 
+    alt.Y(&#39;median(US_Gross):Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1856,10 +1856,10 @@ title="Print to PDF"
 <p><em>Looking at the resulting plot, median movie sales in the U.S. appear to spike around the summer blockbuster season and the end of year holiday period. Of course, people around the world (not just the U.S.) go out to the movies. Does a similar pattern arise for worldwide gross revenue?</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month(Release_Date):T&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;median(Worldwide_Gross):Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_area().encode(
+    alt.X(&#39;month(Release_Date):T&#39;),
+    alt.Y(&#39;median(Worldwide_Gross):Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -1945,12 +1945,12 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
-    <span class="n">NonUS_Gross</span><span class="o">=</span><span class="s1">&#39;datum.Worldwide_Gross - datum.US_Gross&#39;</span> <span class="c1"># &lt;--</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;month(Release_Date):T&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;median(NonUS_Gross):Q&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies).mark_area().transform_calculate(
+    NonUS_Gross=&#39;datum.Worldwide_Gross - datum.US_Gross&#39; # &lt;--
+).encode(
+    alt.X(&#39;month(Release_Date):T&#39;),
+    alt.Y(&#39;median(NonUS_Gross):Q&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -2021,10 +2021,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="s1">&#39;datum.Major_Genre == &quot;Romantic Comedy&quot;&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;),
+    alt.Y(&#39;IMDB_Rating:Q&#39;)
+).transform_filter(&#39;datum.Major_Genre == &quot;Romantic Comedy&quot;&#39;) # &lt;--
 </pre></div>
 </div>
 </div>
@@ -2088,10 +2088,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Rotten_Tomatoes_Rating:Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;IMDB_Rating:Q&#39;</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="s1">&#39;year(datum.Release_Date) &lt; 1970&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_circle().encode(
+    alt.X(&#39;Rotten_Tomatoes_Rating:Q&#39;),
+    alt.Y(&#39;IMDB_Rating:Q&#39;)
+).transform_filter(&#39;year(datum.Release_Date) &lt; 1970&#39;) # &lt;--
 </pre></div>
 </div>
 </div>
@@ -2172,16 +2172,16 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Major_Genre&#39;</span><span class="p">],</span>
-    <span class="n">Average_Rating</span><span class="o">=</span><span class="s1">&#39;average(Rotten_Tomatoes_Rating)&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Average_Rating:Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Major_Genre:N&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
-        <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Average_Rating&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span>
-      <span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().transform_aggregate( # &lt;--
+    groupby=[&#39;Major_Genre&#39;],
+    Average_Rating=&#39;average(Rotten_Tomatoes_Rating)&#39;
+).encode(
+    alt.X(&#39;Average_Rating:Q&#39;),
+    alt.Y(&#39;Major_Genre:N&#39;, sort=alt.EncodingSortField(
+        op=&#39;max&#39;, field=&#39;Average_Rating&#39;, order=&#39;descending&#39;
+      )
+    )
+)
 </pre></div>
 </div>
 </div>
@@ -2284,22 +2284,22 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="s1">&#39;datum.Director != null&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="n">Gross</span><span class="o">=</span><span class="s1">&#39;sum(Worldwide_Gross)&#39;</span><span class="p">,</span> 
-    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Director&#39;</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="n">Rank</span><span class="o">=</span><span class="s1">&#39;rank()&#39;</span><span class="p">,</span>
-    <span class="n">sort</span><span class="o">=</span><span class="p">[</span><span class="n">alt</span><span class="o">.</span><span class="n">SortField</span><span class="p">(</span><span class="s1">&#39;Gross&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="s1">&#39;datum.Rank &lt; 20&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Gross:Q&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Director:N&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
-        <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Gross&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span>
-    <span class="p">))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_bar().transform_filter( # &lt;--
+    &#39;datum.Director != null&#39;
+).transform_aggregate( # &lt;--
+    Gross=&#39;sum(Worldwide_Gross)&#39;, 
+    groupby=[&#39;Director&#39;]
+).transform_window( # &lt;--
+    Rank=&#39;rank()&#39;,
+    sort=[alt.SortField(&#39;Gross&#39;, order=&#39;descending&#39;)]
+).transform_filter( # &lt;--
+    &#39;datum.Rank &lt; 20&#39;
+).encode(
+    alt.X(&#39;Gross:Q&#39;),
+    alt.Y(&#39;Director:N&#39;, sort=alt.EncodingSortField(
+        op=&#39;max&#39;, field=&#39;Gross&#39;, order=&#39;descending&#39;
+    ))
+)
 </pre></div>
 </div>
 </div>
@@ -2392,18 +2392,18 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies_url</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">interpolate</span><span class="o">=</span><span class="s1">&#39;step-before&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
-    <span class="s1">&#39;datum.Running_Time_min != null&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_aggregate</span><span class="p">(</span>
-    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Running_Time_min&#39;</span><span class="p">],</span>
-    <span class="n">Count</span><span class="o">=</span><span class="s1">&#39;count()&#39;</span><span class="p">,</span>
-<span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
-    <span class="n">Cumulative_Sum</span><span class="o">=</span><span class="s1">&#39;sum(Count)&#39;</span><span class="p">,</span>
-    <span class="n">sort</span><span class="o">=</span><span class="p">[</span><span class="n">alt</span><span class="o">.</span><span class="n">SortField</span><span class="p">(</span><span class="s1">&#39;Running_Time_min&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;ascending&#39;</span><span class="p">)]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Running_Time_min:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Duration (min)&#39;</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Cumulative_Sum:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cumulative Count of Films&#39;</span><span class="p">))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(movies_url).mark_line(interpolate=&#39;step-before&#39;).transform_filter(
+    &#39;datum.Running_Time_min != null&#39;
+).transform_aggregate(
+    groupby=[&#39;Running_Time_min&#39;],
+    Count=&#39;count()&#39;,
+).transform_window(
+    Cumulative_Sum=&#39;sum(Count)&#39;,
+    sort=[alt.SortField(&#39;Running_Time_min&#39;, order=&#39;ascending&#39;)]
+).encode(
+    alt.X(&#39;Running_Time_min:Q&#39;, axis=alt.Axis(title=&#39;Duration (min)&#39;)),
+    alt.Y(&#39;Cumulative_Sum:Q&#39;, axis=alt.Axis(title=&#39;Cumulative Count of Films&#39;))
+)
 </pre></div>
 </div>
 </div>

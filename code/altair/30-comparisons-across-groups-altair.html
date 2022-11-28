@@ -583,18 +583,18 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import altair as alt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import warnings
 
-<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">disable_max_rows</span><span class="p">()</span>
+warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
+alt.data_transformers.disable_max_rows()
 </pre></div>
 </div>
 </div>
@@ -607,22 +607,22 @@ title="Print to PDF"
 <h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;</span>
-<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;county.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;
+DATA = &quot;county.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
+df = pd.read_csv(ROOT + DATA)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only relevant variables</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select only relevant variables
 
-<span class="n">data_selection</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;pop_change&quot;</span><span class="p">,</span> 
-                  <span class="s2">&quot;population_change&quot;</span><span class="p">,</span> <span class="s2">&quot;median_hh_income&quot;</span><span class="p">,</span> <span class="s2">&quot;metro&quot;</span><span class="p">]</span>
+data_selection = [&quot;state&quot;, &quot;name&quot;, &quot;pop_change&quot;, 
+                  &quot;population_change&quot;, &quot;median_hh_income&quot;, &quot;metro&quot;]
                   
-<span class="n">df</span> <span class="o">=</span> <span class="n">___</span>
+df = ___
 </pre></div>
 </div>
 </div>
@@ -632,24 +632,24 @@ title="Print to PDF"
 <h2>Data corrections<a class="headerlink" href="#data-corrections" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop missing values</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># drop missing values
+df.dropna(inplace=True)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rename variable population_change to change (use: inplace=True)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;___&#39;</span><span class="p">:</span> <span class="s1">&#39;___&#39;</span><span class="p">},</span> <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># rename variable population_change to change (use: inplace=True)
+df.rename(columns={&#39;___&#39;: &#39;___&#39;}, ___=___)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change data type to category</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span><span class="n">___</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># change data type to category
+df[&#39;change&#39;] = df[&#39;change&#39;]___
 </pre></div>
 </div>
 </div>
@@ -659,15 +659,15 @@ title="Print to PDF"
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count the values</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">___</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># count the values
+df[&#39;change&#39;].___
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;metro&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">___</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&#39;metro&#39;].___
 </pre></div>
 </div>
 </div>
@@ -676,14 +676,14 @@ title="Print to PDF"
 <h3>Histogram for two groups<a class="headerlink" href="#histogram-for-two-groups" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use median_hh_income and change as color </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># use median_hh_income and change as color 
 
-<span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span><span class="o">.</span><span class="n">___</span><span class="p">()</span><span class="o">.</span><span class="n">___</span><span class="p">(</span>
-    <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="s2">&quot;___&quot;</span><span class="p">,</span> 
-            <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="n">___</span><span class="p">)),</span>
-    <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="s1">&#39;___&#39;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="s1">&#39;___&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+___.___(___).___().___(
+    ___=___.___(&quot;___&quot;, 
+            bin=alt.BinParams(maxbins=___)),
+    ___=___.___(&#39;___&#39;),
+    color=___.___(&#39;___&#39;)
+)
 </pre></div>
 </div>
 </div>
@@ -693,14 +693,14 @@ title="Print to PDF"
 <h3>Side-by-side box plot<a class="headerlink" href="#side-by-side-box-plot" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_boxplot</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;median_hh_income&#39;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-    <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_boxplot().encode(
+    x=alt.X(&#39;median_hh_income&#39;),
+    y=alt.Y(&#39;change&#39;),
+    color=alt.Color(&#39;change&#39;),
+).properties(
+    width=400,
+    height=150,
+    )
 </pre></div>
 </div>
 </div>
@@ -711,31 +711,31 @@ title="Print to PDF"
 <h2>Faceting<a class="headerlink" href="#faceting" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;median_hh_income&quot;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">50</span><span class="p">)),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;metro&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_bar().encode(
+    alt.X(&quot;median_hh_income&quot;, bin=alt.BinParams(maxbins=50)),
+    alt.Y(&#39;count()&#39;),
+    alt.Column(&#39;metro&#39;), # &lt;--
+    alt.Row(&#39;change&#39;), # &lt;--
+).properties(
+    width=200,
+    height=100,
+)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;median_hh_income&quot;</span><span class="p">,</span> <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">50</span><span class="p">)),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span> <span class="c1"># &lt;--</span>
-    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;metro&#39;</span><span class="p">,</span>
-    <span class="n">row</span><span class="o">=</span><span class="s1">&#39;change&#39;</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_bar().encode(
+    x=alt.X(&quot;median_hh_income&quot;, bin=alt.BinParams(maxbins=50)),
+    y=alt.Y(&#39;count()&#39;),
+).properties(
+    width=200,
+    height=100,
+).facet( # &lt;--
+    column=&#39;metro&#39;,
+    row=&#39;change&#39;,
+)
 </pre></div>
 </div>
 </div>
@@ -745,17 +745,17 @@ title="Print to PDF"
 <h2>Pair plots<a class="headerlink" href="#pair-plots" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;column&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">),</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">150</span>
-<span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
-    <span class="n">row</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pop_change&#39;</span><span class="p">,</span> <span class="s1">&#39;median_hh_income&#39;</span><span class="p">],</span>
-    <span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;median_hh_income&#39;</span><span class="p">,</span> <span class="s1">&#39;pop_change&#39;</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_circle().encode(
+    x=alt.X(alt.repeat(&quot;column&quot;), type=&#39;quantitative&#39;),
+    y=alt.Y(alt.repeat(&quot;row&quot;), type=&#39;quantitative&#39;),
+    color=alt.Color(&#39;change&#39;),
+).properties(
+    width=150,
+    height=150
+).repeat(
+    row=[&#39;pop_change&#39;, &#39;median_hh_income&#39;],
+    column=[&#39;median_hh_income&#39;, &#39;pop_change&#39;]
+).interactive()
 </pre></div>
 </div>
 </div>

@@ -529,19 +529,19 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="c1"># to compute the mode</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import altair as alt
+from scipy import stats # to compute the mode
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import warnings
 
-<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">disable_max_rows</span><span class="p">()</span>
+warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
+alt.data_transformers.disable_max_rows()
 </pre></div>
 </div>
 </div>
@@ -551,16 +551,16 @@ title="Print to PDF"
 <h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LINK</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/loan50.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>LINK = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/loan50.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">___</span>
+df = ___
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&quot;interest_rate&quot;] = df[&quot;interest_rate&quot;].astype(&quot;int64&quot;)
 </pre></div>
 </div>
 </div>
@@ -571,18 +571,18 @@ title="Print to PDF"
 <p>A dot plot of interest rate for the loan50 dataset. The rates have been rounded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">transform_window</span><span class="p">(</span>
-    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;rank()&#39;</span><span class="p">,</span>
-    <span class="n">groupby</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">___</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;interest_rate:O&#39;</span><span class="p">,</span> 
-            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Interest Rate (in %)&#39;</span><span class="p">),</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;id:O&#39;</span><span class="p">,</span>
-          <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">___</span><span class="p">(</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">100</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.___(df).mark_circle(opacity=1).transform_window(
+    id=&#39;rank()&#39;,
+    groupby=[&#39;interest_rate&#39;]
+).___(
+    x=alt.X(&#39;interest_rate:O&#39;, 
+            title=&#39;Interest Rate (in %)&#39;),
+    y=alt.Y(&#39;id:O&#39;,
+          axis=None,
+          sort=&#39;descending&#39;)
+).___(
+    height=100
+)
 </pre></div>
 </div>
 </div>
@@ -592,39 +592,39 @@ title="Print to PDF"
 <h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mode_ir</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">],</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mode_ir = stats.mode(df[&quot;interest_rate&quot;], keepdims=True)
 
-<span class="n">mode_ir</span>
+mode_ir
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># median</span>
-<span class="n">median_ir</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interest_rate</span><span class="o">.</span><span class="n">___</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># median
+median_ir = df.interest_rate.___()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean</span>
-<span class="n">mean_ir</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">interest_rate</span><span class="o">.</span><span class="n">___</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># mean
+mean_ir = df.interest_rate.___ 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mode:&quot;</span><span class="p">,</span> <span class="n">mode_ir</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;median:&quot;</span><span class="p">,</span> <span class="n">median_ir</span><span class="p">,</span> <span class="s2">&quot;mean:&quot;</span><span class="p">,</span> <span class="n">mean_ir</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;mode:&quot;, mode_ir[0], &quot;median:&quot;, median_ir, &quot;mean:&quot;, mean_ir)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[&quot;interest_rate&quot;].describe()
 </pre></div>
 </div>
 </div>
