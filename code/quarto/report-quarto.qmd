@@ -9,7 +9,7 @@ format:
     number-sections: true
     html-math-method: mathjax
     smooth-scroll: true
-#    css: styles.css
+    css: custom.scss
 ---
 
 ## Markdown
@@ -20,6 +20,60 @@ Markdown is an easy to read and write text format:
 - It can be **rendered** into HTML, PDF, and more
 - Learn more at: <https://quarto.org/docs/authoring/>
 
+
+### Tables
+
+Table 1:
+
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: Demonstration of pipe table syntax
+
+
+Table 2:
+
+::: {#tbl-panel layout-ncol=2}
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: First Table {#tbl-first}
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: Second Table {#tbl-second}
+
+Main Caption
+:::
+
+See @tbl-panel for details, especially @tbl-second.
+
+
+Table 3:
+
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+: Sample grid table.
+
 ## Code Cell
 
 Here is a Python code cell:
@@ -28,6 +82,24 @@ Here is a Python code cell:
 import os
 os.cpu_count()
 ```
+
+
+```{python}
+#| label: tbl-planets
+#| tbl-cap: Planets
+
+from IPython.display import Markdown
+from tabulate import tabulate
+table = [["Sun",696000,1989100000],
+         ["Earth",6371,5973.6],
+         ["Moon",1737,73.5],
+         ["Mars",3390,641.85]]
+Markdown(tabulate(
+  table, 
+  headers=["Planet","R (km)", "mass (x 10^29 kg)"]
+))
+```
+
 
 ## Equation
 
@@ -88,5 +160,11 @@ Tab content
 
 ## CSS
 
+
+
 SASS theme files can define both variables that globally set things like colors and fonts, as well as rules that define more fine grained behavior. To customize an existing Bootstrap theme with your own set of variables and/or rules, just provide the base theme and then your custom theme file(s):
 
+[https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)
+
+
+https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes
