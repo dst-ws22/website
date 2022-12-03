@@ -24,7 +24,7 @@ jupyter: python3 # use python
 
 Quarto is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/) (a universal document converter).
 
-It supports executable Python code blocks within markdown. This allows you to create fully reproducible documents and reports.
+It supports executable Python code blocks within markdown. This allows you to create fully reproducible documents, reports and [scientific articles](https://github.com/quarto-journals/).
 
 HTML documents rendered with Quarto use Bootstrap 5 by default. This can be disabled or customized via the `theme` option. Take a look a at the [different themes](https://quarto.org/docs/output-formats/html-themes.html)
 
