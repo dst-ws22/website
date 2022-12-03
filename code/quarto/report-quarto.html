@@ -100,6 +100,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="custom.scss">
 </head>
 
 <body>
@@ -110,10 +111,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link active" data-scroll-target="#markdown"><span class="toc-section-number">1</span>  Markdown</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link active" data-scroll-target="#markdown"><span class="toc-section-number">1</span>  Markdown</a>
+  <ul class="collapse">
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="toc-section-number">1.1</span>  Tables</a></li>
+  </ul></li>
   <li><a href="#code-cell" id="toc-code-cell" class="nav-link" data-scroll-target="#code-cell"><span class="toc-section-number">2</span>  Code Cell</a></li>
   <li><a href="#equation" id="toc-equation" class="nav-link" data-scroll-target="#equation"><span class="toc-section-number">3</span>  Equation</a></li>
-  <li><a href="#tabset" id="toc-tabset" class="nav-link" data-scroll-target="#tabset"><span class="toc-section-number">4</span>  Tabset</a></li>
+  <li><a href="#tabsets" id="toc-tabsets" class="nav-link" data-scroll-target="#tabsets"><span class="toc-section-number">4</span>  Tabsets</a></li>
+  <li><a href="#css" id="toc-css" class="nav-link" data-scroll-target="#css"><span class="toc-section-number">5</span>  CSS</a></li>
   </ul>
 </nav>
 </div>
@@ -146,6 +151,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>It can be <strong>rendered</strong> into HTML, PDF, and more</li>
 <li>Learn more at: <a href="https://quarto.org/docs/authoring/" class="uri">https://quarto.org/docs/authoring/</a></li>
 </ul>
+<section id="tables" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">1.1</span> Tables</h3>
+<p>Table 1:</p>
+<table class="table">
+<caption>Demonstration of pipe table syntax</caption>
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td>123</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: center;">123</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2:</p>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Table&nbsp;1: Main Caption</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-first" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table">
+<caption>(a) First Table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Col1</th>
+<th style="text-align: left;">Col2</th>
+<th style="text-align: left;">Col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">G</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">G</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-second" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table">
+<caption>(b) Second Table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Col1</th>
+<th style="text-align: left;">Col2</th>
+<th style="text-align: left;">Col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">G</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">G</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>See <a href="#tbl-panel">Table&nbsp;1</a> for details, especially <a href="#tbl-second">Table&nbsp;1 (b)</a>.</p>
+<p>Table 3:</p>
+<table class="table">
+<caption>Sample grid table.</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fruit</th>
+<th>Price</th>
+<th>Advantages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bananas</td>
+<td>$1.34</td>
+<td><ul>
+<li>built-in wrapper</li>
+<li>bright color</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Oranges</td>
+<td>$2.10</td>
+<td><ul>
+<li>cures scurvy</li>
+<li>tasty</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="code-cell" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="code-cell"><span class="header-section-number">2</span> Code Cell</h2>
@@ -157,6 +298,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>6</code></pre>
 </div>
 </div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> [[<span class="st">"Sun"</span>,<span class="dv">696000</span>,<span class="dv">1989100000</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         [<span class="st">"Earth"</span>,<span class="dv">6371</span>,<span class="fl">5973.6</span>],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         [<span class="st">"Moon"</span>,<span class="dv">1737</span>,<span class="fl">73.5</span>],</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         [<span class="st">"Mars"</span>,<span class="dv">3390</span>,<span class="fl">641.85</span>]]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  table, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  headers<span class="op">=</span>[<span class="st">"Planet"</span>,<span class="st">"R (km)"</span>, <span class="st">"mass (x 10^29 kg)"</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="tbl-planets" class="anchored">
+<table class="table table-sm table-striped">
+<caption>Table&nbsp;2: Planets</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Planet</th>
+<th style="text-align: right;">R (km)</th>
+<th style="text-align: right;">mass (x 10^29 kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sun</td>
+<td style="text-align: right;">696000</td>
+<td style="text-align: right;">1.9891e+09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Earth</td>
+<td style="text-align: right;">6371</td>
+<td style="text-align: right;">5973.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Moon</td>
+<td style="text-align: right;">1737</td>
+<td style="text-align: right;">73.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mars</td>
+<td style="text-align: right;">3390</td>
+<td style="text-align: right;">641.85</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="equation" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="equation"><span class="header-section-number">3</span> Equation</h2>
@@ -165,33 +354,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \chi' = \sum_{i=1}^n k_i s_i^2
 \]</span></p>
 </section>
-<section id="tabset" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="tabset"><span class="header-section-number">4</span> Tabset</h2>
+<section id="tabsets" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="tabsets"><span class="header-section-number">4</span> Tabsets</h2>
 <p>Create a tabset via a markdown div with the class name panel-tabset (e.g.&nbsp;::: {.panel-tabset}). Each top-level heading within the div creates a new tab. For example, here is the markdown used to implement the first two tabs displayed above:</p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fizz_buzz <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">fbnums =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"FizzBuzz"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Fizz"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">5</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Buzz"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.character</span>(fbnums)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(output)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fizz_buzz <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">fbnums =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"FizzBuzz"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Fizz"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    fbnums <span class="sc">%%</span> <span class="dv">5</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Buzz"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.character</span>(fbnums)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(output)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fizz_buzz(num):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> num <span class="op">%</span> <span class="dv">15</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"FizzBuzz"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Buzz"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fizz"</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fizz_buzz(num):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> num <span class="op">%</span> <span class="dv">15</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"FizzBuzz"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Buzz"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> num <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fizz"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -207,6 +396,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+</section>
+<section id="css" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="css"><span class="header-section-number">5</span> CSS</h2>
+<p>SASS theme files can define both variables that globally set things like colors and fonts, as well as rules that define more fine grained behavior. To customize an existing Bootstrap theme with your own set of variables and/or rules, just provide the base theme and then your custom theme file(s):</p>
+<p><a href="https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss">https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss</a></p>
+<p>https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes</p>
 </section>
 
 </main>
