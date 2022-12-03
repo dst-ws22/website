@@ -42,7 +42,8 @@ This overview will be updated as the semester progresses.
 |	7	|	32	|	21.11.	|	Eliminate clutter	|	[📑](https://drive.google.com/file/d/10ACOvGOYkyiYLLfOe9wt6wefqtTy9POf/view?usp=sharing)	|	[📁](../weeks/week7.md)	|	
 |	7	|	33	|	21.11.	|	Focus attention	|		|		|	
 |	7	|	34	|	21.11.	|	Think like a designer	|		|		|	
-|	8	|	35	|	28.11.	|	Reporting	|	 -	|	[📁](../weeks/week8.md)	|	
+|	8	|	35	|	28.11.	|	Reporting	|		|	[📁](../weeks/week8.md)	|	
 |	8	|	36	|	28.11.	|	Streamlit dashboard	|		|		|	
+|	9	|	37	|	05.12.	|	Reporting and Streamlit	|		|	[📁](../weeks/week9.md)	|	
 <br>
 
