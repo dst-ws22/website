@@ -21,12 +21,12 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	6	|	14.11.	|	Visualize numerical data	|	[📑](https://drive.google.com/file/d/107DDVHkN56SBL6xpTxZoc6kFkpcW7Jw6/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
 |	7	|	21.11.	|	Clutter, attention & design	|	[📑](https://drive.google.com/file/d/10ACOvGOYkyiYLLfOe9wt6wefqtTy9POf/view?usp=sharing)	|	[📁](../weeks/week7.md)	|	
 |	8	|	28.11.	|	Reporting & Dashboards	|	 -	|	[📁](../weeks/week8.md)	|	
-|	9	|	05.12.	|	Storytelling	|		|		|	
-|	10	|	12.12.	|	Altair tutorial	|		|		|	
+|	9	|	05.12.	|	Reporting & Dashboards II	|		|	[📁](../weeks/week9.md)	|	
+|	10	|	12.12.	|	Storytelling	|		|		|	
 |	11	|	19.12.	|	Altair tutorial	|		|		|	
-|	12	|	09.01.	|	Presenting	|		|		|	
-|	13	|	16.01.	|	Recap	|		|		|	
-|	14	|	23.01.	|	Group meetings	|		|		|	
+|	12	|	09.01.	|	Altair tutorial	|		|		|	
+|	13	|	16.01.	|	Presenting	|		|		|	
+|	14	|	23.01.	|	Recap & Group meetings	|		|		|		
 
 ---
 
