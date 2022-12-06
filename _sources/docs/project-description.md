@@ -428,6 +428,6 @@ A general breakdown of scoring is as follows:
 
 ### Late work policy
 
-Projects may be submitted up to 2 days late. There will be a 25% deduction for each 24-hour period the project is late. 
+Project assignments (see timeline) may be submitted up to 2 days late. There will be a 25% deduction for each 24-hour period the project is late. 
 
 Be sure to turn in your work early to avoid any technological mishaps.
