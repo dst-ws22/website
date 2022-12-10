@@ -1,4 +1,4 @@
-# Week 9
+# Week 10
 
 
 ---
@@ -6,9 +6,7 @@
 (prepare)=
 ## Prepare
 
-- [Quarto documentation](https://quarto.org/)
-
-- [Streamlit documentation](https://streamlit.io/)
+Altair overview (Nr. 39): [📚](https://uwdata.github.io/visualization-curriculum/altair_introduction.html)
 
 ---
 
@@ -18,12 +16,9 @@
 (participate)=
 ## Participate
 
+- Slides: [📑](https://drive.google.com/file/d/10TYU5jQvT3IDcJNf-_LFCOPtY-tgtDpH/view?usp=sharing)
 
-[Reporting with Quarto GitHub-Repo (Nr. 37)](https://github.com/kirenz/reporting-quarto)
-
-
-[Streamlit Dashboard](https://github.com/kirenz/streamlit-app)
-
+- [39. Altair overview](../code/altair/39-altair_introduction_p.ipynb)
 
 ---
 
