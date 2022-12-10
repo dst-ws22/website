@@ -1,0 +1,2859 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Multi-View Composition &#8212; Data Storytelling</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Storytelling</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/course-overview.html">
+                    Course overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course information
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/course-schedule.html">
+   Course schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/course-syllabus.html">
+   Course syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/course-support.html">
+   Course support
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/programming-toolkit.html">
+   Programming toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/programming-environment.html">
+   Anaconda environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../docs/programming-fundamentals.html">
+   Fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../docs/programming-syntax.html">
+     Python Syntax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../docs/programming-semantics.html">
+     Python Semantics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/project-description.html">
+   Project description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/project-tips-resources.html">
+   Tips &amp; resources
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weekly materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../weeks/weeks-overview.html">
+   Overview
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week1.html">
+     Week 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week2.html">
+     Week 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week3.html">
+     Week 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week4.html">
+     Week 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week5.html">
+     Week 5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week6.html">
+     Week 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week7.html">
+     Week 7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week8.html">
+     Week 8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week9.html">
+     Week 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week10.html">
+     Week 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week11.html">
+     Week 11
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/orgs/dst-ws22/blob/main/code/altair/43-altair_view_composition_p.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/orgs/dst-ws22/repositories"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/orgs/dst-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/altair/43-altair_view_composition_p.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/code/altair/43-altair_view_composition_p.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weather-data">
+   Weather Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layer">
+   Layer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shared-axes">
+     Shared Axes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dual-axis-charts">
+     Dual-Axis Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#facet">
+   Facet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenate">
+   Concatenate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repeat">
+   Repeat
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-view-composition-algebra">
+   A View Composition Algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Multi-View Composition</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weather-data">
+   Weather Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layer">
+   Layer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shared-axes">
+     Shared Axes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dual-axis-charts">
+     Dual-Axis Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#facet">
+   Facet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenate">
+   Concatenate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repeat">
+   Repeat
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-view-composition-algebra">
+   A View Composition Algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="multi-view-composition">
+<h1>Multi-View Composition<a class="headerlink" href="#multi-view-composition" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p><em>This notebook is based on the excellent <a class="reference external" href="https://github.com/uwdata/visualization-curriculum">data visualization curriculum</a> by Jeffrey Heer, Dominik Moritz, Jake VanderPlas, and Brock Craft.</em></p>
+</div></blockquote>
+<p>When visualizing a number of different data fields, we might be tempted to use as many visual encoding channels as we can: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, and so on. However, as the number of encoding channels increases, a chart can rapidly become cluttered and difficult to read. An alternative to “over-loading” a single chart is to instead <em>compose multiple charts</em> in a way that facilitates rapid comparisons.</p>
+<p>In this notebook, we will examine a variety of operations for <em>multi-view composition</em>:</p>
+<ul class="simple">
+<li><p><em>layer</em>: place compatible charts directly on top of each other,</p></li>
+</ul>
+<ul class="simple">
+<li><p><em>facet</em>: partition data into multiple charts, organized in rows or columns,</p></li>
+</ul>
+<ul class="simple">
+<li><p><em>concatenate</em>: position arbitrary charts within a shared layout, and</p></li>
+</ul>
+<ul class="simple">
+<li><p><em>repeat</em>: take a base chart specification and apply it to multiple data fields.</p></li>
+</ul>
+<p>We’ll then look at how these operations form a <em>view composition algebra</em>, in which the operations can be combined to build a variety of complex multi-view displays.</p>
+<p><em>This notebook is part of the <a class="reference external" href="https://github.com/uwdata/visualization-curriculum">data visualization curriculum</a>.</em></p>
+<section id="weather-data">
+<h2>Weather Data<a class="headerlink" href="#weather-data" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>We will be visualizing weather statistics for the U.S. cities of Seattle and New York.</p></li>
+<li><p>Let’s load the dataset and peek at the first and last 10 rows:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import altair as alt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>weather = &#39;https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(weather)
+df.head(10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>date</th>
+      <th>precipitation</th>
+      <th>temp_max</th>
+      <th>temp_min</th>
+      <th>wind</th>
+      <th>weather</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Seattle</td>
+      <td>2012-01-01</td>
+      <td>0.0</td>
+      <td>12.8</td>
+      <td>5.0</td>
+      <td>4.7</td>
+      <td>drizzle</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Seattle</td>
+      <td>2012-01-02</td>
+      <td>10.9</td>
+      <td>10.6</td>
+      <td>2.8</td>
+      <td>4.5</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Seattle</td>
+      <td>2012-01-03</td>
+      <td>0.8</td>
+      <td>11.7</td>
+      <td>7.2</td>
+      <td>2.3</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Seattle</td>
+      <td>2012-01-04</td>
+      <td>20.3</td>
+      <td>12.2</td>
+      <td>5.6</td>
+      <td>4.7</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Seattle</td>
+      <td>2012-01-05</td>
+      <td>1.3</td>
+      <td>8.9</td>
+      <td>2.8</td>
+      <td>6.1</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Seattle</td>
+      <td>2012-01-06</td>
+      <td>2.5</td>
+      <td>4.4</td>
+      <td>2.2</td>
+      <td>2.2</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Seattle</td>
+      <td>2012-01-07</td>
+      <td>0.0</td>
+      <td>7.2</td>
+      <td>2.8</td>
+      <td>2.3</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Seattle</td>
+      <td>2012-01-08</td>
+      <td>0.0</td>
+      <td>10.0</td>
+      <td>2.8</td>
+      <td>2.0</td>
+      <td>sun</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Seattle</td>
+      <td>2012-01-09</td>
+      <td>4.3</td>
+      <td>9.4</td>
+      <td>5.0</td>
+      <td>3.4</td>
+      <td>rain</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Seattle</td>
+      <td>2012-01-10</td>
+      <td>1.0</td>
+      <td>6.1</td>
+      <td>0.6</td>
+      <td>3.4</td>
+      <td>rain</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.tail(10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>date</th>
+      <th>precipitation</th>
+      <th>temp_max</th>
+      <th>temp_min</th>
+      <th>wind</th>
+      <th>weather</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2912</th>
+      <td>New York</td>
+      <td>2015-12-22</td>
+      <td>4.8</td>
+      <td>15.6</td>
+      <td>11.1</td>
+      <td>3.8</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2913</th>
+      <td>New York</td>
+      <td>2015-12-23</td>
+      <td>29.5</td>
+      <td>17.2</td>
+      <td>8.9</td>
+      <td>4.5</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2914</th>
+      <td>New York</td>
+      <td>2015-12-24</td>
+      <td>0.5</td>
+      <td>20.6</td>
+      <td>13.9</td>
+      <td>4.9</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2915</th>
+      <td>New York</td>
+      <td>2015-12-25</td>
+      <td>2.5</td>
+      <td>17.8</td>
+      <td>11.1</td>
+      <td>0.9</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2916</th>
+      <td>New York</td>
+      <td>2015-12-26</td>
+      <td>0.3</td>
+      <td>15.6</td>
+      <td>9.4</td>
+      <td>4.8</td>
+      <td>drizzle</td>
+    </tr>
+    <tr>
+      <th>2917</th>
+      <td>New York</td>
+      <td>2015-12-27</td>
+      <td>2.0</td>
+      <td>17.2</td>
+      <td>8.9</td>
+      <td>5.5</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2918</th>
+      <td>New York</td>
+      <td>2015-12-28</td>
+      <td>1.3</td>
+      <td>8.9</td>
+      <td>1.7</td>
+      <td>6.3</td>
+      <td>snow</td>
+    </tr>
+    <tr>
+      <th>2919</th>
+      <td>New York</td>
+      <td>2015-12-29</td>
+      <td>16.8</td>
+      <td>9.4</td>
+      <td>1.1</td>
+      <td>5.3</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2920</th>
+      <td>New York</td>
+      <td>2015-12-30</td>
+      <td>9.4</td>
+      <td>10.6</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>fog</td>
+    </tr>
+    <tr>
+      <th>2921</th>
+      <td>New York</td>
+      <td>2015-12-31</td>
+      <td>1.5</td>
+      <td>11.1</td>
+      <td>6.1</td>
+      <td>5.5</td>
+      <td>fog</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We will create multi-view displays to examine weather within and across the cities.</p>
+</section>
+<section id="layer">
+<h2>Layer<a class="headerlink" href="#layer" title="Permalink to this headline">#</a></h2>
+<p>One of the most common ways of combining multiple charts is to <em>layer</em> marks on top of each other. If the underlying scale domains are compatible, we can merge them to form <em>shared axes</em>. If either of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> encodings is not compatible, we might instead create a <em>dual-axis chart</em>, which overlays marks using separate scales and axes.</p>
+<section id="shared-axes">
+<h3>Shared Axes<a class="headerlink" href="#shared-axes" title="Permalink to this headline">#</a></h3>
+<p>Let’s start by plotting the minimum and maximum average temperatures per month:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_area().encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_max):Q&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-f07542d0b5584b0c93df12e95b82f78a"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f07542d0b5584b0c93df12e95b82f78a") {
+      outputDiv = document.getElementById("altair-viz-f07542d0b5584b0c93df12e95b82f78a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "area", "encoding": {"x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>The plot shows us temperature ranges for each month over the entirety of our data.</p></li>
+<li><p>However, this is pretty misleading as it aggregates the measurements for both Seattle and New York!</p></li>
+<li><p>Let’s subdivide the data by location using a color encoding, while also adjusting the mark opacity to accommodate overlapping areas:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_max):Q&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;) # &lt;--
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-4122186338d7469fb3cf0a524ccaa08f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4122186338d7469fb3cf0a524ccaa08f") {
+      outputDiv = document.getElementById("altair-viz-4122186338d7469fb3cf0a524ccaa08f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>We can see that Seattle is more temperate: warmer in the winter, and cooler in the summer.</em></p>
+<p>In this case we’ve created a layered chart without any special features by simply subdividing the area marks by color. While the chart above shows us the temperature ranges, we might also want to emphasize the middle of the range.</p>
+<p>Let’s create a line chart showing the average temperature midpoint. We’ll use a <code class="docutils literal notranslate"><span class="pre">calculate</span></code> transform to compute the midpoints between the minimum and maximum daily temperatures:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_line().transform_calculate( # &lt;--
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39; # &lt;--
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-388e9b62c0ce42b9938046b15336c927"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-388e9b62c0ce42b9938046b15336c927") {
+      outputDiv = document.getElementById("altair-viz-388e9b62c0ce42b9938046b15336c927");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>Aside</em>: note the use of <code class="docutils literal notranslate"><span class="pre">+datum.temp_min</span></code> within the calculate transform. As we are loading the data directly from a CSV file without any special parsing instructions, the temperature values may be internally represented as string values. Adding the  <code class="docutils literal notranslate"><span class="pre">+</span></code> in front of the value forces it to be treated as a number.</p>
+<p>We’d now like to combine these charts by layering the midpoint lines over the range areas. Using the syntax <code class="docutils literal notranslate"><span class="pre">chart1</span> <span class="pre">+</span> <span class="pre">chart2</span></code>, we can specify that we want a new layered chart in which <code class="docutils literal notranslate"><span class="pre">chart1</span></code> is the first layer and <code class="docutils literal notranslate"><span class="pre">chart2</span></code> is a second layer drawn on top:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart(weather).mark_area(opacity=0.3).encode( # &lt;--
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_max):Q&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMid = alt.Chart(weather).mark_line().transform_calculate( # &lt;--
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMinMax + tempMid # &lt;--
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-0c2ea63b372142eeac8e4ad341ac1483"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-0c2ea63b372142eeac8e4ad341ac1483") {
+      outputDiv = document.getElementById("altair-viz-0c2ea63b372142eeac8e4ad341ac1483");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>Now we have a multi-layer plot! However, the y-axis title (though informative) has become a bit long and unruly…</em></p>
+<p>Let’s customize our axes to clean up the plot. If we set a custom axis title within one of the layers, it will automatically be used as a shared axis title for all the layers (%b = locale’s abbreviated month name):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart(weather).mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)), # &lt;--
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature °C&#39;), # &lt;--
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMid = alt.Chart(weather).mark_line().transform_calculate(
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMinMax + tempMid
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-692694a94bc8407685dd898780a93f11"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-692694a94bc8407685dd898780a93f11") {
+      outputDiv = document.getElementById("altair-viz-692694a94bc8407685dd898780a93f11");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature \u00b0C", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>What happens if both layers have custom axis titles? Modify the code above to find out…</em></p>
+<p>Above used the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, a convenient shorthand for Altair’s <code class="docutils literal notranslate"><span class="pre">layer</span></code> method. We can generate an identical layered chart using the <code class="docutils literal notranslate"><span class="pre">layer</span></code> method directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.layer(tempMinMax, tempMid)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-af610f2b39ba4bdc86346534c2382f98"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-af610f2b39ba4bdc86346534c2382f98") {
+      outputDiv = document.getElementById("altair-viz-af610f2b39ba4bdc86346534c2382f98");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature \u00b0C", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Note that the order of inputs to a layer matters, as subsequent layers will be drawn on top of earlier layers. <em>Try swapping the order of the charts in the cells above. What happens? (Hint: look closely at the color of the <code class="docutils literal notranslate"><span class="pre">line</span></code> marks.)</em></p>
+</section>
+<section id="dual-axis-charts">
+<h3>Dual-Axis Charts<a class="headerlink" href="#dual-axis-charts" title="Permalink to this headline">#</a></h3>
+<p><em>Seattle has a reputation as a rainy city. Is that deserved?</em></p>
+<p>Let’s look at precipitation alongside temperature to learn more.</p>
+<p>First let’s create a base plot the shows average monthly precipitation in Seattle:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_line(
+  interpolate=&#39;monotone&#39;,
+  stroke=&#39;grey&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;, title=None),
+  alt.Y(&#39;average(precipitation):Q&#39;, title=&#39;Precipitation&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-f8632e29dc534f5e977124aa4dcc0b76"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f8632e29dc534f5e977124aa4dcc0b76") {
+      outputDiv = document.getElementById("altair-viz-f8632e29dc534f5e977124aa4dcc0b76");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": {"type": "line", "interpolate": "monotone", "stroke": "grey"}, "encoding": {"x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "precipitation", "title": "Precipitation", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>To facilitate comparison with the temperature data, let’s create a new layered chart.</p>
+<p>Here’s what happens if we try to layer the charts as we did earlier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature °C&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;)
+)
+
+precip = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_line(
+  interpolate=&#39;monotone&#39;,
+  stroke=&#39;grey&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(precipitation):Q&#39;, title=&#39;Precipitation&#39;)
+)
+
+alt.layer(tempMinMax, precip)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-e58629dc9b87461db1d8e7aceb59b5d5"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e58629dc9b87461db1d8e7aceb59b5d5") {
+      outputDiv = document.getElementById("altair-viz-e58629dc9b87461db1d8e7aceb59b5d5");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature \u00b0C", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}, {"mark": {"type": "line", "interpolate": "monotone", "stroke": "grey"}, "encoding": {"x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "precipitation", "title": "Precipitation", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>The precipitation values use a much smaller range of the y-axis then the temperatures!</em></p>
+<p>By default, layered charts use a <em>shared domain</em>: the values for the x-axis or y-axis are combined across all the layers to determine a shared extent. This default behavior assumes that the layered values have the same units. However, this doesn’t hold up for this example, as we are combining temperature values (degrees Celsius) with precipitation values (inches)!</p>
+<p>If we want to use different y-axis scales, we need to specify how we want Altair to <em>resolve</em> the data across layers. In this case, we want to resolve the y-axis <code class="docutils literal notranslate"><span class="pre">scale</span></code> domains to be <code class="docutils literal notranslate"><span class="pre">independent</span></code> rather than use a <code class="docutils literal notranslate"><span class="pre">shared</span></code> domain. The <code class="docutils literal notranslate"><span class="pre">Chart</span></code> object produced by a layer operator includes a <code class="docutils literal notranslate"><span class="pre">resolve_scale</span></code> method with which we can specify the desired resolution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature °C&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;)
+)
+
+precip = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_line(
+  interpolate=&#39;monotone&#39;,
+  stroke=&#39;grey&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(precipitation):Q&#39;, title=&#39;Precipitation&#39;)
+)
+
+alt.layer(tempMinMax, precip).resolve_scale(y=&#39;independent&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-bfc9f8022e6d42419dd16729854ec253"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-bfc9f8022e6d42419dd16729854ec253") {
+      outputDiv = document.getElementById("altair-viz-bfc9f8022e6d42419dd16729854ec253");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature \u00b0C", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}, {"mark": {"type": "line", "interpolate": "monotone", "stroke": "grey"}, "encoding": {"x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "precipitation", "title": "Precipitation", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>We can now see that autumn is the rainiest season in Seattle (peaking in November), complemented by dry summers.</em></p>
+<p>You may have noticed some redundancy in our plot specifications above: both use the same dataset and the same filter to look at Seattle only. If you want, you can streamline the code a bit by providing the data and filter transform to the top-level layered chart. The individual layers will then inherit the data if they don’t have their own data definitions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart().mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature °C&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;)
+)
+
+precip = alt.Chart().mark_line(
+  interpolate=&#39;monotone&#39;,
+  stroke=&#39;grey&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(precipitation):Q&#39;, title=&#39;Precipitation&#39;)
+)
+
+alt.layer(tempMinMax, precip, data=weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).resolve_scale(y=&#39;independent&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-e76a8dbea65e414b983462a29fcbc2ba"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e76a8dbea65e414b983462a29fcbc2ba") {
+      outputDiv = document.getElementById("altair-viz-e76a8dbea65e414b983462a29fcbc2ba");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature \u00b0C", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": {"type": "line", "interpolate": "monotone", "stroke": "grey"}, "encoding": {"x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "precipitation", "title": "Precipitation", "type": "quantitative"}}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "resolve": {"scale": {"y": "independent"}}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>While dual-axis charts can be useful, <em>they are often prone to misinterpretation</em>, as the different units and axis scales may be incommensurate. As is feasible, you might consider transformations that map different data fields to shared units, for example showing <a class="reference external" href="https://en.wikipedia.org/wiki/Quantile">quantiles</a> or relative percentage change.</p>
+</section>
+</section>
+<section id="facet">
+<h2>Facet<a class="headerlink" href="#facet" title="Permalink to this headline">#</a></h2>
+<p><em>Faceting</em> involves subdividing a dataset into groups and creating a separate plot for each group. In earlier notebooks, we learned how to create faceted charts using the <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> encoding channels. We’ll first review those channels and then show how they are instances of the more general <code class="docutils literal notranslate"><span class="pre">facet</span></code> operator.</p>
+<p>Let’s start with a basic histogram of maximum temperature values in Seattle:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_bar().transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).encode(
+  alt.X(&#39;temp_max:Q&#39;, bin=True, title=&#39;Temperature (°C)&#39;),
+  alt.Y(&#39;count():Q&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-8399b853def34bd3b6dddaecc68a8c99"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-8399b853def34bd3b6dddaecc68a8c99") {
+      outputDiv = document.getElementById("altair-viz-8399b853def34bd3b6dddaecc68a8c99");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "bar", "encoding": {"x": {"bin": true, "field": "temp_max", "title": "Temperature (\u00b0C)", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>How does this temperature profile change based on the weather of a given day – that is, whether there was drizzle, fog, rain, snow, or sun?</em></p>
+<p>Let’s use the <code class="docutils literal notranslate"><span class="pre">column</span></code> encoding channel to facet the data by weather type. We can also use <code class="docutils literal notranslate"><span class="pre">color</span></code> as a redundant encoding, using a customized color range:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>colors = alt.Scale(
+  domain=[&#39;drizzle&#39;, &#39;fog&#39;, &#39;rain&#39;, &#39;snow&#39;, &#39;sun&#39;],
+  range=[&#39;#aec7e8&#39;, &#39;#c7c7c7&#39;, &#39;#1f77b4&#39;, &#39;#9467bd&#39;, &#39;#e7ba52&#39;]
+)
+
+alt.Chart(weather).mark_bar().transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).encode(
+  alt.X(&#39;temp_max:Q&#39;, bin=True, title=&#39;Temperature (°C)&#39;),
+  alt.Y(&#39;count():Q&#39;),
+  alt.Color(&#39;weather:N&#39;, scale=colors),
+  alt.Column(&#39;weather:N&#39;) # &lt;--
+).properties(
+  width=150,
+  height=150
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-a86417553b1f4f84ba63b7b4e4d06cf5"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a86417553b1f4f84ba63b7b4e4d06cf5") {
+      outputDiv = document.getElementById("altair-viz-a86417553b1f4f84ba63b7b4e4d06cf5");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "bar", "encoding": {"color": {"field": "weather", "scale": {"domain": ["drizzle", "fog", "rain", "snow", "sun"], "range": ["#aec7e8", "#c7c7c7", "#1f77b4", "#9467bd", "#e7ba52"]}, "type": "nominal"}, "column": {"field": "weather", "type": "nominal"}, "x": {"bin": true, "field": "temp_max", "title": "Temperature (\u00b0C)", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 150, "transform": [{"filter": "datum.location == \"Seattle\""}], "width": 150, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>Unsurprisingly, those rare snow days center on the coldest temperatures, followed by rainy and foggy days. Sunny days are warmer and, despite Seattle stereotypes, are the most plentiful. Though as any Seattleite can tell you, the drizzle occasionally comes, no matter the temperature!</em></p>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> encoding channels <em>within</em> a chart definition, we can take a basic chart definition and apply faceting using an explicit <code class="docutils literal notranslate"><span class="pre">facet</span></code> operator.</p>
+<p>Let’s recreate the chart above, but this time using <code class="docutils literal notranslate"><span class="pre">facet</span></code>. We start with the same basic histogram definition, but remove the data source, filter transform, and column channel. We can then invoke the <code class="docutils literal notranslate"><span class="pre">facet</span></code> method, passing in the data and specifying that we should facet into columns according to the <code class="docutils literal notranslate"><span class="pre">weather</span></code> field. The <code class="docutils literal notranslate"><span class="pre">facet</span></code> method accepts both <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> arguments. The two can be used together to create a 2D grid of faceted plots.</p>
+<p>Finally we include our filter transform, applying it to the top-level faceted chart. While we could apply the filter transform to the histogram definition as before, that is slightly less efficient. Rather than filter out “New York” values within each facet cell, applying the filter to the faceted chart lets Vega-Lite know that we can filter out those values up front, prior to the facet subdivision.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>colors = alt.Scale(
+  domain=[&#39;drizzle&#39;, &#39;fog&#39;, &#39;rain&#39;, &#39;snow&#39;, &#39;sun&#39;],
+  range=[&#39;#aec7e8&#39;, &#39;#c7c7c7&#39;, &#39;#1f77b4&#39;, &#39;#9467bd&#39;, &#39;#e7ba52&#39;]
+)
+
+alt.Chart().mark_bar().encode(
+  alt.X(&#39;temp_max:Q&#39;, bin=True, title=&#39;Temperature (°C)&#39;),
+  alt.Y(&#39;count():Q&#39;),
+  alt.Color(&#39;weather:N&#39;, scale=colors)
+).properties(
+  width=150,
+  height=150
+).facet( # &lt;--
+  data=weather,
+  column=&#39;weather:N&#39;
+).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-a15e4998c33c4e93a45c45c78945de7f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a15e4998c33c4e93a45c45c78945de7f") {
+      outputDiv = document.getElementById("altair-viz-a15e4998c33c4e93a45c45c78945de7f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "facet": {"column": {"field": "weather", "type": "nominal"}}, "spec": {"mark": "bar", "encoding": {"color": {"field": "weather", "scale": {"domain": ["drizzle", "fog", "rain", "snow", "sun"], "range": ["#aec7e8", "#c7c7c7", "#1f77b4", "#9467bd", "#e7ba52"]}, "type": "nominal"}, "x": {"bin": true, "field": "temp_max", "title": "Temperature (\u00b0C)", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 150, "width": 150}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Given all the extra code above, why would we want to use an explicit <code class="docutils literal notranslate"><span class="pre">facet</span></code> operator? For basic charts, we should certainly use the <code class="docutils literal notranslate"><span class="pre">column</span></code> or <code class="docutils literal notranslate"><span class="pre">row</span></code> encoding channels if we can. However, using the <code class="docutils literal notranslate"><span class="pre">facet</span></code> operator explicitly is useful if we want to facet composed views, such as layered charts.</p>
+<p>Let’s revisit our layered temperature plots from earlier. Instead of plotting data for New York and Seattle in the same plot, let’s break them up into separate facets. The individual chart definitions are nearly the same as before: one area chart and one line chart. The only difference is that this time we won’t pass the data directly to the chart constructors; we’ll wait and pass it to the facet operator later. We can layer the charts much as before, then invoke <code class="docutils literal notranslate"><span class="pre">facet</span></code> on the layered chart object, passing in the data and specifying <code class="docutils literal notranslate"><span class="pre">column</span></code> facets based on the <code class="docutils literal notranslate"><span class="pre">location</span></code> field:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart().mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature (°C)&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMid = alt.Chart().mark_line().transform_calculate(
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+alt.layer(tempMinMax, tempMid).facet( # &lt;--
+  data=weather,
+  column=&#39;location:N&#39;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-9c1a594d3a444257978473a2ba83768d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9c1a594d3a444257978473a2ba83768d") {
+      outputDiv = document.getElementById("altair-viz-9c1a594d3a444257978473a2ba83768d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "facet": {"column": {"field": "location", "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature (\u00b0C)", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}]}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>The faceted charts we have seen so far use the same axis scale domains across the facet cells. This default of using <em>shared</em> scales and axes helps aid accurate comparison of values. However, in some cases you may wish to scale each chart independently, for example if the range of values in the cells differs significantly.</p>
+<p>Similar to layered charts, faceted charts also support <em>resolving</em> to independent scales or axes across plots. Let’s see what happens if we call the <code class="docutils literal notranslate"><span class="pre">resolve_axis</span></code> method to request <code class="docutils literal notranslate"><span class="pre">independent</span></code> y-axes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart().mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature (°C)&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMid = alt.Chart().mark_line().transform_calculate(
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+alt.layer(tempMinMax, tempMid).facet(
+  data=weather,
+  column=&#39;location:N&#39;
+).resolve_axis(y=&#39;independent&#39;) # &lt;--
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-be60a3de018d4c23af195c3a5379e21a"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-be60a3de018d4c23af195c3a5379e21a") {
+      outputDiv = document.getElementById("altair-viz-be60a3de018d4c23af195c3a5379e21a");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "facet": {"column": {"field": "location", "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature (\u00b0C)", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}]}, "resolve": {"axis": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>The chart above looks largely unchanged, but the plot for Seattle now includes its own axis.</em></p>
+<p>What if we instead call <code class="docutils literal notranslate"><span class="pre">resolve_scale</span></code> to resolve the underlying scale domains?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tempMinMax = alt.Chart().mark_area(opacity=0.3).encode(
+  alt.X(&#39;month(date):T&#39;, title=None, axis=alt.Axis(format=&#39;%b&#39;)),
+  alt.Y(&#39;average(temp_max):Q&#39;, title=&#39;Avg. Temperature (°C)&#39;),
+  alt.Y2(&#39;average(temp_min):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+tempMid = alt.Chart().mark_line().transform_calculate(
+  temp_mid=&#39;(+datum.temp_min + +datum.temp_max) / 2&#39;
+).encode(
+  alt.X(&#39;month(date):T&#39;),
+  alt.Y(&#39;average(temp_mid):Q&#39;),
+  alt.Color(&#39;location:N&#39;)
+)
+
+alt.layer(tempMinMax, tempMid).facet(
+  data=weather,
+  column=&#39;location:N&#39;
+).resolve_scale(y=&#39;independent&#39;) # &lt;--
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-b29d147db23044309a554ab477b0f085"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-b29d147db23044309a554ab477b0f085") {
+      outputDiv = document.getElementById("altair-viz-b29d147db23044309a554ab477b0f085");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "facet": {"column": {"field": "location", "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "area", "opacity": 0.3}, "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"axis": {"format": "%b"}, "field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "title": "Avg. Temperature (\u00b0C)", "type": "quantitative"}, "y2": {"aggregate": "average", "field": "temp_min"}}}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_mid", "type": "quantitative"}}, "transform": [{"calculate": "(+datum.temp_min + +datum.temp_max) / 2", "as": "temp_mid"}]}]}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>Now we see facet cells with different axis scale domains. In this case, using independent scales seems like a bad idea! The domains aren’t very different, and one might be fooled into thinking that New York and Seattle have similar maximum summer temperatures.</em></p>
+<p>To borrow a cliché: just because you <em>can</em> do something, doesn’t mean you <em>should</em>…</p>
+</section>
+<section id="concatenate">
+<h2>Concatenate<a class="headerlink" href="#concatenate" title="Permalink to this headline">#</a></h2>
+<p>Faceting creates <a class="reference external" href="https://en.wikipedia.org/wiki/Small_multiple">small multiple</a> plots that show separate subdivisions of the data. However, we might wish to create a multi-view display with different views of the <em>same</em> dataset (not subsets) or views involving <em>different</em> datasets.</p>
+<p>Altair provides <em>concatenation</em> operators to combine arbitrary charts into a composed chart. The <code class="docutils literal notranslate"><span class="pre">hconcat</span></code> operator (shorthand <code class="docutils literal notranslate"><span class="pre">|</span></code> ) performs horizontal concatenation, while the <code class="docutils literal notranslate"><span class="pre">vconcat</span></code> operator (shorthand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) performs vertical concatenation.</p>
+<p>Let’s start with a basic line chart showing the average maximum temperature per month for both New York and Seattle, much like we’ve seen before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_line().encode(
+  alt.X(&#39;month(date):T&#39;, title=None),
+  alt.Y(&#39;average(temp_max):Q&#39;),
+  color=&#39;location:N&#39;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-7274b7677c8f48d3aa26eda4bcafa2b4"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7274b7677c8f48d3aa26eda4bcafa2b4") {
+      outputDiv = document.getElementById("altair-viz-7274b7677c8f48d3aa26eda4bcafa2b4");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>What if we want to compare not just temperature over time, but also precipitation and wind levels?</em></p>
+<p>Let’s create a concatenated chart consisting of three plots. We’ll start by defining a “base” chart definition that contains all the aspects that should be shared by our three plots. We can then modify this base chart to create customized variants, with different y-axis encodings for the <code class="docutils literal notranslate"><span class="pre">temp_max</span></code>, <code class="docutils literal notranslate"><span class="pre">precipitation</span></code>, and <code class="docutils literal notranslate"><span class="pre">wind</span></code> fields. We can then concatenate them using the pipe (<code class="docutils literal notranslate"><span class="pre">|</span></code>) shorthand operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>base = alt.Chart(weather).mark_line().encode(
+  alt.X(&#39;month(date):T&#39;, title=None),
+  color=&#39;location:N&#39;
+).properties(
+  width=240,
+  height=180
+)
+
+temp = base.encode(alt.Y(&#39;average(temp_max):Q&#39;))
+precip = base.encode(alt.Y(&#39;average(precipitation):Q&#39;))
+wind = base.encode(alt.Y(&#39;average(wind):Q&#39;))
+
+temp | precip | wind
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-9c5efd4d1bfd47fbbe76f4aa8c7373ff"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9c5efd4d1bfd47fbbe76f4aa8c7373ff") {
+      outputDiv = document.getElementById("altair-viz-9c5efd4d1bfd47fbbe76f4aa8c7373ff");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}}, "height": 180, "width": 240}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "precipitation", "type": "quantitative"}}, "height": 180, "width": 240}, {"mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": "wind", "type": "quantitative"}}, "height": 180, "width": 240}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Alternatively, we could use the more explicit <code class="docutils literal notranslate"><span class="pre">alt.hconcat()</span></code> method in lieu of the pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> operator. <em>Try rewriting the code above to use <code class="docutils literal notranslate"><span class="pre">hconcat</span></code> instead.</em></p>
+<p>Vertical concatenation works similarly to horizontal concatenation. <em>Using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (or <code class="docutils literal notranslate"><span class="pre">alt.vconcat</span></code> method), modify the code to use a vertical ordering instead of a horizontal ordering.</em></p>
+<p>Finally, note that horizontal and vertical concatenation can be combined. <em>What happens if you write something like <code class="docutils literal notranslate"><span class="pre">(temp</span> <span class="pre">|</span> <span class="pre">precip)</span> <span class="pre">&amp;</span> <span class="pre">wind</span></code>?</em></p>
+<p><em>Aside</em>: Note the importance of those parentheses… what happens if you remove them? Keep in mind that these overloaded operators are still subject to <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">Python’s operator precendence rules</a>, and so vertical concatenation with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> will take precedence over horizontal concatenation with <code class="docutils literal notranslate"><span class="pre">|</span></code>!</p>
+<p>As we will revisit later, concatenation operators let you combine any and all charts into a multi-view dashboard!</p>
+</section>
+<section id="repeat">
+<h2>Repeat<a class="headerlink" href="#repeat" title="Permalink to this headline">#</a></h2>
+<p>The concatenation operators above are quite general, allowing arbitrary charts to be composed. Nevertheless, the example above was still a bit verbose: we have three very similar charts, yet have to define them separately and then concatenate them.</p>
+<p>For cases where only one or two variables are changing, the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operator provides a convenient shortcut for creating multiple charts. Given a <em>template</em> specification with some free variables, the repeat operator will then create a chart for each specified assignment to those variables.</p>
+<p>Let’s recreate our concatenation example above using the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operator. The only aspect that changes across charts is the choice of data field for the <code class="docutils literal notranslate"><span class="pre">y</span></code> encoding channel. To create a template specification, we can use the <em>repeater variable</em> <code class="docutils literal notranslate"><span class="pre">alt.repeat('column')</span></code> as our y-axis field. This code simply states that we want to use the variable assigned to the <code class="docutils literal notranslate"><span class="pre">column</span></code> repeater, which organizes repeated charts in a horizontal direction. (As the repeater provides the field name only, we have to specify the field data type separately as <code class="docutils literal notranslate"><span class="pre">type='quantitative'</span></code>.)</p>
+<p>We then invoke the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> method, passing in data field names for each column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(weather).mark_line().encode(
+  alt.X(&#39;month(date):T&#39;,title=None),
+  alt.Y(alt.repeat(&#39;column&#39;), aggregate=&#39;average&#39;, type=&#39;quantitative&#39;), # &lt;--
+  color=&#39;location:N&#39;
+).properties(
+  width=240,
+  height=180
+).repeat(      # &lt;--
+  column=[&#39;temp_max&#39;, &#39;precipitation&#39;, &#39;wind&#39;]
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-1bfd582a46e944779a3c3220eb313437"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-1bfd582a46e944779a3c3220eb313437") {
+      outputDiv = document.getElementById("altair-viz-1bfd582a46e944779a3c3220eb313437");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "repeat": {"column": ["temp_max", "precipitation", "wind"]}, "spec": {"data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "mark": "line", "encoding": {"color": {"field": "location", "type": "nominal"}, "x": {"field": "date", "timeUnit": "month", "title": null, "type": "temporal"}, "y": {"aggregate": "average", "field": {"repeat": "column"}, "type": "quantitative"}}, "height": 180, "width": 240}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Repetition is supported for both columns and rows. <em>What happens if you modify the code above to use <code class="docutils literal notranslate"><span class="pre">row</span></code> instead of <code class="docutils literal notranslate"><span class="pre">column</span></code>?</em></p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> repetition together! One common visualization for exploratory data analysis is the <a class="reference external" href="https://en.wikipedia.org/wiki/Scatter_plot#Scatterplot_matrices">scatter plot matrix (or SPLOM)</a>. Given a collection of variables to inspect, a SPLOM provides a grid of all pairwise plots of those variables, allowing us to assess potential associations.</p>
+<p>Let’s use the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operator to create a SPLOM for the <code class="docutils literal notranslate"><span class="pre">temp_max</span></code>, <code class="docutils literal notranslate"><span class="pre">precipitation</span></code>, and <code class="docutils literal notranslate"><span class="pre">wind</span></code> fields. We first create our template specification, with repeater variables for both the x- and y-axis data fields. We then invoke <code class="docutils literal notranslate"><span class="pre">repeat</span></code>, passing in arrays of field names to use for both <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code>. Altair will then generate the <a class="reference external" href="https://en.wikipedia.org/wiki/Cartesian_product">cross product (or, Cartesian product)</a> to create the full space of repeated charts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart().mark_point(filled=True, size=15, opacity=0.5).encode(
+  alt.X(alt.repeat(&#39;column&#39;), type=&#39;quantitative&#39;), # &lt;--
+  alt.Y(alt.repeat(&#39;row&#39;), type=&#39;quantitative&#39;)     # &lt;--
+).properties(
+  width=150,
+  height=150
+).repeat(
+  data=weather,
+  row=[&#39;temp_max&#39;, &#39;precipitation&#39;, &#39;wind&#39;],
+  column=[&#39;wind&#39;, &#39;precipitation&#39;, &#39;temp_max&#39;]
+).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-c10113087c2043f79179a66bb7e6a637"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c10113087c2043f79179a66bb7e6a637") {
+      outputDiv = document.getElementById("altair-viz-c10113087c2043f79179a66bb7e6a637");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "repeat": {"column": ["wind", "precipitation", "temp_max"], "row": ["temp_max", "precipitation", "wind"]}, "spec": {"mark": {"type": "point", "filled": true, "opacity": 0.5, "size": 15}, "encoding": {"x": {"field": {"repeat": "column"}, "type": "quantitative"}, "y": {"field": {"repeat": "row"}, "type": "quantitative"}}, "height": 150, "width": 150}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><em>Looking at these plots, there does not appear to be a strong association between precipitation and wind, though we do see that extreme wind and precipitation events occur in similar temperature ranges (~5-15° C). However, this observation is not particularly surprising: if we revisit our histogram at the beginning of the facet section, we can plainly see that the days with maximum temperatures in the range of 5-15° C are the most commonly occurring.</em></p>
+<p><em>Modify the code above to get a better understanding of chart repetition. Try adding another variable (<code class="docutils literal notranslate"><span class="pre">temp_min</span></code>) to the SPLOM. What happens if you rearrange the order of the field names in either the <code class="docutils literal notranslate"><span class="pre">row</span></code> or <code class="docutils literal notranslate"><span class="pre">column</span></code> parameters for the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operator?</em></p>
+<p><em>Finally, to really appreciate what the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operator provides, take a moment to imagine how you might recreate the SPLOM above using only <code class="docutils literal notranslate"><span class="pre">hconcat</span></code> and <code class="docutils literal notranslate"><span class="pre">vconcat</span></code>!</em></p>
+</section>
+<section id="a-view-composition-algebra">
+<h2>A View Composition Algebra<a class="headerlink" href="#a-view-composition-algebra" title="Permalink to this headline">#</a></h2>
+<p>Together, the composition operators <code class="docutils literal notranslate"><span class="pre">layer</span></code>, <code class="docutils literal notranslate"><span class="pre">facet</span></code>, <code class="docutils literal notranslate"><span class="pre">concat</span></code>, and <code class="docutils literal notranslate"><span class="pre">repeat</span></code> form a <em>view composition algebra</em>: the various operators can be combined to construct a variety of multi-view visualizations.</p>
+<p>As an example, let’s start with two basic charts: a histogram and a simple line (a single <code class="docutils literal notranslate"><span class="pre">rule</span></code> mark) showing a global average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>basic1 = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_bar().encode(
+  alt.X(&#39;month(date):O&#39;),
+  alt.Y(&#39;average(temp_max):Q&#39;)
+)
+
+basic2 = alt.Chart(weather).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).mark_rule(stroke=&#39;firebrick&#39;).encode(
+  alt.Y(&#39;average(temp_max):Q&#39;)
+)
+
+basic1 | basic2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2847456dd4b14eccbf12c8316271680c"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2847456dd4b14eccbf12c8316271680c") {
+      outputDiv = document.getElementById("altair-viz-2847456dd4b14eccbf12c8316271680c");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "bar", "encoding": {"x": {"field": "date", "timeUnit": "month", "type": "ordinal"}, "y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}, {"mark": {"type": "rule", "stroke": "firebrick"}, "encoding": {"y": {"aggregate": "average", "field": "temp_max", "type": "quantitative"}}, "transform": [{"filter": "datum.location == \"Seattle\""}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>We can then combine the two charts using a <code class="docutils literal notranslate"><span class="pre">layer</span></code> operator, and then <code class="docutils literal notranslate"><span class="pre">repeat</span></code> that layered chart to show histograms with overlaid averages for multiple fields:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.layer(
+  alt.Chart().mark_bar().encode(
+    alt.X(&#39;month(date):O&#39;, title=&#39;Month&#39;),
+    alt.Y(alt.repeat(&#39;column&#39;), aggregate=&#39;average&#39;, type=&#39;quantitative&#39;)
+  ),
+  alt.Chart().mark_rule(stroke=&#39;firebrick&#39;).encode(
+    alt.Y(alt.repeat(&#39;column&#39;), aggregate=&#39;average&#39;, type=&#39;quantitative&#39;)
+  )
+).properties(
+  width=200,
+  height=150
+).repeat(
+  data=weather,
+  column=[&#39;temp_max&#39;, &#39;precipitation&#39;, &#39;wind&#39;]
+).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-a6eeb11b30e246d2a133ec32ea74fe6d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a6eeb11b30e246d2a133ec32ea74fe6d") {
+      outputDiv = document.getElementById("altair-viz-a6eeb11b30e246d2a133ec32ea74fe6d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "repeat": {"column": ["temp_max", "precipitation", "wind"]}, "spec": {"layer": [{"mark": "bar", "encoding": {"x": {"field": "date", "timeUnit": "month", "title": "Month", "type": "ordinal"}, "y": {"aggregate": "average", "field": {"repeat": "column"}, "type": "quantitative"}}}, {"mark": {"type": "rule", "stroke": "firebrick"}, "encoding": {"y": {"aggregate": "average", "field": {"repeat": "column"}, "type": "quantitative"}}}], "height": 150, "width": 200}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Focusing only on the multi-view composition operators, the model for the visualization above is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
+<span class="o">|-</span> <span class="n">layer</span>
+   <span class="o">|-</span> <span class="n">basic1</span>
+   <span class="o">|-</span> <span class="n">basic2</span>
+</pre></div>
+</div>
+<p>Now let’s explore how we can apply <em>all</em> the operators within a final <a class="reference external" href="https://en.wikipedia.org/wiki/Dashboard_%28business%29">dashboard</a> that provides an overview of Seattle weather. We’ll combine the SPLOM and faceted histogram displays from earlier sections with the repeated histograms above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>splom = alt.Chart().mark_point(filled=True, size=15, opacity=0.5).encode(
+  alt.X(alt.repeat(&#39;column&#39;), type=&#39;quantitative&#39;),
+  alt.Y(alt.repeat(&#39;row&#39;), type=&#39;quantitative&#39;)
+).properties(
+  width=125,
+  height=125
+).repeat(
+  row=[&#39;temp_max&#39;, &#39;precipitation&#39;, &#39;wind&#39;],
+  column=[&#39;wind&#39;, &#39;precipitation&#39;, &#39;temp_max&#39;]
+)
+
+dateHist = alt.layer(
+  alt.Chart().mark_bar().encode(
+    alt.X(&#39;month(date):O&#39;, title=&#39;Month&#39;),
+    alt.Y(alt.repeat(&#39;row&#39;), aggregate=&#39;average&#39;, type=&#39;quantitative&#39;)
+  ),
+  alt.Chart().mark_rule(stroke=&#39;firebrick&#39;).encode(
+    alt.Y(alt.repeat(&#39;row&#39;), aggregate=&#39;average&#39;, type=&#39;quantitative&#39;)
+  )
+).properties(
+  width=175,
+  height=125
+).repeat(
+  row=[&#39;temp_max&#39;, &#39;precipitation&#39;, &#39;wind&#39;]
+)
+
+tempHist = alt.Chart(weather).mark_bar().encode(
+  alt.X(&#39;temp_max:Q&#39;, bin=True, title=&#39;Temperature (°C)&#39;),
+  alt.Y(&#39;count():Q&#39;),
+  alt.Color(&#39;weather:N&#39;, scale=alt.Scale(
+    domain=[&#39;drizzle&#39;, &#39;fog&#39;, &#39;rain&#39;, &#39;snow&#39;, &#39;sun&#39;],
+    range=[&#39;#aec7e8&#39;, &#39;#c7c7c7&#39;, &#39;#1f77b4&#39;, &#39;#9467bd&#39;, &#39;#e7ba52&#39;]
+  ))
+).properties(
+  width=115,
+  height=100
+).facet(
+  column=&#39;weather:N&#39;
+)
+
+alt.vconcat(
+  alt.hconcat(splom, dateHist),
+  tempHist,
+  data=weather,
+  title=&#39;Seattle Weather Dashboard&#39;
+).transform_filter(
+  &#39;datum.location == &quot;Seattle&quot;&#39;
+).resolve_legend(
+  color=&#39;independent&#39;
+).configure_axis(
+  labelAngle=0
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-77c577912eff4b15aba5b2c916b1af76"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-77c577912eff4b15aba5b2c916b1af76") {
+      outputDiv = document.getElementById("altair-viz-77c577912eff4b15aba5b2c916b1af76");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"labelAngle": 0}}, "vconcat": [{"hconcat": [{"repeat": {"column": ["wind", "precipitation", "temp_max"], "row": ["temp_max", "precipitation", "wind"]}, "spec": {"mark": {"type": "point", "filled": true, "opacity": 0.5, "size": 15}, "encoding": {"x": {"field": {"repeat": "column"}, "type": "quantitative"}, "y": {"field": {"repeat": "row"}, "type": "quantitative"}}, "height": 125, "width": 125}}, {"repeat": {"row": ["temp_max", "precipitation", "wind"]}, "spec": {"layer": [{"mark": "bar", "encoding": {"x": {"field": "date", "timeUnit": "month", "title": "Month", "type": "ordinal"}, "y": {"aggregate": "average", "field": {"repeat": "row"}, "type": "quantitative"}}}, {"mark": {"type": "rule", "stroke": "firebrick"}, "encoding": {"y": {"aggregate": "average", "field": {"repeat": "row"}, "type": "quantitative"}}}], "height": 125, "width": 175}}]}, {"facet": {"column": {"field": "weather", "type": "nominal"}}, "spec": {"mark": "bar", "encoding": {"color": {"field": "weather", "scale": {"domain": ["drizzle", "fog", "rain", "snow", "sun"], "range": ["#aec7e8", "#c7c7c7", "#1f77b4", "#9467bd", "#e7ba52"]}, "type": "nominal"}, "x": {"bin": true, "field": "temp_max", "title": "Temperature (\u00b0C)", "type": "quantitative"}, "y": {"aggregate": "count", "type": "quantitative"}}, "height": 100, "width": 115}}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/weather.csv"}, "resolve": {"legend": {"color": "independent"}}, "title": "Seattle Weather Dashboard", "transform": [{"filter": "datum.location == \"Seattle\""}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>The full composition model for this dashboard is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vconcat</span>
+<span class="o">|-</span> <span class="n">hconcat</span>
+<span class="o">|</span>  <span class="o">|-</span> <span class="n">repeat</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|-</span> <span class="n">splom</span> <span class="n">base</span> <span class="n">chart</span>
+<span class="o">|</span>  <span class="o">|-</span> <span class="n">repeat</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
+<span class="o">|</span>     <span class="o">|-</span> <span class="n">layer</span>
+<span class="o">|</span>        <span class="o">|-</span> <span class="n">dateHist</span> <span class="n">base</span> <span class="n">chart</span> <span class="mi">1</span>
+<span class="o">|</span>        <span class="o">|-</span> <span class="n">dateHist</span> <span class="n">base</span> <span class="n">chart</span> <span class="mi">2</span>
+<span class="o">|-</span> <span class="n">facet</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;weather&#39;</span><span class="p">)</span>
+   <span class="o">|-</span> <span class="n">tempHist</span> <span class="n">base</span> <span class="n">chart</span>
+</pre></div>
+</div>
+<p><em>Phew!</em> The dashboard also includes a few customizations to improve the layout:</p>
+<ul class="simple">
+<li><p>We adjust chart <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> properties to assist alignment and ensure the full visualization fits on the screen.</p></li>
+<li><p>We add <code class="docutils literal notranslate"><span class="pre">resolve_legend(color='independent')</span></code> to ensure the color legend is associated directly with the colored histograms by temperature. Otherwise, the legend will resolve to the dashboard as a whole.</p></li>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">configure_axis(labelAngle=0)</span></code> to ensure that no axis labels are rotated. This helps to ensure proper alignment among the scatter plots in the SPLOM and the histograms by month on the right.</p></li>
+</ul>
+<p><em>Try removing or modifying any of these adjustments and see how the dashboard layout responds!</em></p>
+<p>This dashboard can be reused to show data for other locations or from other datasets. <em>Update the dashboard to show weather patterns for New York instead of Seattle.</em></p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>For more details on multi-view composition, including control over sub-plot spacing and header labels, see the <a class="reference external" href="https://altair-viz.github.io/user_guide/compound_charts.html">Altair Compound Charts documentation</a>.</p></li>
+</ul>
+<p>Now that we’ve seen how to compose multiple views, we’re ready to put them into action. In addition to statically presenting data, multiple views can enable interactive multi-dimensional exploration. For example, using <em>linked selections</em> we can highlight points in one view to see corresponding values highlight in other views.</p>
+<p>In the next notebook, we’ll examine how to author <em>interactive selections</em> for both individual plots and multi-view compositions.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./code/altair"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jan Kirenz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
