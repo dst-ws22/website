@@ -38,7 +38,13 @@ None
 (perform)=
 ## Perform
 
-None
+Homework: 
+
+You need to perform this homework in a private repo. Call the repo "homework_2" and perform the following exercises there:
+
+- Exercise 6.1
+- Exercise 6.2
+- Exercise 6.6
 
 ---
 
