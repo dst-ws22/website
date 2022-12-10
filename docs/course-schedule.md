@@ -45,5 +45,10 @@ This overview will be updated as the semester progresses.
 |	8	|	35	|	28.11.	|	Reporting	|		|	[📁](../weeks/week8.md)	|	
 |	8	|	36	|	28.11.	|	Streamlit dashboard	|		|		|	
 |	9	|	37	|	05.12.	|	Reporting and Streamlit	|		|	[📁](../weeks/week9.md)	|	
+|	10	|	38	|	12.12.	|	Tell a story	|		|	[📁](../weeks/week10.md)	|	
+|	10	|	39	|	12.12.	|	Altair overview	|		|	[📁](../weeks/week10.md)	|	
+|	11	|	40	|	19.12.	|	Marks and encoding	|		|	[📁](../weeks/week11.md)	|	
+|	11	|	41	|	19.12.	|	Data transformation	|		|	[📁](../weeks/week11.md)	|	
+|	11	|	42	|	19.12.	|	Scales, axes, and legends	|		|	[📁](../weeks/week11.md)	|	
 <br>
 
