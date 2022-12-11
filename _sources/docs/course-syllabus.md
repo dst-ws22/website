@@ -29,6 +29,7 @@ By the end of the semester, you will be able to...
 - Think like a designer and utilize concepts of design in data visualization
 - Leverage the power of storytelling to help your message resonate with your audience
 - use Python to analyze, prepare and visualize data 
+- create dashboards with Streamlit and reports in quarto
 
 
 ## Where to get help
@@ -81,11 +82,10 @@ You are expected to make use of the provided GitHub repository as the central co
 
 ## Assessment
 
-Assessment for the course is comprised of four components: 
+Assessment for the course is comprised of three components: 
 
 - [application exercises](application-exercises)
 - [homework assignments](hw) 
-- [exams](exams)
 - [project](project)
 
 (application-exercises)=
@@ -113,6 +113,7 @@ You may discuss homework assignments with other students; however, homework shou
 Homework must be completed in the provided Jupyter Notebooks in your course GitHub-repo and also submitted in Moodle.
 
 
+<!--
 (exams)=
 ### Exams
 
@@ -125,6 +126,7 @@ The exams will focus on the conceptual understanding of the content
 :::
 
 More details about the exams will be given during the semester.
+-->
 
 (project)=
 ### Project
@@ -140,10 +142,9 @@ The final course grade will be calculated as follows:
 | Category              | Percentage      |
 |-----------------------|-----------------|
 | Application exercises | 10%             |
-| Homework              | 20%             |
-| Project               | 30%             |
-| Exam 01               | 20%             |
-| Exam 02               | 20%             |
+| Homework              | 40%             |
+| Project               | 50%             |
+
 
 The final grade will be determined based on the following thresholds:
 
@@ -163,14 +164,6 @@ The final grade will be determined based on the following thresholds:
 | 5.0            | 0 - 14           |
 
 
-## Tips for success
-
-Your success on this course depends very much on you and the effort you put into it:
-
-1.  Complete all the preparation work before class.
-1.  Do the readings.
-1.  Do the application exercises and homeworks. The earlier you start, the better. 
-1.  Don't procrastinate. If something is confusing to you in Week 2, Week 3 will become more confusing, Week 4 even worse, and eventually you won't know where to begin asking questions. Don't let the week end with unanswered questions. 
 
 ## Course policies
 
@@ -215,8 +208,6 @@ The due dates for assignments are there to help you keep up with the course mate
 
 -   There is no late work accepted for *application exercises*, since these are designed to help you prepare for homeworks.
 
--   There is no late work policy for *exams* (they need to be completed in a specific timeframe)
-
--   Projects may be submitted up to 2 days late. There will be a 25% deduction for each 24-hour period the project is late.
+-   Project taks may be submitted up to 2 days late. There will be a 25% deduction for each 24-hour period the project task is late.
 
 If there are important circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at [kirenz@hdm-stuttgart.de](mailto:kirenz@hdm-stuttgart.de) before the deadline.
