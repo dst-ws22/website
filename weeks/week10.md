@@ -16,7 +16,7 @@ Altair overview (Nr. 39): [📚](https://uwdata.github.io/visualization-curricul
 (participate)=
 ## Participate
 
-- Slides:
+- Slides: [📑](https://drive.google.com/file/d/10V2EDO0xLz-PWcFpoBkD4tXTrXTtVlE-/view?usp=sharing)
 
 - [39. Altair overview](../code/altair/39-altair_introduction_p.ipynb)
 
@@ -38,7 +38,7 @@ None
 (perform)=
 ## Perform
 
-Homework: Exercise 6.1, Exercise 6.2, Exercise 6.6:
+Homework (including exams):
 
 - [Accept the GitHub-invitation in Moodle](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=269342)
 

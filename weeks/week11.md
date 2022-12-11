@@ -10,6 +10,7 @@ Marks and encoding (Nr. 40): [📚](https://uwdata.github.io/visualization-curri
 
 Data transformation (Nr. 41): [📚](https://uwdata.github.io/visualization-curriculum/altair_data_transformation.html)
 
+
 Scales, axes, and legends (Nr. 42): [📚](https://uwdata.github.io/visualization-curriculum/altair_scales_axes_legends.html)
 
 ---
