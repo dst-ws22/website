@@ -42,6 +42,9 @@ Homework (including exams):
 
 - [Accept the GitHub-invitation in Moodle](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=269342)
 
+
+- [Data fo exercise 6.7](https://docs.google.com/spreadsheets/d/1YEbM74VCurIGhBYi1cOFomVrs2ru-2tY/edit?usp=sharing&ouid=107811604787432825206&rtpof=true&sd=true)
+
 ---
 
 Back to [course schedule](../docs/course-schedule.md) ⏎
