@@ -50,6 +50,8 @@ This overview will be updated as the semester progresses.
 |	11	|	40	|	19.12.	|	Marks and encoding	|		|	[📁](../weeks/week11.md)	|	
 |	11	|	41	|	19.12.	|	Data transformation	|		|		|	
 |	11	|	42	|	19.12.	|	Scales, axes, and legends	|		|		|	
+|	12	|	43	|	09.01.	|	Multi-view composition	|		|		|	
+|	12	|	44	|	09.01.	|	Interaction	|		|		|	
 
 <br>
 
