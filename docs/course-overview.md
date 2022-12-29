@@ -24,7 +24,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	9	|	05.12.	|	Reporting & Dashboards II	|		|	[📁](../weeks/week9.md)	|	
 |	10	|	12.12.	|	Storytelling & Altair	|	[📑](https://drive.google.com/file/d/10V2EDO0xLz-PWcFpoBkD4tXTrXTtVlE-/view?usp=sharing)	|	[📁](../weeks/week10.md)	|	
 |	11	|	19.12.	|	Altair tutorial	|	 -	|	[📁](../weeks/week11.md)	|	
-|	12	|	09.01.	|	Altair tutorial	|		|		|	
+|	12	|	09.01.	|	Altair tutorial	|	 -	|	[📁](../weeks/week12.md)	|	
 |	13	|	16.01.	|	Presenting	|		|		|	
 |	14	|	23.01.	|	Recap & Group meetings	|		|		|		
 
