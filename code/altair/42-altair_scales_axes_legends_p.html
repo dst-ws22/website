@@ -266,6 +266,11 @@ const thebe_selector_output = ".output, .cell_output"
      Week 12
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week13.html">
+     Week 13
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -625,8 +630,8 @@ title="Print to PDF"
 <h1>Scales, Axes, and Legends<a class="headerlink" href="#scales-axes-and-legends" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-import altair as alt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 </div>
 </div>
@@ -658,7 +663,7 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>antibiotics = &#39;https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">antibiotics</span> <span class="o">=</span> <span class="s1">&#39;https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -668,7 +673,7 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.read_json(antibiotics)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -871,9 +876,9 @@ import altair as alt
 <p>Let’s start by looking at a simple dot plot of the MIC for Neomycin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -948,10 +953,10 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          scale=alt.Scale(type=&#39;sqrt&#39;)) # &lt;--
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">))</span> <span class="c1"># &lt;--</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1016,10 +1021,10 @@ import altair as alt
 <p>Let’s try using a <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithmic_scale">logarithmic scale</a> (<code class="docutils literal notranslate"><span class="pre">log</span></code>) instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          scale=alt.Scale(type=&#39;log&#39;)) # &lt;--
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">))</span> <span class="c1"># &lt;--</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1099,11 +1104,11 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;, # &lt;--
-          scale=alt.Scale(type=&#39;log&#39;)) # &lt;--
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span> <span class="c1"># &lt;--</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">))</span> <span class="c1"># &lt;--</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1175,12 +1180,12 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;) # &lt;--
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span> <span class="c1"># &lt;--</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1249,13 +1254,13 @@ import altair as alt
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          axis=alt.Axis(orient=&#39;top&#39;), # &lt;--
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="c1"># &lt;--</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1324,16 +1329,16 @@ import altair as alt
 <p>To start answering this question, we can create scatter plots, adding a y-axis encoding for another antibiotic that mirrors the design of our x-axis for neomycin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Streptomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          title=&#39;Streptomycin MIC (μg/ml, reverse log scale)&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Streptomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Streptomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1398,16 +1403,16 @@ import altair as alt
 <p>Let’s move on and compare neomycin with penicillin:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1468,16 +1473,16 @@ import altair as alt
 <p>Let’s equalize the axes: we can add explicit <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> settings for the chart, and specify matching domains  using the scale <code class="docutils literal notranslate"><span class="pre">domain</span></code> property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;)
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1538,18 +1543,18 @@ import altair as alt
 <p>To change the number of ticks, we can specify a target <code class="docutils literal notranslate"><span class="pre">tickCount</span></code> property for an <code class="docutils literal notranslate"><span class="pre">Axis</span></code> object. The <code class="docutils literal notranslate"><span class="pre">tickCount</span></code> is treated as a <em>suggestion</em> to Altair, to be considered alongside other aspects such as using nice, human-friendly intervals. We may not get <em>exactly</em> the number of tick marks we request, but we should get something close.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle().encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;)
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1609,18 +1614,18 @@ import altair as alt
 <p>Our scatter plot points feel a bit small. Let’s change the default size by setting the <code class="docutils literal notranslate"><span class="pre">size</span></code> property of the circle mark. This size value is the <em>area</em> of the mark in pixels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;), 
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span> 
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1687,19 +1692,19 @@ import altair as alt
 <p>Let’s encode <code class="docutils literal notranslate"><span class="pre">Gram_Staining</span></code> on the <code class="docutils literal notranslate"><span class="pre">color</span></code> channel as a nominal data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Gram_Staining:N&#39;)
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Gram_Staining:N&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1760,21 +1765,21 @@ import altair as alt
 <p>Let’s use those colors by specifying an explicit scale mapping from the data <code class="docutils literal notranslate"><span class="pre">domain</span></code> to the color <code class="docutils literal notranslate"><span class="pre">range</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Gram_Staining:N&#39;,
-          scale=alt.Scale(domain=[&#39;negative&#39;, &#39;positive&#39;], range=[&#39;hotpink&#39;, &#39;purple&#39;])
-    )
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Gram_Staining:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hotpink&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1833,22 +1838,22 @@ import altair as alt
 <p>By default legends are placed on the right side of the chart. Similar to axes, we can change the legend orientation using the <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Gram_Staining:N&#39;,
-          scale=alt.Scale(domain=[&#39;negative&#39;, &#39;positive&#39;], range=[&#39;hotpink&#39;, &#39;purple&#39;]),
-          legend=alt.Legend(orient=&#39;left&#39;)
-    )
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Gram_Staining:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hotpink&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]),</span>
+          <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1907,22 +1912,22 @@ import altair as alt
 <p>We can also remove a legend entirely by specifying <code class="docutils literal notranslate"><span class="pre">legend=None</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Gram_Staining:N&#39;,
-          scale=alt.Scale(domain=[&#39;negative&#39;, &#39;positive&#39;], range=[&#39;hotpink&#39;, &#39;purple&#39;]),
-          legend=None
-    )
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Gram_Staining:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hotpink&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]),</span>
+          <span class="n">legend</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1985,19 +1990,19 @@ import altair as alt
 <p>To start, let’s encode <code class="docutils literal notranslate"><span class="pre">Bacteria</span></code> (a nominal data field) using the <code class="docutils literal notranslate"><span class="pre">color</span></code> channel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Bacteria:N&#39;)
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Bacteria:N&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2058,20 +2063,20 @@ import altair as alt
 <p>Let’s try switching to a built-in 20-color scheme, <code class="docutils literal notranslate"><span class="pre">tableau20</span></code>, and set that using the scale <code class="docutils literal notranslate"><span class="pre">scheme</span></code> property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Bacteria:N&#39;,
-          scale=alt.Scale(scheme=&#39;tableau20&#39;))
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Bacteria:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;tableau20&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2131,19 +2136,19 @@ import altair as alt
 <p>To try a different scheme, we can also change the data type from nominal to ordinal. The default ordinal scheme uses blue shades, ramping from light to dark:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Bacteria:O&#39;)
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Bacteria:O&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2203,20 +2208,20 @@ import altair as alt
 <p>For more differentiated colors, we can experiment with alternatives to the default <code class="docutils literal notranslate"><span class="pre">blues</span></code> color scheme. The <code class="docutils literal notranslate"><span class="pre">viridis</span></code> scheme ramps through both hue and luminance:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Bacteria:O&#39;,
-          scale=alt.Scale(scheme=&#39;viridis&#39;))
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Bacteria:O&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2280,22 +2285,22 @@ import altair as alt
 <p>(Note that the antibiotics dataset includes a pre-calculated <code class="docutils literal notranslate"><span class="pre">Genus</span></code> field, but we will ignore it here in order to further explore Altair’s data transformations.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).transform_calculate(
-    Genus=&#39;split(datum.Bacteria, &quot; &quot;)[0]&#39;
-).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Genus:N&#39;,
-          scale=alt.Scale(scheme=&#39;tableau20&#39;))
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+    <span class="n">Genus</span><span class="o">=</span><span class="s1">&#39;split(datum.Bacteria, &quot; &quot;)[0]&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Genus:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;tableau20&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2357,27 +2362,27 @@ import altair as alt
 <p>In addition, we can add custom color encodings using explicit <code class="docutils literal notranslate"><span class="pre">domain</span></code> and <code class="docutils literal notranslate"><span class="pre">range</span></code> arrays for the color encoding <code class="docutils literal notranslate"><span class="pre">scale</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_circle(size=80).transform_calculate(
-  Split=&#39;split(datum.Bacteria, &quot; &quot;)[0]&#39;
-).transform_calculate(
-  Genus=&#39;indexof([&quot;Salmonella&quot;, &quot;Staphylococcus&quot;, &quot;Streptococcus&quot;], datum.Split) &gt;= 0 ? datum.Split : &quot;Other&quot;&#39;
-).encode(
-    alt.X(&#39;Neomycin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Y(&#39;Penicillin:Q&#39;,
-          sort=&#39;descending&#39;,
-          scale=alt.Scale(type=&#39;log&#39;, domain=[0.001, 1000]),
-          axis=alt.Axis(tickCount=5),
-          title=&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;),
-    alt.Color(&#39;Genus:N&#39;,
-          scale=alt.Scale(
-            domain=[&#39;Salmonella&#39;, &#39;Staphylococcus&#39;, &#39;Streptococcus&#39;, &#39;Other&#39;],
-            range=[&#39;rgb(76,120,168)&#39;, &#39;rgb(84,162,75)&#39;, &#39;rgb(228,87,86)&#39;, &#39;rgb(121,112,110)&#39;]
-          ))
-).properties(width=250, height=250)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+  <span class="n">Split</span><span class="o">=</span><span class="s1">&#39;split(datum.Bacteria, &quot; &quot;)[0]&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_calculate</span><span class="p">(</span>
+  <span class="n">Genus</span><span class="o">=</span><span class="s1">&#39;indexof([&quot;Salmonella&quot;, &quot;Staphylococcus&quot;, &quot;Streptococcus&quot;], datum.Split) &gt;= 0 ? datum.Split : &quot;Other&quot;&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Neomycin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Neomycin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+          <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]),</span>
+          <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml, reverse log scale)&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Genus:N&#39;</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span>
+            <span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Salmonella&#39;</span><span class="p">,</span> <span class="s1">&#39;Staphylococcus&#39;</span><span class="p">,</span> <span class="s1">&#39;Streptococcus&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">],</span>
+            <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rgb(76,120,168)&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(84,162,75)&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(228,87,86)&#39;</span><span class="p">,</span> <span class="s1">&#39;rgb(121,112,110)&#39;</span><span class="p">]</span>
+          <span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2445,12 +2450,12 @@ import altair as alt
 <p>Here is a basic heatmap of penicillin MIC values for each bacteria. We’ll use a <code class="docutils literal notranslate"><span class="pre">rect</span></code> mark and sort the bacteria by descending MIC values (from most to least resistant):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_rect().encode(
-    alt.Y(&#39;Bacteria:N&#39;,
-      sort=alt.EncodingSortField(field=&#39;Penicillin&#39;, op=&#39;max&#39;, order=&#39;descending&#39;)
-    ),
-    alt.Color(&#39;Penicillin:Q&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Bacteria:N&#39;</span><span class="p">,</span>
+      <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;Penicillin&#39;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2509,23 +2514,23 @@ import altair as alt
 <p>We can further improve this chart by combining features we’ve seen thus far: a log-transformed scale, a change of axis orientation, a custom color scheme (<code class="docutils literal notranslate"><span class="pre">plasma</span></code>), tick count adjustment, and custom title text. We’ll also exercise configuration options to adjust the axis title placement and legend title alignment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics).mark_rect().encode(
-    alt.Y(&#39;Bacteria:N&#39;,
-      sort=alt.EncodingSortField(field=&#39;Penicillin&#39;, op=&#39;max&#39;, order=&#39;descending&#39;),
-      axis=alt.Axis(
-        orient=&#39;right&#39;,     # orient axis on right side of chart
-        titleX=7,           # set x-position to 7 pixels right of chart
-        titleY=-2,          # set y-position to 2 pixels above chart
-        titleAlign=&#39;left&#39;,  # use left-aligned text
-        titleAngle=0        # undo default title rotation
-      )
-    ),
-    alt.Color(&#39;Penicillin:Q&#39;,
-      scale=alt.Scale(type=&#39;log&#39;, scheme=&#39;plasma&#39;, nice=True),
-      legend=alt.Legend(titleOrient=&#39;right&#39;, tickCount=5),
-      title=&#39;Penicillin MIC (μg/ml)&#39;
-    )
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Bacteria:N&#39;</span><span class="p">,</span>
+      <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;Penicillin&#39;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
+      <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span>
+        <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>     <span class="c1"># orient axis on right side of chart</span>
+        <span class="n">titleX</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>           <span class="c1"># set x-position to 7 pixels right of chart</span>
+        <span class="n">titleY</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span>          <span class="c1"># set y-position to 2 pixels above chart</span>
+        <span class="n">titleAlign</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>  <span class="c1"># use left-aligned text</span>
+        <span class="n">titleAngle</span><span class="o">=</span><span class="mi">0</span>        <span class="c1"># undo default title rotation</span>
+      <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+      <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">nice</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+      <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">titleOrient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+      <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml)&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2584,20 +2589,20 @@ import altair as alt
 <p>Alternatively, we can remove the axis title altogether, and use the top-level <code class="docutils literal notranslate"><span class="pre">title</span></code> property to add a title for the entire chart:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alt.Chart(antibiotics, title=&#39;Penicillin Resistance of Bacterial Strains&#39;).mark_rect().encode(
-    alt.Y(&#39;Bacteria:N&#39;,
-      sort=alt.EncodingSortField(field=&#39;Penicillin&#39;, op=&#39;max&#39;, order=&#39;descending&#39;),
-      axis=alt.Axis(orient=&#39;right&#39;, title=None)
-    ),
-    alt.Color(&#39;Penicillin:Q&#39;,
-      scale=alt.Scale(type=&#39;log&#39;, scheme=&#39;plasma&#39;, nice=True),
-      legend=alt.Legend(titleOrient=&#39;right&#39;, tickCount=5),
-      title=&#39;Penicillin MIC (μg/ml)&#39;
-    )
-).configure_title(
-  anchor=&#39;start&#39;, # anchor and left-align title
-  offset=5        # set title offset from chart
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">antibiotics</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin Resistance of Bacterial Strains&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Bacteria:N&#39;</span><span class="p">,</span>
+      <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;Penicillin&#39;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">),</span>
+      <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;Penicillin:Q&#39;</span><span class="p">,</span>
+      <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">nice</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+      <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">titleOrient</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">tickCount</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+      <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Penicillin MIC (μg/ml)&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+  <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="c1"># anchor and left-align title</span>
+  <span class="n">offset</span><span class="o">=</span><span class="mi">5</span>        <span class="c1"># set title offset from chart</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

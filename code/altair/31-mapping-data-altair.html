@@ -266,6 +266,11 @@ const thebe_selector_output = ".output, .cell_output"
      Week 12
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week13.html">
+     Week 13
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -520,23 +525,23 @@ title="Print to PDF"
 <p>A choropleth map of unemployment rate per county in the US</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import altair as alt
-from vega_datasets import data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
 
-counties = alt.topo_feature(data.us_10m.url, &#39;counties&#39;)
-source = data.unemployment.url
+<span class="n">counties</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;counties&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unemployment</span><span class="o">.</span><span class="n">url</span>
 
-alt.Chart(counties).mark_geoshape().encode(
-    color=&#39;rate:Q&#39;
-).transform_lookup(
-    lookup=&#39;id&#39;,
-    from_=alt.LookupData(source, &#39;id&#39;, [&#39;rate&#39;])
-).project(
-    type=&#39;albersUsa&#39;
-).properties(
-    width=500,
-    height=300
-)
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">counties</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;rate:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">])</span>
+<span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;albersUsa&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -600,24 +605,24 @@ alt.Chart(counties).mark_geoshape().encode(
 <p>This example shows how to create a map of income in the US by state, faceted over income brackets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>states = alt.topo_feature(data.us_10m.url, &#39;states&#39;)
-source = data.income.url
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;states&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">income</span><span class="o">.</span><span class="n">url</span>
 
-alt.Chart(source).mark_geoshape().encode(
-    shape=&#39;geo:G&#39;,
-    color=&#39;pct:Q&#39;,
-    tooltip=[&#39;name:N&#39;, &#39;pct:Q&#39;],
-    facet=alt.Facet(&#39;group:N&#39;, columns=2),
-).transform_lookup(
-    lookup=&#39;id&#39;,
-    from_=alt.LookupData(data=states, key=&#39;id&#39;),
-    as_=&#39;geo&#39;
-).properties(
-    width=300,
-    height=175,
-).project(
-    type=&#39;albersUsa&#39;
-)
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;geo:G&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pct:Q&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name:N&#39;</span><span class="p">,</span> <span class="s1">&#39;pct:Q&#39;</span><span class="p">],</span>
+    <span class="n">facet</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Facet</span><span class="p">(</span><span class="s1">&#39;group:N&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">states</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
+    <span class="n">as_</span><span class="o">=</span><span class="s1">&#39;geo&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;albersUsa&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -681,25 +686,25 @@ alt.Chart(source).mark_geoshape().encode(
 <p>Three choropleths representing disjoint data from the same table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>states = alt.topo_feature(data.us_10m.url, &#39;states&#39;)
-source = data.population_engineers_hurricanes.url
-variable_list = [&#39;population&#39;, &#39;engineers&#39;, &#39;hurricanes&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">topo_feature</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">us_10m</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;states&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">population_engineers_hurricanes</span><span class="o">.</span><span class="n">url</span>
+<span class="n">variable_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;engineers&#39;</span><span class="p">,</span> <span class="s1">&#39;hurricanes&#39;</span><span class="p">]</span>
 
-alt.Chart(states).mark_geoshape().encode(
-    alt.Color(alt.repeat(&#39;row&#39;), type=&#39;quantitative&#39;)
-).transform_lookup(
-    lookup=&#39;id&#39;,
-    from_=alt.LookupData(source, &#39;id&#39;, variable_list)
-).properties(
-    width=500,
-    height=300
-).project(
-    type=&#39;albersUsa&#39;
-).repeat(
-    row=variable_list
-).resolve_scale(
-    color=&#39;independent&#39;
-)
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">states</span><span class="p">)</span><span class="o">.</span><span class="n">mark_geoshape</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quantitative&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_lookup</span><span class="p">(</span>
+    <span class="n">lookup</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="n">from_</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">LookupData</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">variable_list</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;albersUsa&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+    <span class="n">row</span><span class="o">=</span><span class="n">variable_list</span>
+<span class="p">)</span><span class="o">.</span><span class="n">resolve_scale</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;independent&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

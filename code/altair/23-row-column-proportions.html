@@ -266,6 +266,11 @@ const thebe_selector_output = ".output, .cell_output"
      Week 12
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week13.html">
+     Week 13
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -563,7 +568,7 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -573,13 +578,13 @@ title="Print to PDF"
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;
-DATA = &quot;loans.csv&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;loans.csv&quot;</span>
 
-df = pd.read_csv(ROOT + DATA)
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
 
-df.homeownership = df.homeownership.astype(&quot;category&quot;)
-df.application_type = df.application_type.astype(&quot;category&quot;)
+<span class="n">df</span><span class="o">.</span><span class="n">homeownership</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">application_type</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">application_type</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -598,8 +603,8 @@ df.application_type = df.application_type.astype(&quot;category&quot;)
 <h3>Row proportions<a class="headerlink" href="#row-proportions" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># A contingency table with row proportions for the application type and homeownership variables.
-pd.crosstab(df.application_type	, df.homeownership, normalize=&#39;index&#39;).round(4)*100
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A contingency table with row proportions for the application type and homeownership variables.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">application_type</span>	<span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -658,8 +663,8 @@ pd.crosstab(df.application_type	, df.homeownership, normalize=&#39;index&#39;).r
 <h3>Column proportions<a class="headerlink" href="#column-proportions" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># A contingency table with row proportions for the application type and homeownership variables.
-pd.crosstab(df.application_type	, df.homeownership, normalize=&#39;columns&#39;).round(4)*100
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A contingency table with row proportions for the application type and homeownership variables.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">application_type</span>	<span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">homeownership</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
 </pre></div>
 </div>
 </div>

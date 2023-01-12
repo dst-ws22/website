@@ -52,6 +52,4 @@ This overview will be updated as the semester progresses.
 |	11	|	42	|	19.12.	|	Scales, axes, and legends	|		|		|	
 |	12	|	43	|	09.01.	|	Multi-view composition	|		|		|	
 |	12	|	44	|	09.01.	|	Interaction	|		|		|	
-
-<br>
-
+|	13	|	45	|	16.01.	|	How to deliver a presentation	|	[📑](https://drive.google.com/file/d/112MLsWKTztpsT1Fml8pt1Lw3iDvK5bC6/view?usp=sharing)	|	[📁](../weeks/week13.md)	|	

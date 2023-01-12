@@ -10,7 +10,6 @@ This overview will be updated as the semester progresses.
 
 For a more detailed semester overview, take a look at the [course-schedule](../docs/course-schedule.md). 
 
-
 |	Week	|	Date	|	Content	|	Slides	|	Week	|	
 |	---	|	---	|	---	|	---	|	---	|	
 |	1	|	10.10.	|	Introduction	|	[📑](https://drive.google.com/file/d/1-G_vOTJatCvM8buEmm5-iqLF-hrYtF7m/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
@@ -25,8 +24,8 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	10	|	12.12.	|	Storytelling & Altair	|	[📑](https://drive.google.com/file/d/10V2EDO0xLz-PWcFpoBkD4tXTrXTtVlE-/view?usp=sharing)	|	[📁](../weeks/week10.md)	|	
 |	11	|	19.12.	|	Altair tutorial	|	 -	|	[📁](../weeks/week11.md)	|	
 |	12	|	09.01.	|	Altair tutorial	|	 -	|	[📁](../weeks/week12.md)	|	
-|	13	|	16.01.	|	Presenting	|		|		|	
-|	14	|	23.01.	|	Recap & Group meetings	|		|		|		
+|	13	|	16.01.	|	How to deliver a presentation	|	[📑](https://drive.google.com/file/d/112MLsWKTztpsT1Fml8pt1Lw3iDvK5bC6/view?usp=sharing)	|	[📁](../weeks/week13.md)	|	
+|	14	|	23.01.	|	Group meetings	|		|		|	
 
 ---
 

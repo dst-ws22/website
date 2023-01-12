@@ -266,6 +266,11 @@ const thebe_selector_output = ".output, .cell_output"
      Week 12
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../weeks/week13.html">
+     Week 13
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -577,18 +582,18 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>___
-___
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">___</span>
+<span class="n">___</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import warnings
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
 
-warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
-alt.data_transformers.disable_max_rows()
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">data_transformers</span><span class="o">.</span><span class="n">disable_max_rows</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -598,12 +603,12 @@ alt.data_transformers.disable_max_rows()
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;
-DATA = &quot;loan50.csv&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/datasets/master/&quot;</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;loan50.csv&quot;</span>
 
-___
+<span class="n">___</span>
 
-df[&quot;interest_rate&quot;] = df[&quot;interest_rate&quot;].astype(&quot;int64&quot;)
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -617,11 +622,11 @@ df[&quot;interest_rate&quot;] = df[&quot;interest_rate&quot;].astype(&quot;int64
 <h4>Bins<a class="headerlink" href="#bins" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>___.___(___).mark_bar().___(
-    ___=___.___(&quot;interest_rate&quot;, 
-            bin=True),
-    ___=___.___(&#39;count())&#39;,
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">___</span><span class="p">(</span>
+    <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="s2">&quot;interest_rate&quot;</span><span class="p">,</span> 
+            <span class="nb">bin</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="s1">&#39;count())&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -631,11 +636,11 @@ df[&quot;interest_rate&quot;] = df[&quot;interest_rate&quot;].astype(&quot;int64
 <h4>Binwidth<a class="headerlink" href="#binwidth" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>___
-    x=alt.X(&#39;interest_rate&#39;, 
-            bin=alt.BinParams(maxbins=20)),
-    y=alt.Y(&#39;count()&#39;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">___</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">,</span> 
+            <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">maxbins</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count()&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
