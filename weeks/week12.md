@@ -23,6 +23,9 @@ Interaction (Nr. 44): [📚](https://uwdata.github.io/visualization-curriculum/a
 
 - [44. Interaction](../code/altair/44-altair_interaction_p.ipynb)
 
+
+- [45. Annotations](../code/altair/45-altair_annotations.ipynb)
+
 ---
 
 ---
